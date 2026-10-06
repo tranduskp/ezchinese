@@ -9,7 +9,7 @@ const view = $('#view');
 // ---------------------------------------------------------------- lưu trữ
 const KEY = 'ezweb.v1';
 const DEFAULT_SETTINGS = { mode: 'pinyin', tilesUnit: 'word', tilesDistractors: true, strictTone: false,
-                           autoplay: true, rate: 1, showMeaning: false, sfx: true, exercise: 'listen', hanViet: true,
+                           autoplay: true, rate: 1, showMeaning: false, sfx: true, exercise: 'listen', hanViet: true, readPinyin: true,
                            bgVideo: '', bgBlur: 8, bgOpacity: 0.35, bgSound: false, bgOff: false };
 let store = { settings: { ...DEFAULT_SETTINGS }, progress: {}, review: {} };
 try {
@@ -240,6 +240,7 @@ function sfx(kind) {
 const ICON_PATHS = {
   slow: '<path d="M4 15a8 8 0 0 1 16 0"/><path d="M12 15l-4-3"/><circle cx="12" cy="15" r="1"/>',
   replay: '<path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/>',
+  mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/><path d="M9 21h6"/>',
   listen: '<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',
   translate: '<path d="M4 7h10"/><path d="M9 4v3c0 4-2 7-5 8"/><path d="M7 11c1.5 2 3.5 3 6 3.5"/><path d="M13 20l4-9 4 9"/><path d="M14.5 17h5"/>',
   hint: '<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
@@ -708,9 +709,12 @@ async function renderItem() {
   ss.exercise = ss.kind === 'speed' ? 'listen'
     : ss.kind === 'review' && !ss.exPinned ? (store.review[sent.id]?.x || S().exercise)   // ôn đúng dạng bài đã sai
     : (ss.exercise || S().exercise);
+  if (ss.exercise === 'read' && !canRead()) ss.exercise = 'listen';   // trình duyệt không nhận giọng: ôn bằng nghe chép
   ss.exPinned = false;
   ss.tries = 0; ss.lastAnswer = ''; ss.timedOut = false;
+  stopMic(true);
   if (ss.exercise === 'translate') return renderTranslate();
+  if (ss.exercise === 'read') return renderRead();
   const n = [...sent.hz].filter(isHan).length;
   const rate = ss.kind === 'speed' ? speedRate(ss.i) : +S().rate;
   const modeBtn = (m, label) => `<button data-mode="${m}" aria-pressed="${ss.mode === m}">${label}</button>`;
@@ -817,25 +821,29 @@ const MODE_NAME = { pinyin: 'Pinyin', hanzi: 'Chữ Hán', tiles: 'Ghép từ' }
 const coarse = () => matchMedia('(pointer: coarse)').matches;   // màn cảm ứng: không tự bật bàn phím
 
 /** Chữ trên chip theo lựa chọn hiện tại (kể cả lựa chọn sẽ áp dụng từ câu sau). */
+const EX_NAME = { listen: 'Nghe chép', translate: 'Dịch', read: 'Đọc' };
+/** Nhãn chip đầu bài: "Nghe chép · Pinyin"; dạng Đọc không có cách nhập. */
+const chipText = (ss) => (ss.kind === 'speed' ? MODE_NAME[ss.mode]
+  : ss.exercise === 'read' ? EX_NAME.read : `${EX_NAME[ss.exercise] || EX_NAME.listen} · ${MODE_NAME[ss.mode]}`);
 function syncChip(ss) {
   const tg = $('.opts-toggle');
-  if (tg) tg.textContent = `${ss.kind === 'speed' ? '' : `${ss.exercise === 'translate' ? 'Dịch' : 'Nghe chép'} · `}${MODE_NAME[ss.mode]}`;
+  if (tg) tg.textContent = chipText(ss);
 }
 
 /** Dạng bài + cách nhập. Màn hẹp: gộp thành một chip, bấm mới mở bảng chọn; màn rộng: hiện thẳng. */
 function practiceOptions(ss, modeBtn) {
-  const ex = ss.kind === 'speed' ? '' : `${ss.exercise === 'translate' ? 'Dịch' : 'Nghe chép'} · `;
-  return `<button type="button" class="opts-toggle" aria-expanded="false" aria-controls="practice-opts">${ex}${MODE_NAME[ss.mode]}</button>
+  return `<button type="button" class="opts-toggle" aria-expanded="false" aria-controls="practice-opts">${chipText(ss)}</button>
       <div class="practice-opts" id="practice-opts">
         ${exerciseSwitch(ss)}
-        <span class="modes" role="group" aria-label="Cách nhập">${modeBtn('pinyin', 'Pinyin')}${modeBtn('hanzi', 'Chữ Hán')}${modeBtn('tiles', 'Ghép từ')}</span>
+        ${modeBtn ? `<span class="modes" role="group" aria-label="Cách nhập">${modeBtn('pinyin', 'Pinyin')}${modeBtn('hanzi', 'Chữ Hán')}${modeBtn('tiles', 'Ghép từ')}</span>` : ''}
       </div>`;
 }
 
 function exerciseSwitch(ss) {
   if (ss.kind === 'speed') return '';
-  const b = (k, label) => `<button data-ex="${k}" aria-pressed="${ss.exercise === k}">${label}</button>`;
-  return `<span class="modes ex-switch" role="group" aria-label="Dạng bài">${b('listen', `${icon('listen')} Nghe chép`)}${b('translate', `${icon('translate')} Dịch`)}</span>`;
+  const b = (k, label, off) => `<button data-ex="${k}" aria-pressed="${ss.exercise === k}"${off ? ` disabled title="${off}"` : ''}>${label}</button>`;
+  const noMic = canRead() ? '' : inAppBrowser() ? 'Mở trang bằng Chrome hoặc Safari để luyện đọc' : 'Trình duyệt này chưa nhận được giọng nói — dùng Chrome, Edge hoặc Safari';
+  return `<span class="modes ex-switch" role="group" aria-label="Dạng bài">${b('listen', `${icon('listen')} Nghe chép`)}${b('translate', `${icon('translate')} Dịch`)}${b('read', `${icon('mic')} Đọc`, noMic)}</span>`;
 }
 function bindExerciseSwitch(ss) {
   const tg = $('.opts-toggle');
@@ -1083,6 +1091,299 @@ async function checkTranslate(giveUp = false) {
   else sfx('ok');
 }
 
+// ---------------------------------------------------------------- luyện đọc: đọc to, máy nhận giọng của trình duyệt chấm
+// Máy nhận giọng trả về CHỮ HÁN nên không so chữ với chữ (đọc đúng 他 máy có thể ghi 她, 两点 thành "2点"):
+// đổi chữ máy nghe được ra âm tiết + thanh (data/pinyin-chars.json) rồi gióng hàng với câu mẫu.
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const canRead = () => !!SR;
+const inAppBrowser = () => /FBAN|FBAV|FB_IAB|Instagram|Zalo|TikTok|musical_ly|BytedanceWebview|Line\//i.test(navigator.userAgent);
+const READ_PASS = 80;   // điểm tối thiểu để qua câu
+let rec = null;         // phiên nhận giọng đang chạy
+let PYCHARS = null;
+const charReadings = async () => (PYCHARS ??= await getJSON('data/pinyin-chars.json'));
+
+const HAN_DIGIT = '零一二三四五六七八九';
+/** 15 → 十五, 205 → 二百零五 (đọc theo giá trị); dùng cho số máy ghi bằng chữ số. */
+function numToHan(n) {
+  if (n < 10) return HAN_DIGIT[n];
+  if (n < 20) return '十' + (n % 10 ? HAN_DIGIT[n % 10] : '');
+  if (n < 100) return HAN_DIGIT[Math.floor(n / 10)] + '十' + (n % 10 ? HAN_DIGIT[n % 10] : '');
+  const units = [[1e4, '万'], [1e3, '千'], [100, '百']];
+  for (const [u, name] of units) {
+    if (n >= u) {
+      const rest = n % u, head = numToHan(Math.floor(n / u)) + name;
+      if (!rest) return head;
+      return head + (rest < u / 10 ? '零' : '') + (rest >= 10 && rest < 20 ? '一' : '') + numToHan(rest);
+    }
+  }
+  return String(n);
+}
+
+/** Câu máy nghe được → các cách viết bằng chữ Hán (số đọc theo giá trị / đọc từng chữ số như năm 2024). */
+function transcriptVariants(text) {
+  const t = text.normalize('NFKC');
+  if (!/\d/.test(t)) return [t];
+  return [t.replace(/\d+/g, (d) => (d.length > 5 ? [...d].map((x) => HAN_DIGIT[x]).join('') : numToHan(+d))),
+          t.replace(/\d/g, (x) => HAN_DIGIT[x])];
+}
+
+/** Chữ máy nghe được → [{c, reads:[{s,t}]}] (bỏ dấu câu, chữ Latin). 二 đọc được cả liǎng: máy hay ghi 两 thành "2". */
+function heardUnits(text, table) {
+  return [...text].filter(isHan).map((c) => {
+    const reads = (table[c] || '').split(' ').filter(Boolean).map(sylOf);
+    if (c === '二') reads.push({ s: 'liang', t: 3 });
+    return { c, reads };
+  });
+}
+
+/** So một chữ của câu mẫu với một chữ máy nghe được → 'ok' | 'tone' | 'miss'. */
+function readMatch(e, h) {
+  if (h.c === e.c) return 'ok';
+  const alt = e.c === '一' ? [1, 2, 4] : e.c === '不' ? [2, 4] : [e.t];
+  if (h.reads.some((r) => r.s === e.s && (e.t === 5 || alt.includes(r.t)))) return 'ok';   // đồng âm: 他 / 她
+  return h.reads.some((r) => r.s === e.s) ? 'tone' : 'miss';
+}
+
+/** Chấm một lần đọc. transcripts: các phương án máy đưa ra (tốt nhất trước).
+ *  → { score 0–100, marks[] theo từng ký tự của câu, heard[] chữ máy nghe được ứng với từng ký tự, text } */
+function scoreReading(sent, transcripts, table) {
+  const chars = [...sent.hz];
+  const target = chars.map((c, i) => ({ c, i, ...sylOf(sent.py[i] || '') })).filter((x) => isHan(x.c));
+  const cost = { ok: 0, tone: 0.5, miss: 1 };
+  let best = null;
+  for (const raw of transcripts.filter(Boolean)) {
+    for (const text of transcriptVariants(raw)) {
+      const heard = heardUnits(text, table), n = target.length, m = heard.length;
+      // gióng hàng (edit distance): đọc thiếu / thừa một chữ không làm lệch cả câu. Chữ 儿 (er hoá) bỏ qua không mất điểm.
+      const D = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+      const skip = (k) => (target[k].s === 'r' || (target[k].c === '儿' && target[k].t === 5) ? 0 : 1);
+      for (let a = 1; a <= n; a++) D[a][0] = D[a - 1][0] + skip(a - 1);
+      for (let b = 1; b <= m; b++) D[0][b] = b;
+      for (let a = 1; a <= n; a++) {
+        for (let b = 1; b <= m; b++) {
+          D[a][b] = Math.min(D[a - 1][b - 1] + cost[readMatch(target[a - 1], heard[b - 1])],
+                             D[a - 1][b] + skip(a - 1), D[a][b - 1] + 1);
+        }
+      }
+      const marks = chars.map((c) => (isHan(c) ? 'miss' : 'punct')), got = chars.map(() => null);
+      let a = n, b = m;
+      while (a > 0) {
+        if (b > 0 && D[a][b] === D[a - 1][b - 1] + cost[readMatch(target[a - 1], heard[b - 1])]) {
+          marks[target[a - 1].i] = readMatch(target[a - 1], heard[b - 1]);
+          got[target[a - 1].i] = heard[b - 1];
+          a--; b--;
+        } else if (D[a][b] === D[a - 1][b] + skip(a - 1)) {
+          if (!skip(a - 1)) marks[target[a - 1].i] = 'ok';
+          a--;
+        } else b--;
+      }
+      const ok = marks.filter((x) => x === 'ok').length, tone = marks.filter((x) => x === 'tone').length;
+      const score = n ? Math.round(((ok + tone / 2) / n) * 100) : 0;
+      if (!best || score > best.score) best = { score, marks, heard: got, text: raw };
+    }
+  }
+  return best || { score: 0, marks: chars.map((c) => (isHan(c) ? 'miss' : 'punct')), heard: chars.map(() => null), text: '' };
+}
+
+/** 'neng', 2 → 'néng' (để nói "nghe thành nèng"). */
+function markTone(s, t) {
+  const MARK = { a: 'āáǎà', e: 'ēéěè', i: 'īíǐì', o: 'ōóǒò', u: 'ūúǔù', v: 'ǖǘǚǜ' };
+  const w = s.replace(/v/g, 'v');
+  if (!t || t === 5) return w.replace(/v/g, 'ü');
+  const at = /a/.test(w) ? w.indexOf('a') : /e/.test(w) ? w.indexOf('e') : w.includes('ou') ? w.indexOf('o')
+    : Math.max(...[...'iouv'].map((x) => w.lastIndexOf(x)));
+  return (w.slice(0, at) + MARK[w[at]][t - 1] + w.slice(at + 1)).replace(/v/g, 'ü');
+}
+
+/** Câu nhận xét cụ thể cho chữ đọc chưa đúng đầu tiên. */
+function readTip(sent, r) {
+  const chars = [...sent.hz];
+  const bad = chars.map((c, i) => i).filter((i) => r.marks[i] === 'tone' || r.marks[i] === 'miss');
+  if (!bad.length) return '';
+  const i = bad[0], k = chars.slice(0, i + 1).filter(isHan).length, h = r.heard[i], e = sylOf(sent.py[i] || '');
+  let tip;
+  if (r.marks[i] === 'tone') {
+    const rd = h.reads.find((x) => x.s === e.s);
+    tip = `Chữ ${k} <b class="hz">${esc(chars[i])}</b> (${esc(sent.py[i])}) máy nghe thành <b>${esc(markTone(rd.s, rd.t))}</b> — sai thanh`;
+  } else {
+    tip = h ? `Chữ ${k} <b class="hz">${esc(chars[i])}</b> (${esc(sent.py[i])}) máy nghe thành <b class="hz">${esc(h.c)}</b>`
+      : `Chữ ${k} <b class="hz">${esc(chars[i])}</b> (${esc(sent.py[i])}) máy chưa nghe thấy`;
+  }
+  return tip + (bad.length > 1 ? ` <span class="muted">· và ${bad.length - 1} chữ khác</span>` : '');
+}
+
+const READ_ERR = {
+  'not-allowed': 'Trình duyệt đang chặn micro. Bấm biểu tượng ổ khoá / micro cạnh thanh địa chỉ → cho phép Micro, rồi bấm mic lại.',
+  'service-not-allowed': 'Trình duyệt này không cho nhận giọng nói. Thử mở bằng Chrome hoặc Safari.',
+  'no-speech': 'Chưa nghe thấy gì — nói to và gần micro hơn nhé.',
+  'audio-capture': 'Không tìm thấy micro. Kiểm tra tai nghe / micro rồi thử lại.',
+  network: 'Cần mạng để nhận giọng nói. Kiểm tra kết nối rồi thử lại.',
+  'language-not-supported': 'Trình duyệt chưa nhận được giọng tiếng Trung. Thử Chrome hoặc Safari bản mới.',
+};
+
+async function renderRead() {
+  const ss = session, sent = ss.items[ss.i];
+  ss.base ??= ss.items.length;
+  saveResume(ss);
+  ss.rd = { tries: 0, best: 0 };
+  const chars = [...sent.hz];
+  const showPy = S().readPinyin !== false;
+  view.innerHTML = `
+    <div class="practice-head">
+      <a class="back" href="${ss.back}">← Thoát</a>
+      <h1 class="title">${esc(ss.title)}</h1>${countBadge(ss)}
+      ${practiceOptions(ss)}
+    </div>
+    <div class="progress"><div id="progress-bar" style="width:${progressPct(ss, false)}%"></div></div>
+    ${ss.glossary?.length ? `<details class="glossary"><summary>Từ chuyên ngành của bài (${ss.glossary.length})</summary>
+      <div>${ss.glossary.map((g) => `<span class="term"><b>${esc(g.hanzi)}</b> ${esc(g.pinyin.replace(/ /g, ''))} · ${esc(g.meaning_vi)}</span>`).join('')}</div></details>` : ''}
+    <div class="read-card">
+      <div class="sentence read-sent${showPy ? '' : ' hide-py'}" id="read-sent" lang="zh-CN">${chars.map((c, i) => `<span class="ch ${isHan(c) ? '' : 'punct'}" style="--i:${i}"><span class="p">${esc(sent.py[i] || '')}</span><span class="h">${esc(c)}</span>${hvOf(sent, i)}</span>`).join('')}</div>
+      <div class="meaning read-vi">${esc(sent.vi)}</div>
+      <button type="button" class="linklike py-toggle" id="btn-py" aria-pressed="${!showPy}">${showPy ? 'Ẩn pinyin' : 'Hiện pinyin'}</button>
+    </div>
+    <div class="player">
+      <button class="small-btn" id="btn-listen" title="Nghe mẫu (Esc)">${icon('listen')} Nghe mẫu</button>
+      <button class="play mic" id="btn-mic" aria-label="Bấm rồi đọc to câu này">${icon('mic')}</button>
+      <button class="small-btn" id="btn-slow" title="Nghe chậm">${icon('slow')} Chậm</button>
+    </div>
+    <p class="mic-label" id="mic-label">Bấm mic rồi đọc to cả câu</p>
+    <div class="heard-live" id="heard-live" aria-live="polite" lang="zh-CN"></div>
+    ${store.readNoteSeen ? '' : '<p class="read-note" id="read-note">Giọng đọc được gửi tới dịch vụ nhận giọng của trình duyệt (Google trên Chrome, Apple trên Safari) để chuyển thành chữ. EzChinese không lưu bản ghi nào.</p>'}
+    ${ss.combo >= 2 ? `<div class="combo">${icon('streak')} ${ss.combo} câu đúng liên tiếp</div>` : ''}
+    <div id="read-feedback" class="tr-feedback" aria-live="polite"></div>
+    <div class="actions"><button class="btn primary" id="btn-check" hidden>Câu tiếp <kbd>Enter</kbd></button>
+      <button class="btn" id="btn-skip">Bỏ qua câu này</button></div>
+    <p class="keys">Phím tắt: <kbd>Enter</kbd> bật / tắt mic · <kbd>Esc</kbd> nghe mẫu · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> bỏ qua</p>
+    <div id="result" aria-live="polite"></div>`;
+  stagger('.read-card, .player, .mic-label, .actions', 'slide-in');
+  bindExerciseSwitch(ss);
+  $('#btn-listen').onclick = () => play(sent, +S().rate);
+  $('#btn-slow').onclick = () => play(sent, 0.7);
+  $('#btn-mic').onclick = toggleMic;
+  $('#btn-skip').onclick = () => check(true);
+  $('#btn-py').onclick = () => {
+    const hide = $('#read-sent').classList.toggle('hide-py');
+    store.settings.readPinyin = !hide; persist();
+    $('#btn-py').setAttribute('aria-pressed', hide);
+    $('#btn-py').textContent = hide ? 'Hiện pinyin' : 'Ẩn pinyin';
+  };
+  charReadings().catch(() => {});   // tải sẵn bảng âm đọc trong lúc người học nghe mẫu
+}
+
+function setMic(state) {
+  const b = $('#btn-mic'), l = $('#mic-label');
+  if (!b) return;
+  b.classList.toggle('playing', state === 'on');
+  b.setAttribute('aria-pressed', state === 'on');
+  b.setAttribute('aria-label', state === 'on' ? 'Đang nghe — bấm để dừng' : 'Bấm rồi đọc to câu này');
+  if (l) l.textContent = state === 'on' ? 'Đang nghe… đọc xong máy tự dừng'
+    : state === 'wait' ? 'Đang chấm…' : session?.rd?.tries ? 'Bấm mic để đọc lại' : 'Bấm mic rồi đọc to cả câu';
+}
+
+function stopMic(abort = false) {
+  if (!rec) return;
+  const r = rec;
+  rec = null;
+  try { abort ? r.abort() : r.stop(); } catch { /* đã dừng */ }
+}
+
+function toggleMic() {
+  const ss = session;
+  if (!ss || ss.checked) return;
+  if (rec) { rec.stop(); return; }   // bấm lần nữa: dừng nghe, chấm phần đã đọc
+  if (!canRead()) { $('#read-feedback').innerHTML = `<span class="bad">${inAppBrowser() ? 'Trình duyệt trong ứng dụng không nhận được giọng nói — mở trang bằng Chrome hoặc Safari.' : 'Trình duyệt này chưa hỗ trợ nhận giọng nói — mở bằng Chrome, Edge hoặc Safari.'}</span>`; return; }
+  if (audio) audio.pause();
+  const r = new SR();
+  r.lang = 'zh-CN'; r.interimResults = true; r.maxAlternatives = 5; r.continuous = false;
+  let finals = null, err = null;
+  r.onresult = (e) => {
+    const res = Array.from(e.results);
+    $('#heard-live').textContent = res.map((x) => x[0].transcript).join('');
+    if (res.every((x) => x.isFinal)) {
+      const head = res.slice(0, -1).map((x) => x[0].transcript).join(''), last = res[res.length - 1];
+      finals = Array.from(last).map((alt) => head + alt.transcript);
+    }
+  };
+  r.onerror = (e) => { err = e.error; };
+  r.onend = () => {
+    if (rec === r) rec = null;
+    if (session !== ss || ss.checked) return;
+    if (finals?.some((t) => [...t].some(isHan))) { setMic('wait'); checkRead(finals); return; }
+    setMic('idle');
+    if (err === 'aborted') return;
+    $('#read-feedback').innerHTML = `<span class="bad">${READ_ERR[err] || READ_ERR['no-speech']}</span>`;
+  };
+  rec = r;
+  $('#read-feedback').innerHTML = '';
+  $('#heard-live').textContent = '';
+  try { r.start(); } catch { rec = null; setMic('idle'); return; }
+  setMic('on');
+  if (!store.readNoteSeen) { store.readNoteSeen = true; persist(); }
+}
+
+async function checkRead(transcripts, giveUp = false) {
+  const ss = session, sent = ss.items[ss.i], rd = ss.rd;
+  if (ss.checked) return;
+  stopMic(true);
+  const chars = [...sent.hz];
+  let r = null;
+  $('#read-note')?.remove();   // lời báo riêng tư: đã đọc một lần là đủ
+  if (!giveUp) {
+    rd.tries++;
+    r = scoreReading(sent, transcripts, await charReadings().catch(() => ({})));
+    rd.best = Math.max(rd.best, r.score);
+    const sentEl = $('#read-sent');
+    sentEl.classList.add('graded');
+    sentEl.querySelectorAll('.ch').forEach((el, i) => { el.className = `ch ${r.marks[i]}`; });
+    $('#heard-live').innerHTML = `<span class="muted">Máy nghe được:</span> ${esc(r.text)}`;
+    if (r.score < READ_PASS) {
+      setMic('idle');
+      $('#read-feedback').innerHTML = `<span class="bad">✗ ${r.score} điểm</span> <span class="muted">· cần ${READ_PASS} để qua · lần ${rd.tries}</span><br>${readTip(sent, r)}
+        <br><span class="muted">Nghe mẫu rồi đọc lại chậm, rõ từng chữ.</span>`;
+      sfx('bad');
+      replayAnim($('#read-sent'), 'shake');
+      return;
+    }
+  }
+  // xong câu: đọc đạt, hoặc bỏ qua
+  ss.checked = true;
+  const firstTry = !giveUp && rd.tries === 1;
+  const marks = giveUp ? chars.map((c) => (isHan(c) ? 'rev' : 'punct')) : r.marks;
+  ss.results.push({ sent, outcome: firstTry ? 'first' : giveUp ? 'revealed' : 'fixed',
+                    correct: firstTry, score: firstTry ? 1 : giveUp ? 0 : 0.5, extra: 0, marks });
+  recordReview(sent, firstTry, ss.kind === 'review', ss.src || sent.src, 'read');
+  if (!firstTry && ss.kind === 'lesson' && !ss.retried.has(sent.id)) { ss.retried.add(sent.id); ss.items.push(sent); }
+  ss.combo = firstTry ? (ss.combo || 0) + 1 : 0;
+  setMic('idle');
+  $('#btn-mic').disabled = true;
+  $('#btn-mic').hidden = true;   // xong câu: chỉ còn "Nghe mẫu" để nghe lại
+  $('#mic-label').textContent = '';
+  $('#read-sent').classList.add('graded');
+  $('#read-feedback').innerHTML = '';
+  $('#result').innerHTML = `<div class="card result">
+    <div class="verdict ${giveUp ? 'reveal' : 'ok'}">${giveUp ? 'Bỏ qua câu này'
+      : firstTry ? `✓ Đọc tốt! <small>${r.score} điểm</small>` : `✓ Đạt rồi <small>${r.score} điểm · ${rd.tries} lần đọc</small>`}</div>
+    ${!giveUp && r.score < 100 ? `<div class="yours">${readTip(sent, r)}</div>` : ''}
+    ${!giveUp && r.score < 100 ? '<div class="legend"><span><i style="background:var(--green-soft)"></i>đúng</span><span><i style="background:var(--amber-soft)"></i>sai thanh</span><span><i style="background:var(--red-soft)"></i>sai / thiếu</span></div>' : ''}
+    <div class="yours muted">Chấm theo những gì máy nghe được — thanh điệu chỉ được chấm gián tiếp.</div>
+  </div>`;
+  const btn = $('#btn-check');
+  btn.hidden = false;
+  btn.onclick = next;
+  $('#btn-skip').hidden = true;
+  btn.focus();
+  afterCheck();
+  const k = $('.keys');
+  if (k) k.innerHTML = 'Phím tắt: <kbd>Enter</kbd> câu tiếp · <kbd>Esc</kbd> nghe mẫu';
+  $('#progress-bar').style.width = `${progressPct(ss, true)}%`;
+  if (giveUp) { sfx('tap'); return; }
+  replayAnim($('.verdict'), 'pop');
+  replayAnim($('#progress-bar'), 'flash');
+  if (firstTry) { stamp($('.result')); sfx(ss.combo >= 3 && ss.combo % 3 === 0 ? 'streak' : 'ok'); }
+  else sfx('ok');
+}
+
 function startTimer(sec) {
   const t0 = performance.now();
   const tick = () => {
@@ -1099,6 +1400,7 @@ async function check(skipped = false) {
   const ss = session;
   if (!ss || ss.checked || !ss.items[ss.i]) return;   // đã hết câu (đang ở màn kết quả)
   if (ss.exercise === 'translate') return checkTranslate(skipped);
+  if (ss.exercise === 'read') return skipped ? checkRead(null, true) : toggleMic();   // Enter: bật / tắt mic
   const sent = ss.items[ss.i];
   const timedOut = ss.kind === 'speed' && ss.timedOut;
   let answer = skipped ? '' : (ss.answerOf ? ss.answerOf() : '');
@@ -1539,6 +1841,7 @@ async function route() {
   stopTimer();
   hideBgCoach();
   if (audio) audio.pause();
+  stopMic(true);   // rời màn Đọc giữa chừng: tắt micro
   const [path, query] = location.hash.replace(/^#/, '').split('?');
   const parts = path.split('/').filter(Boolean);
   const tab = new URLSearchParams(query || '').get('tab');

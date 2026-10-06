@@ -1,6 +1,7 @@
 # EzChinese · Luyện nghe – chép (website tĩnh)
 
-Nghe một câu tiếng Trung → gõ lại (pinyin / chữ Hán / ghép từ) → chấm từng chữ. Chia theo cấp HSK 3.0,
+Nghe một câu tiếng Trung → gõ lại (pinyin / chữ Hán / ghép từ) → chấm từng chữ. Có thêm dạng Dịch (Việt → Trung)
+và Đọc (đọc to, máy nhận giọng của trình duyệt chấm từng chữ theo âm + thanh; cần Chrome / Edge / Safari và HTTPS). Chia theo cấp HSK 3.0,
 theo điểm ngữ pháp, theo chủ đề; có phản xạ tốc độ và ôn câu sai (lặp lại ngắt quãng).
 
 Toàn bộ là file tĩnh — không cần server, không cần cơ sở dữ liệu. Tiến độ người học lưu trong trình duyệt
@@ -16,6 +17,8 @@ website/
 │   ├── hsk1-g-G1-57.json …            # mỗi bài 1 file (câu, pinyin từng chữ, từ, nghĩa, audio)
 │   ├── hsk1-speed.json                # mọi câu của cấp, ngắn → dài (phản xạ tốc độ)
 │   ├── syllables.json · vocab.json    # âm tiết pinyin hợp lệ · từ vựng theo cấp (ô gây nhiễu)
+│   ├── pinyin-chars.json             # chữ → cách đọc (chế độ Đọc: chấm theo âm + thanh, không theo chữ)
+│   ├── hsk<N>-today.json              # ~120 câu nhẹ cho thẻ "Câu hôm nay" ở trang chủ
 │   ├── affiliate.json                 # link Shopee: màn trước bài + "Dụng cụ học gợi ý"
 │   └── site.json                      # bg_video: link YouTube làm video nền mặc định (mờ, tắt tiếng)
 └── audio/*.mp3                        # giọng đọc mỗi câu (tốc độ chậm / nhanh do trình duyệt chỉnh)
