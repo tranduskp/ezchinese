@@ -38,7 +38,7 @@ python ez.py web deploy --export        # export lại dữ liệu rồi mới �
 ## Deploy
 
 Thư mục `website/` là một repo git riêng: github.com/tranduskp/ezchinese (private), nối với Cloudflare Pages
-(build command: trống, output directory: `/`). Mỗi lần push nhánh `main` là Cloudflare tự deploy.
+(build command: `sh build.sh`, output directory: `dist` — không dùng `/` vì sẽ kéo cả `.git` > 25 MB). Mỗi lần push nhánh `main` là Cloudflare tự deploy.
 Cache đặt trong `_headers`: audio 1 năm (tên file là mã băm giọng|câu, không bao giờ đổi nội dung),
 `data/` 5 phút, html/js/css luôn hỏi lại. Gói miễn phí: băng thông không giới hạn, tối đa 20.000 file / 25 MB mỗi file.
 
