@@ -31,13 +31,16 @@ python ez.py web export                 # pinyin, tách từ, audio → website/
 python ez.py web serve                  # xem thử ở http://127.0.0.1:8780
 python ez.py web shopee "<file>.csv"    # nạp file "Lấy link Shopee hàng loạt" vào thẻ ưu đãi ở màn kết quả
 python ez.py web link "我可以去吗？"       # link vào thẳng một câu (#/s/<mã câu>) để dán vào mô tả video
-python ez.py web deploy                 # đẩy lên Cloudflare Pages → https://ezchinese.pages.dev
-                                        # (lần đầu: npx wrangler login; --export để export lại trước khi đẩy)
+python ez.py web deploy "ghi chú"       # commit + push → Cloudflare Pages tự đưa lên mạng (~1 phút)
+python ez.py web deploy --export        # export lại dữ liệu rồi mới đẩy
 ```
 
-`web deploy` gom `website/` vào `output/deploy/site` (bỏ README và mp3 không bài nào dùng), thêm `_headers`
-(audio cache 1 năm vì tên file là mã băm giọng|câu; `data/` cache 5 phút; html/js/css luôn hỏi lại) rồi chạy
-`wrangler pages deploy`. Gói miễn phí: băng thông không giới hạn, tối đa 20.000 file / 25 MB mỗi file.
+## Deploy
+
+Thư mục `website/` là một repo git riêng: github.com/tranduskp/ezchinese (private), nối với Cloudflare Pages
+(build command: trống, output directory: `/`). Mỗi lần push nhánh `main` là Cloudflare tự deploy.
+Cache đặt trong `_headers`: audio 1 năm (tên file là mã băm giọng|câu, không bao giờ đổi nội dung),
+`data/` 5 phút, html/js/css luôn hỏi lại. Gói miễn phí: băng thông không giới hạn, tối đa 20.000 file / 25 MB mỗi file.
 
 Link Shopee (`affiliate.json` → `offers`) chỉ hiện ở cuối màn kết quả, người học tự bấm; không chặn trước bài.
 Mỗi lần chọn ngẫu nhiên một link còn hạn ưu đãi; link
