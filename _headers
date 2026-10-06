@@ -1,0 +1,10 @@
+# Cloudflare Pages. Audio đặt tên theo mã băm (giọng|câu) → nội dung không bao giờ đổi, cache 1 năm.
+# Dữ liệu bài đổi khi export lại → cache ngắn. index.html / app.js / style.css: mặc định (luôn hỏi lại).
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+/data/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/brand/*
+  Cache-Control: public, max-age=86400
+/README.md
+  X-Robots-Tag: noindex

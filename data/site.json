@@ -1,0 +1,5 @@
+{
+  "_help": "bg_video: link YouTube làm video nền mặc định (mờ, tắt tiếng) cho mọi người; \"\" = không có. bg_presets: video gợi ý hiện thành nút bấm một chạm ở thẻ \"Học cùng video nền\" trang chủ, dạng [{\"title\": \"Nhạc lofi\", \"url\": \"https://youtu.be/...\"}]. Người học vẫn đổi / tắt được trong Cài đặt.",
+  "bg_video": "",
+  "bg_presets": []
+}

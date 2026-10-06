@@ -1,0 +1,97 @@
+{
+  "_help": "Link tiếp thị chỉ hiện ở CUỐI MÀN KẾT QUẢ, người học tự bấm (không chặn trước bài). offers: link ưu đãi Shopee, nạp bằng `python ez.py web shopee <file.csv>`, mỗi lần chọn ngẫu nhiên 1 link còn hạn; nên gắn sub_id để biết link nào ra đơn. items: sản phẩm gợi ý cụ thể, bật bằng enabled: true.",
+  "enabled": false,
+  "title": "Dụng cụ học gợi ý",
+  "items": [
+    {
+      "name": "Vở luyện viết chữ Hán ô 田字格",
+      "note": "Luyện viết song song với luyện nghe",
+      "url": "https://s.shopee.vn/XXXXXXXX"
+    },
+    {
+      "name": "Giáo trình HSK 3.0 cấp 1",
+      "note": "Đối chiếu ngữ pháp trong bài",
+      "url": "https://s.shopee.vn/YYYYYYYY"
+    }
+  ],
+  "disclosure": "Đây là link tiếp thị liên kết: nếu bạn mua qua link, EzChinese nhận một khoản hoa hồng nhỏ, bạn không mất thêm chi phí.",
+  "offers": {
+    "enabled": true,
+    "url": [
+      {
+        "url": "https://s.shopee.vn/4LJsqsS104",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Fashion Accessories",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/4VdJ3BRNf7",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Men Clothes",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/40h2SGTHg2",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Men Shoes",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/4B0SeZSeL5",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Women Bags",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/50ZZe6PTeG",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Women Clothes",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/5AszqPOqJJ",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Women Shoes",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/4fwjFUQkKE",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Men Bags",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/4qG9RnQ6zH",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Watches",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/Lnk5WhF7Q",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Kid Fashion",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      {
+        "url": "https://s.shopee.vn/W7AHpgbmT",
+        "name": "KOL - High commision for Social KOL_01.10.2026 - 31.10.2026 - Sport & Outdoor",
+        "rate": "7%",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      }
+    ],
+    "title": "Ủng hộ EzChinese",
+    "button": "Xem ưu đãi Shopee hôm nay",
+    "text": "Mua sắm qua link này là cách ủng hộ EzChinese mà bạn không mất thêm đồng nào.",
+    "disclosure": "Đây là link tiếp thị liên kết Shopee: nếu bạn mua qua link, EzChinese nhận một khoản hoa hồng nhỏ, bạn không mất thêm chi phí."
+  }
+}
