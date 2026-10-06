@@ -1,0 +1,10 @@
+# Cloudflare Workers (wrangler deploy) tải lên cả thư mục repo → bỏ những thứ không phải của trang.
+# .git: gói lịch sử > 25 MiB làm Workers báo "Asset too large".
+.git
+.gitignore
+.gitattributes
+README.md
+build.sh
+dist
+node_modules
+.wrangler
