@@ -281,10 +281,11 @@ function stagger(sel, cls = 'anim-in', root = view) {
 
 // ---------------------------------------------------------------- màn hình: trang chủ
 async function home() {
+  const tracksP = loadTracks();   // tải song song, không nối đuôi nhau (mạng 4G: mỗi lượt chờ ~150ms+)
   const idx = await loadIndex();
-  const tracks = await loadTracks();
+  const [tracks, todayS] = await Promise.all([tracksP, todaySentence(idx).catch(() => null)]);
   const returning = Object.keys(store.progress).length > 0;
-  const today = todayCard(await todaySentence(idx).catch(() => null));
+  const today = todayCard(todayS);
   const cont = homeContinue(idx);
   // một hành động chính: người đã học → Học tiếp; người mới → Câu hôm nay (1 câu, dễ bắt đầu nhất)
   const [primary, secondary] = returning ? [cont, today] : [today, cont];
@@ -311,7 +312,7 @@ async function home() {
       <div class="levels tracks">${tracks.map((t) => card(`#/${t.id}`, 'track-card', `${icon(t.id === 'biz' ? 'biz' : 'talk')} ${esc(t.title)}`,
         `${esc(t.desc)}<br>${t.lessons.length} bài · ${t.count} câu`, t.lessons.filter((x) => store.progress[`${t.id}/${x.id}`]).length, t.lessons.length)).join('')}</div>` : ''}
     </section>`;
-  stagger('.hero h1, .hero .lead, .hero-grid > *, .restore-line, .habit, .section, .level-card');
+  stagger('.hero-grid > *, .restore-line, .habit, .section, .level-card');   // h1 + lời dẫn hiện ngay (LCP)
   maybeShowBgCoach();
 }
 
@@ -436,7 +437,7 @@ async function todaySentence(idx) {
   const recent = Object.entries(store.progress).filter(([k]) => /^hsk\d+\//.test(k)).sort((a, b) => (b[1].at || 0) - (a[1].at || 0))[0];
   const level = recent ? +recent[0].slice(3, recent[0].indexOf('/')) : 1;
   if (!idx.levels.some((l) => l.level === level)) return null;
-  const pool = (await getJSON(`data/hsk${level}-speed.json`)).sentences;
+  const pool = (await getJSON(`data/hsk${level}-today.json`)).sentences;
   const day = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5);
   return { level, sent: pool[(day * 7919) % pool.length] };
 }
@@ -531,7 +532,8 @@ $('#bgd-opacity').addEventListener('input', (e) => { store.settings.bgOpacity = 
 $('#bgd-sound').addEventListener('change', (e) => { store.settings.bgSound = e.target.checked; persist(); applyBg(); });
 $('#bgd-off').onclick = () => { store.settings.bgOff = true; persist(); applyBg(); bgDialogState('Đã tắt video nền. Dán link khác để bật lại.'); };
 $('#bgd-close').onclick = () => dlgBg.close();
-dlgBg.addEventListener('click', (e) => { if (e.target === dlgBg) dlgBg.close(); });
+// bấm ra ngoài để đóng: closedby="any" (Chrome/Edge/Firefox); Safari chưa hỗ trợ → tự bắt cú bấm vào nền
+if (!('closedBy' in HTMLDialogElement.prototype)) dlgBg.addEventListener('click', (e) => { if (e.target === dlgBg) dlgBg.close(); });
 
 /** Bong bóng gợi ý dưới nút video nền — chỉ ở trang chủ, cho tới khi người học thử hoặc bấm "Để sau". */
 let coachTimer = null;
@@ -1427,7 +1429,7 @@ function openSettings() {
 }
 // đóng không lưu: nút ✕, chạm ra ngoài hộp (Esc trình duyệt tự xử lý)
 $('#btn-settings-close').onclick = () => dlg.close();
-dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+if (!('closedBy' in HTMLDialogElement.prototype)) dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 dlg.querySelector('[name="bgVideo"]').addEventListener('input', bgHint);
 function bgHint() {
   const v = dlg.querySelector('[name="bgVideo"]').value.trim(), yt = parseYouTube(v);
@@ -1521,7 +1523,8 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     if (!session.checked) check(true);
   } else if (e.key === 'Enter') {
-    if (other) return;
+    // Safari (iPhone) báo compositionend trước keydown → isComposing đã false; keyCode 229 = Enter để chọn chữ của bộ gõ
+    if (other || e.keyCode === 229) return;
     e.preventDefault(); session.checked ? next() : check();
   } else if (e.key === 'Escape') {                               // Esc: nghe lại · Shift+Esc: nghe chậm
     e.preventDefault(); if (sent) play(sent, e.shiftKey && session.kind !== 'speed' ? 0.7 : speed);

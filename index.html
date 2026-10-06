@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&family=Patrick+Hand&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&family=Patrick+Hand&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
+<link rel="preload" href="data/index.json" as="fetch" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect x=%274%27 y=%274%27 width=%2756%27 height=%2756%27 rx=%2710%27 fill=%27%23c8372d%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23fff6ee%27 font-family=%27sans-serif%27%3E%E6%AF%8F%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 <footer class="foot" id="foot"></footer>
 
-<dialog id="dlg-bg" aria-labelledby="bgd-title">
+<dialog id="dlg-bg" closedby="any" aria-labelledby="bgd-title">
   <div class="settings bgd">
     <div class="settings-head">
       <h2 id="bgd-title">Nền video cho góc học</h2>
@@ -63,7 +64,7 @@
   </div>
 </dialog>
 
-<dialog id="dlg-settings" aria-labelledby="settings-title">
+<dialog id="dlg-settings" closedby="any" aria-labelledby="settings-title">
   <form method="dialog" class="settings">
     <div class="settings-head">
       <h2 id="settings-title">Cài đặt <small class="lead">· đổi là lưu ngay</small></h2>

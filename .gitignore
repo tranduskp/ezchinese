@@ -1,1 +1,17 @@
+# bản build cho Cloudflare (sh build.sh tạo lại)
 dist/
+
+# file tạm khi export ghi đè an toàn
+*.tmp
+*.part
+
+# rác hệ điều hành / editor / công cụ
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+node_modules/
+.wrangler/
+__pycache__/
+*.log
