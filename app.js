@@ -54,8 +54,10 @@ function sylOf(py) {
   return { s, t: t ?? (s ? 5 : null) };
 }
 
-/** Tách pinyin người học gõ (liền hoặc cách, có dấu / số / không dấu) thành âm tiết. */
-function parseUserPinyin(input, syl) {
+/** Tách pinyin người học gõ (liền hoặc cách, có dấu / số / không dấu) thành âm tiết.
+ *  hint: tập âm tiết của câu mẫu — gõ liền bị nhập nhằng (kàna = kàn·a hay kà·na; fāngàn = fāng·àn hay fān·gàn)
+ *  thì ưu tiên cách tách khớp câu mẫu. Chỉ đổi cách tách chữ người học đã gõ, không biến câu sai thành đúng. */
+function parseUserPinyin(input, syl, hint) {
   const out = [];
   const chunks = input.normalize('NFC').toLowerCase().replace(/u:/g, 'v').split(/[^a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüńňǹḿ1-5]+/);
   for (const chunk of chunks) {
@@ -71,7 +73,9 @@ function parseUserPinyin(input, syl) {
     // một thanh, số thanh phải đứng cuối âm tiết (xi1an1 → xi an, fang1an4 → fang an)
     const cost = (a, b) => {
       const ts = tones.filter(([p]) => p >= a && p < b);
-      return 1 + 10 * Math.max(0, ts.length - 1) + 10 * ts.filter(([p, , num]) => num && p !== b - 1).length;
+      return 1 + 10 * Math.max(0, ts.length - 1) + 10 * ts.filter(([p, , num]) => num && p !== b - 1).length
+        - (hint && hint.has(base.slice(a, b)) ? 0.6 : 0)
+        + (/^(n|m|ng|hm|hng)$/.test(base.slice(a, b)) && !hint?.has(base.slice(a, b)) ? 0.5 : 0);   // thán từ 嗯/呣 hiếm: tách sau cùng (ner = ne·r, không phải n·er)
     };
     const n = base.length, best = new Array(n + 1).fill(null);
     best[0] = { c: 0, spans: [] };
@@ -91,6 +95,21 @@ function parseUserPinyin(input, syl) {
   }
   return out;
 }
+
+/** Âm tiết gõ có khớp âm tiết chuẩn: chấp nhận gõ ü thành u (nu, lu, nue, lue — bàn phím không có ü) và 儿 gõ "er". */
+const sameSyl = (e, u) => e === u || (/^[nl]v/.test(e) && e.replace('v', 'u') === u) || (e === 'r' && u === 'er');
+/** Âm tiết của câu mẫu (gồm cả cách gõ u thay ü) — gợi ý tách pinyin gõ liền. */
+const sylHint = (exp) => new Set(exp.flatMap((e) => [e.s, e.s.replace(/^([nl])v/, '$1u'), e.s === 'r' ? 'er' : e.s]));
+/** Thanh gõ có được chấp nhận. Chữ đọc nhẹ (thanh 5) nhận mọi thanh: người học hay gõ thanh từ điển
+ *  (这个 ge4, 妈妈 ma1, 什么时候 hou4) — đó không phải lỗi nghe. 一 / 不 nhận cả thanh gốc lẫn thanh biến điệu. */
+function toneAccepted(e, ut) {
+  if (ut == null) return !S().strictTone || e.t === 5;
+  if (e.t === 5) return true;
+  const alt = e.ch === '一' ? [1, 2, 4] : e.ch === '不' ? [2, 4] : [e.t];
+  return alt.includes(ut);
+}
+/** 儿 er hoá (pinyin "r"): âm cuộn lưỡi rất nhẹ — gõ thiếu cũng không tính sai. */
+const isErhua = (e) => e.s === 'r';
 
 /** LCS giữa hai dãy (so bằng hàm eq). Trả về các cặp chỉ số khớp. */
 function lcsPairs(a, b, eq) {
@@ -114,25 +133,26 @@ async function grade(sent, answer, mode) {
   const marks = chars.map((c) => (isHan(c) ? 'miss' : 'punct'));
   if (mode === 'pinyin') {
     const exp = idx.map((i) => ({ ...sylOf(sent.py[i]), ch: chars[i] }));
-    const user = parseUserPinyin(answer, await syllables());
-    const pairs = lcsPairs(exp, user, (e, u) => e.s === u.s);
-    for (const [ei, ui] of pairs) {
-      const e = exp[ei], u = user[ui];
-      // chấp nhận thanh gốc của 一 / 不 (yi1 / bu4) bên cạnh thanh biến điệu
-      const alt = e.ch === '一' ? [1, 2, 4] : e.ch === '不' ? [2, 4] : [e.t];
-      const toneOk = u.t == null ? (!S().strictTone || e.t === 5) : (alt.includes(u.t) || (e.t === 5 && u.t === 5));
-      marks[idx[ei]] = toneOk ? 'ok' : 'tone';
-    }
-    const extra = user.length - pairs.length;
+    const user = parseUserPinyin(answer, await syllables(), sylHint(exp));
+    const pairs = lcsPairs(exp, user, (e, u) => sameSyl(e.s, u.s));
+    for (const [ei, ui] of pairs) marks[idx[ei]] = toneAccepted(exp[ei], user[ui].t) ? 'ok' : 'tone';
+    exp.forEach((e, k) => { if (isErhua(e) && marks[idx[k]] === 'miss') marks[idx[k]] = 'ok'; });
+    // phần gõ thừa; "r" cuộn lưỡi gõ thêm (wanr, nar, dianr) không tính — "r" đứng riêng không thể là chữ khác
+    const used = new Set(pairs.map(([, ui]) => ui));
+    const extras = user.filter((u, k) => !used.has(k) && u.s !== 'r').map((u) => u.s + (u.t || ''));
     const ok = marks.filter((m) => m === 'ok').length;
-    return { marks, score: ok / idx.length, correct: ok === idx.length && extra === 0, extra };
+    return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
   }
   const exp = idx.map((i) => chars[i]);
   const user = [...answer].filter(isHan);
   const pairs = lcsPairs(exp, user, (a, b) => a === b);
   for (const [ei] of pairs) marks[idx[ei]] = 'ok';
-  const extra = user.length - pairs.length;
-  return { marks, score: pairs.length / idx.length, correct: pairs.length === idx.length && extra === 0, extra };
+  // 儿 cuộn lưỡi (pinyin "r"): gõ thiếu hay gõ thêm (玩儿) đều không tính lỗi
+  idx.forEach((i) => { if (chars[i] === '儿' && sylOf(sent.py[i] || '').s === 'r') marks[i] = 'ok'; });
+  const used = new Set(pairs.map(([, ui]) => ui));
+  const extras = user.filter((c, k) => !used.has(k) && c !== '儿');
+  const ok = marks.filter((m) => m === 'ok').length;
+  return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
 }
 
 // ---------------------------------------------------------------- âm thanh
@@ -900,20 +920,24 @@ async function checkWords(sent, answer, mode) {
   const words = wordsOf(sent), chars = [...sent.hz];
   let pos = 0;
   if (mode === 'pinyin') {
-    const user = parseUserPinyin(answer, await syllables());
+    const all = words.flatMap((w) => w.idx.map((k) => ({ ...sylOf(sent.py[k]), ch: chars[k] })));
+    const user = parseUserPinyin(answer, await syllables(), sylHint(all));
     for (let i = 0; i < words.length; i++) {
       for (const k of words[i].idx) {
-        const e = { ...sylOf(sent.py[k]), ch: chars[k] }, u = user[pos];
-        if (!u || u.s !== e.s) return { done: i, why: 'wrong', correct: false };
-        const alt = e.ch === '一' ? [1, 2, 4] : e.ch === '不' ? [2, 4] : [e.t];
-        const toneOk = u.t == null ? (!S().strictTone || e.t === 5) : (alt.includes(u.t) || (e.t === 5 && u.t === 5));
-        if (!toneOk) return { done: i, why: 'tone', correct: false };
+        const e = { ...sylOf(sent.py[k]), ch: chars[k] };
+        while (user[pos]?.s === 'r' && !isErhua(e)) pos++;        // "r" cuộn lưỡi gõ thêm (wanr): bỏ qua
+        const u = user[pos];
+        if (isErhua(e) && (!u || !sameSyl(e.s, u.s))) continue;   // 儿 gõ thiếu: bỏ qua
+        if (!u || !sameSyl(e.s, u.s)) return { done: i, why: 'wrong', correct: false };
+        if (!toneAccepted(e, u.t)) return { done: i, why: 'tone', correct: false };
         pos++;
       }
     }
+    while (user[pos]?.s === 'r') pos++;
     return pos < user.length ? { done: words.length, why: 'extra', correct: false } : { done: words.length, why: null, correct: true };
   }
-  const user = [...answer].filter(isHan);
+  // câu mẫu không có 儿 mà người học gõ 玩儿 / 哪儿 (thói quen cuộn lưỡi): bỏ 儿 gõ thêm
+  const user = [...answer].filter(isHan).filter((c) => c !== '儿' || chars.includes('儿'));
   for (let i = 0; i < words.length; i++) {
     const w = [...words[i].w];
     if (user.slice(pos, pos + w.length).join('') !== words[i].w) return { done: i, why: 'wrong', correct: false };
@@ -1440,8 +1464,11 @@ async function check(skipped = false) {
     ss.tries = (ss.tries || 0) + 1;
     ss.lastAnswer = answer;
     paintSlots(g.marks);
-    $('#retry').innerHTML = `<p class="retry-note"><b>${near}: ${okCount}/${total} chữ.</b>
-      Ô đỏ là chữ sai hoặc còn thiếu${hasTone ? ', ô vàng là sai thanh' : ''}${g.extra > 0 ? `, bạn gõ thừa ${g.extra} ${ss.mode === 'pinyin' ? 'âm tiết' : 'chữ'}` : ''}.
+    const unit = ss.mode === 'pinyin' ? 'âm tiết' : 'chữ';
+    $('#retry').innerHTML = okCount === total && g.extra > 0
+      ? `<p class="retry-note"><b>Đủ ${total}/${total} chữ</b> nhưng còn thừa ${g.extra} ${unit}: <b>${esc(g.extras.join(' '))}</b>. Xoá phần thừa rồi bấm Kiểm tra.</p>`
+      : `<p class="retry-note"><b>${near}: ${okCount}/${total} chữ.</b>
+      Ô đỏ là chữ sai hoặc còn thiếu${hasTone ? ', ô vàng là sai thanh' : ''}${g.extra > 0 ? `, bạn gõ thừa ${g.extra} ${unit} (${esc(g.extras.join(' '))})` : ''}.
       Nghe lại rồi sửa câu và bấm Kiểm tra.</p>`;
     $('#btn-skip').textContent = 'Xem đáp án';
     sfx('bad');
