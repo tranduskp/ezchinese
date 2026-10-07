@@ -250,6 +250,25 @@ const ICON_PATHS = {
 };
 const icon = (k) => `<svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[k]}</svg>`;
 
+/** Đọc to một từ (ô ghép từ) bằng giọng tiếng Trung có sẵn của trình duyệt — ô có thể là từ bất kỳ (kể cả ô gây nhiễu)
+ *  nên không dùng mp3 soạn sẵn. Không có giọng tiếng Trung → trả false để kêu "tách" như cũ. */
+function sayWord(text) {
+  const tts = window.speechSynthesis;
+  if (!tts || !text) return false;
+  const voices = tts.getVoices();
+  const voice = voices.find((v) => /^zh[-_]CN/i.test(v.lang)) || voices.find((v) => /^(zh|cmn)/i.test(v.lang));
+  if (voices.length && !voice) return false;   // máy không có giọng tiếng Trung
+  tts.cancel();                                // bấm nhanh nhiều ô: chỉ đọc ô mới nhất
+  if (audio && !audio.paused) audio.pause();   // không đọc đè lên câu mẫu
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-CN';
+  if (voice) u.voice = voice;
+  u.rate = 0.9;
+  tts.speak(u);
+  return true;
+}
+if (window.speechSynthesis) speechSynthesis.getVoices();   // Chrome nạp danh sách giọng bất đồng bộ: gọi sớm
+
 /** Đóng dấu son lên phần tử `host` (thẻ kết quả): chữ 对 như thầy cô phê vở. Thay cho pháo giấy. */
 function stamp(host, text = '对', cls = '') {
   if (!host) return;
@@ -781,7 +800,7 @@ async function renderItem() {
     };
     area.querySelectorAll('.tiles-pool .tile').forEach((b) => b.onclick = () => {
       if (ss.checked) return;
-      ss.chosen.push(+b.dataset.i); ss.justAdded = true; sfx('tap'); draw();
+      ss.chosen.push(+b.dataset.i); ss.justAdded = true; if (!sayWord(tiles[+b.dataset.i])) sfx('tap'); draw();
     });
     ss.answerOf = () => ss.chosen.map((i) => tiles[i]).join('');
   } else {
@@ -987,7 +1006,7 @@ async function renderTranslate() {
     };
     area.querySelectorAll('.tiles-pool .tile').forEach((b) => b.onclick = () => {
       if (ss.checked || ss.chosen.includes(+b.dataset.i)) return;
-      ss.chosen.push(+b.dataset.i); sfx('tap'); draw();
+      ss.chosen.push(+b.dataset.i); if (!sayWord(tiles[+b.dataset.i])) sfx('tap'); draw();
     });
     ss.answerOf = () => ss.chosen.map((i) => tiles[i]).join('');
     // giữ các ô của phần đã khoá, trả phần sai về hàng chờ; phần được gợi ý mà chưa chọn thì tự chọn giúp
