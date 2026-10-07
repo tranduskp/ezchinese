@@ -111,6 +111,9 @@ function toneAccepted(e, ut) {
 /** 儿 er hoá (pinyin "r"): âm cuộn lưỡi rất nhẹ — gõ thiếu cũng không tính sai. */
 const isErhua = (e) => e.s === 'r';
 
+/** Phần người học gõ thừa thật: số âm / chữ không khớp trừ đi số chữ còn thiếu (gõ sai thay vào chỗ một chữ không tính là thừa). */
+const onlyExtra = (unmatched, missing) => unmatched.slice(Math.min(unmatched.length, Math.max(0, missing)));
+
 /** LCS giữa hai dãy (so bằng hàm eq). Trả về các cặp chỉ số khớp. */
 function lcsPairs(a, b, eq) {
   const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
@@ -139,7 +142,7 @@ async function grade(sent, answer, mode) {
     exp.forEach((e, k) => { if (isErhua(e) && marks[idx[k]] === 'miss') marks[idx[k]] = 'ok'; });
     // phần gõ thừa; "r" cuộn lưỡi gõ thêm (wanr, nar, dianr) không tính — "r" đứng riêng không thể là chữ khác
     const used = new Set(pairs.map(([, ui]) => ui));
-    const extras = user.filter((u, k) => !used.has(k) && u.s !== 'r').map((u) => u.s + (u.t || ''));
+    const extras = onlyExtra(user.filter((u, k) => !used.has(k) && u.s !== 'r').map((u) => u.s + (u.t || '')), exp.length - pairs.length);
     const ok = marks.filter((m) => m === 'ok').length;
     return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
   }
@@ -150,7 +153,7 @@ async function grade(sent, answer, mode) {
   // 儿 cuộn lưỡi (pinyin "r"): gõ thiếu hay gõ thêm (玩儿) đều không tính lỗi
   idx.forEach((i) => { if (chars[i] === '儿' && sylOf(sent.py[i] || '').s === 'r') marks[i] = 'ok'; });
   const used = new Set(pairs.map(([, ui]) => ui));
-  const extras = user.filter((c, k) => !used.has(k) && c !== '儿');
+  const extras = onlyExtra(user.filter((c, k) => !used.has(k) && c !== '儿'), exp.length - pairs.length);
   const ok = marks.filter((m) => m === 'ok').length;
   return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
 }
@@ -1453,7 +1456,8 @@ async function check(skipped = false) {
     replayAnim($('#input-area'), 'shake');
     return;
   }
-  if (skipped && ss.tries) answer = ss.lastAnswer || '';   // "Xem đáp án" sau khi đã thử: vẫn chấm lần gõ cuối
+  // "Xem đáp án" sau khi đã thử: chấm chữ ĐANG có trong ô (có thể đã sửa mà chưa bấm Kiểm tra), ô trống thì lấy lần gõ trước
+  if (skipped && ss.tries) answer = (ss.answerOf ? ss.answerOf() : '').trim() || ss.lastAnswer || '';
   const g = await grade(sent, answer, ss.mode === 'tiles' ? 'hanzi' : ss.mode);
   const total = [...sent.hz].filter(isHan).length, okCount = g.marks.filter((m) => m === 'ok').length;
   const hasTone = g.marks.includes('tone');
@@ -1495,7 +1499,7 @@ async function check(skipped = false) {
   const verdict = g.correct
     ? (firstTry ? '✓ Chính xác!' : `✓ Đúng rồi <small>(${tries} lần kiểm tra)</small>`)
     : timedOut ? `Hết giờ <small>· đúng ${okCount}/${total} chữ</small>`
-    : skipped ? (ss.tries ? `Đáp án <small>· lần cuối đúng ${okCount}/${total} chữ</small>` : 'Đáp án')
+    : skipped ? (ss.tries && answer.trim() ? `Đáp án <small>· câu bạn gõ đúng ${okCount}/${total} chữ</small>` : 'Đáp án')
     : `${near} <small>· ${okCount}/${total} chữ</small>`;
   const chars = [...sent.hz];
   $('#retry').innerHTML = '';
@@ -1859,8 +1863,23 @@ function mergeBackup(d) {
 }
 
 // ---------------------------------------------------------------- phím tắt
+// Ô gõ pinyin chỉ chứa chữ Latin: Enter khi bộ gõ đang soạn chữ (Telex trên Mac, bộ gõ tiếng Trung, bàn phím điện thoại
+// gạch chân từ đang gõ) = chốt chữ RỒI chấm luôn. Trước đây Enter này bị nuốt im lặng → người học tưởng đã kiểm tra.
+// Ô chữ Hán giữ nguyên: Enter là để chọn chữ của bộ gõ.
+const pinyinBox = (t) => t?.id === 'answer' && session && !session.checked && session.mode === 'pinyin';
+let checkAfterIme = false;
+document.addEventListener('compositionend', (e) => {
+  if (!checkAfterIme) return;
+  checkAfterIme = false;
+  if (pinyinBox(e.target)) setTimeout(() => check(), 0);   // đợi chữ vừa chốt vào ô rồi mới chấm
+});
+
 document.addEventListener('keydown', (e) => {
-  if (!session || dlg.open || e.isComposing) return;   // isComposing: đang gõ bằng bộ gõ tiếng Trung
+  if (!session || dlg.open) return;
+  if (e.isComposing) {                                       // đang soạn chữ: để bộ gõ xử lý
+    if (e.key === 'Enter' && pinyinBox(e.target)) checkAfterIme = true;
+    return;
+  }
   const t = e.target, tag = t.tagName;
   // đang focus nút / link / mục thu gọn / ô chọn khác: để phím làm đúng việc của phần tử đó
   const other = t.id !== 'answer' && t.id !== 'btn-check' &&
@@ -1872,7 +1891,11 @@ document.addEventListener('keydown', (e) => {
     if (!session.checked) check(true);
   } else if (e.key === 'Enter') {
     // Safari (iPhone) báo compositionend trước keydown → isComposing đã false; keyCode 229 = Enter để chọn chữ của bộ gõ
-    if (other || e.keyCode === 229) return;
+    if (other) return;
+    if (e.keyCode === 229) {                                  // Safari: chữ đã chốt sẵn → ô pinyin chấm luôn, ô chữ Hán để chọn chữ
+      if (pinyinBox(t)) { e.preventDefault(); setTimeout(() => check(), 0); }
+      return;
+    }
     e.preventDefault(); session.checked ? next() : check();
   } else if (e.key === 'Escape') {                               // Esc: nghe lại · Shift+Esc: nghe chậm
     e.preventDefault(); if (sent) play(sent, e.shiftKey && session.kind !== 'speed' ? 0.7 : speed);
