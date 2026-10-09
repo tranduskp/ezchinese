@@ -95,6 +95,8 @@ h1 { font-family: var(--hand); font-weight: 400; font-size: 34px; margin: 6px 0 
 .answer:focus { border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft); }
 .answer.zh { font-family: var(--zh); font-size: 26px; }
 .answer-hint { font-size: 13px; color: var(--muted); margin: 6px 2px 0; }
+.tone-toggle { display: flex; width: fit-content; align-items: center; gap: 8px; margin-top: 4px; color: var(--ink); cursor: pointer; min-height: 36px; font-size: 14px; }
+.tone-toggle input { width: 18px; height: 18px; accent-color: var(--red); margin: 0; }
 
 .tiles-answer { min-height: 64px; border: 2px dashed var(--line-strong); border-radius: 12px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; background: #fff; }
 .tiles-pool { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; justify-content: center; }

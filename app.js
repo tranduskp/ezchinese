@@ -36,8 +36,6 @@ async function getJSON(path) {
 const loadIndex = () => getJSON('data/index.json');
 let SYL = null;
 async function syllables() { if (!SYL) SYL = new Set(await getJSON('data/syllables.json')); return SYL; }
-/** Chữ phồn thể → giản thể ("這": "这"); tải lỗi thì chấm như cũ (chỉ nhận giản thể). */
-const t2s = () => getJSON('data/t2s.json').catch(() => ({}));
 /** Đồng âm không phân biệt được khi NGHE: 他 / 她 / 它 đều đọc tā → gõ chữ nào cũng nhận, kèm nhắc chữ đúng. */
 const SAME_SOUND = { '他': 'ta', '她': 'ta', '它': 'ta' };
 
@@ -109,8 +107,12 @@ function parseUserPinyin(input, syl, hint) {
   return out;
 }
 
-/** Âm tiết gõ có khớp âm tiết chuẩn: chấp nhận gõ ü thành u (nu, lu, nue, lue — bàn phím không có ü) và 儿 gõ "er". */
-const sameSyl = (e, u) => e === u || (/^[nl]v/.test(e) && e.replace('v', 'u') === u) || (e === 'r' && u === 'er');
+/** Âm tiết gõ có khớp âm tiết chuẩn. ü gõ "v" hoặc "ü"; riêng nüe / lüe được gõ "nue / lue" (không trùng âm nào).
+ *  KHÔNG nhận "nu / lu" cho nü / lü: đó là âm khác (怒 nù ≠ 女 nǚ) → chấm sai + gợi ý cách gõ ü. 儿 gõ "er" được. */
+const sameSyl = (e, u) => e === u || (/^[nl]ve$/.test(e) && e.replace('v', 'u') === u) || (e === 'r' && u === 'er');
+/** Gợi ý khi người học gõ nu / lu cho nü / lü. */
+const uHint = (exp, user, marks, idx) => exp.flatMap((e, k) => (/^[nl]v$/.test(e.s) && marks[idx[k]] === 'miss'
+  && user.some((u) => u.s === e.s.replace('v', 'u')) ? [`${e.ch} đọc là ${e.s.replace('v', 'ü')} — âm ü gõ bằng v hoặc ü (${e.s}${e.t && e.t < 5 ? e.t : ''}); "${e.s.replace('v', 'u')}" là âm khác.`] : []));
 /** Âm tiết của câu mẫu (gồm cả cách gõ u thay ü) — gợi ý tách pinyin gõ liền. */
 const sylHint = (exp) => new Set(exp.flatMap((e) => [e.s, e.s.replace(/^([nl])v/, '$1u'), e.s === 'r' ? 'er' : e.s]));
 /** Thanh gõ có được chấp nhận. Chữ đọc nhẹ (thanh 5) nhận mọi thanh: người học hay gõ thanh từ điển
@@ -162,14 +164,16 @@ async function grade(sent, answer, mode) {
     const used = new Set(pairs.map(([, ui]) => ui));
     const extras = onlyExtra(user.filter((u, k) => !used.has(k) && u.s !== 'r').map((u) => u.s + (u.t || '')), exp.length - pairs.length);
     const ok = marks.filter((m) => m === 'ok').length;
-    return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
+    return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras,
+             hints: uHint(exp, user, marks, idx) };
   }
   const exp = idx.map((i) => chars[i]);
   const user = [...answer].filter(isHan);
-  const T2S = await t2s();
-  // nhận chữ phồn thể (bộ gõ Đài Loan / HK: 這個 cho 这个) và 他/她/它 (nghe như nhau) — báo lại chữ đúng trong g.alt
-  const eq = (a, b) => a === b || (T2S[b] || '').includes(a) || (SAME_SOUND[a] && SAME_SOUND[a] === SAME_SOUND[b]);
-  const pairs = lcsPairs(exp, user, eq);
+  // Chữ phồn thể: chỉ nhận đúng chữ ở ĐÚNG VỊ TRÍ trong cách viết phồn thể chuẩn của câu này (sent.tz, OpenCC theo cụm từ:
+  // 干净 → 乾淨, không nhận 幹淨). 他/她/它: nghe như nhau → nhận, kèm nhắc chữ đúng (g.alt).
+  const tz = (sent.tz || []).map((t) => [...t]).filter((t) => t.length === chars.length);
+  const eq = (k, b) => exp[k] === b || tz.some((t) => t[idx[k]] === b) || (SAME_SOUND[exp[k]] && SAME_SOUND[exp[k]] === SAME_SOUND[b]);
+  const pairs = lcsPairs(exp.map((_, k) => k), user, eq);
   for (const [ei] of pairs) marks[idx[ei]] = 'ok';
   const alt = pairs.filter(([ei, ui]) => exp[ei] !== user[ui])
     .map(([ei, ui]) => ({ want: exp[ei], got: user[ui], kind: SAME_SOUND[exp[ei]] && SAME_SOUND[user[ui]] ? 'sound' : 'trad' }));
@@ -856,7 +860,8 @@ async function renderItem() {
         aria-label="${zh ? 'Gõ chữ Hán câu bạn nghe được' : 'Gõ pinyin câu bạn nghe được'}"
         lang="${zh ? 'zh-CN' : 'en'}" placeholder="${zh ? '用中文输入法打字…' : 'Gõ pinyin, vd: wo qu chaoshi'}">
       <div class="answer-hint">${zh ? 'Cần bộ gõ tiếng Trung (pinyin IME) trên máy / điện thoại.'
-        : `Gõ liền hay cách đều được; dấu thanh / số thanh (wǒ, wo3) ${S().strictTone ? '<b>bắt buộc</b>' : 'không bắt buộc'}.`}</div>`;
+        : `Gõ liền hay cách đều được; gõ dấu hoặc số thanh (wǒ, wo3) nếu muốn.${toneToggle()}`}</div>`;
+    bindToneToggle();
     const inp = $('#answer');
     if (!coarse()) inp.focus();
     ss.answerOf = () => inp.value;
@@ -1496,8 +1501,9 @@ async function check(skipped = false) {
     $('#retry').innerHTML = okCount === total && g.extra > 0
       ? `<p class="retry-note"><b>Đủ ${total}/${total} chữ</b> nhưng còn thừa ${g.extra} ${unit}: <b>${esc(g.extras.join(' '))}</b>. Xoá phần thừa rồi bấm Kiểm tra.</p>`
       : `<p class="retry-note"><b>${near}: ${okCount}/${total} chữ.</b>
-      Ô đỏ là chữ sai hoặc còn thiếu${hasTone ? ', ô vàng là sai thanh' : ''}${g.extra > 0 ? `, bạn gõ thừa ${g.extra} ${unit} (${esc(g.extras.join(' '))})` : ''}.
+      Ô đỏ là chữ sai hoặc còn thiếu${hasTone ? `, ô vàng là ${S().strictTone ? 'sai hoặc thiếu thanh' : 'sai thanh'}` : ''}${g.extra > 0 ? `, bạn gõ thừa ${g.extra} ${unit} (${esc(g.extras.join(' '))})` : ''}.
       Nghe lại rồi sửa câu và bấm Kiểm tra.</p>`;
+    if (g.hints?.length) $('#retry').innerHTML += `<p class="retry-note">${g.hints.map(esc).join('<br>')}</p>`;
     $('#btn-skip').textContent = 'Xem đáp án';
     sfx('bad');
     replayAnim($('#input-area'), 'shake');
@@ -1564,13 +1570,29 @@ async function check(skipped = false) {
   }
 }
 
+/** Công tắc "Bắt buộc đúng thanh điệu" ngay trong bài (mặc định tắt: gõ thiếu thanh vẫn qua). Bật: gõ thiếu / sai thanh → ô vàng.
+ *  Dùng chung giá trị với mục trong Cài đặt. */
+const toneToggle = () => `<label class="tone-toggle"><input type="checkbox" id="strict-tone" ${S().strictTone ? 'checked' : ''}>
+  Bắt buộc đúng thanh điệu <span class="muted">(khó hơn)</span></label>`;
+function bindToneToggle() {
+  const el = $('#strict-tone');
+  if (!el) return;
+  el.onchange = () => {
+    store.settings.strictTone = el.checked; persist();
+    const inp = $('#answer'); if (inp && !coarse()) inp.focus();
+  };
+}
+
 /** Chữ được chấp nhận nhưng khác đáp án: nhắc chữ chuẩn (他 → 她 đọc giống nhau; 這 là phồn thể của 这). */
 function altNote(alt) {
   if (!alt || !alt.length) return '';
   const seen = new Set(), items = alt.filter((a) => !seen.has(a.want + a.got) && seen.add(a.want + a.got));
-  return `<div class="yours alt-note">${items.map((a) => a.kind === 'sound'
-    ? `Bạn gõ <b>${esc(a.got)}</b>, câu này dùng <b>${esc(a.want)}</b> — đọc giống nhau (tā) nên vẫn tính đúng.`
-    : `<b>${esc(a.got)}</b> là chữ phồn thể của <b>${esc(a.want)}</b> — vẫn tính đúng; bài dùng chữ giản thể.`).join('<br>')}</div>`;
+  const trad = items.filter((a) => a.kind !== 'sound');   // gộp mọi chữ phồn thể thành MỘT dòng (câu 7 chữ không ra 4 dòng lặp)
+  const lines = items.filter((a) => a.kind === 'sound')
+    .map((a) => `Bạn gõ <b>${esc(a.got)}</b>, câu này dùng <b>${esc(a.want)}</b> — đọc giống nhau (tā) nên vẫn tính đúng.`);
+  if (trad.length) lines.push(`<b>${esc(trad.map((a) => a.got).join(' '))}</b> là chữ phồn thể của <b>${esc(trad.map((a) => a.want).join(' '))}</b>`
+    + ' — vẫn tính đúng; bài dùng chữ giản thể.');
+  return `<div class="yours alt-note">${lines.join('<br>')}</div>`;
 }
 
 /** Âm Hán Việt của chữ thứ i (nếu dữ liệu có) — đặt dưới chữ Hán; tắt được trong Cài đặt. */
