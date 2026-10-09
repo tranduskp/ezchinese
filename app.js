@@ -36,6 +36,10 @@ async function getJSON(path) {
 const loadIndex = () => getJSON('data/index.json');
 let SYL = null;
 async function syllables() { if (!SYL) SYL = new Set(await getJSON('data/syllables.json')); return SYL; }
+/** Chữ phồn thể → giản thể ("這": "这"); tải lỗi thì chấm như cũ (chỉ nhận giản thể). */
+const t2s = () => getJSON('data/t2s.json').catch(() => ({}));
+/** Đồng âm không phân biệt được khi NGHE: 他 / 她 / 它 đều đọc tā → gõ chữ nào cũng nhận, kèm nhắc chữ đúng. */
+const SAME_SOUND = { '他': 'ta', '她': 'ta', '它': 'ta' };
 
 // ---------------------------------------------------------------- pinyin
 const TONE_MARKS = { 'ā': 'a1', 'á': 'a2', 'ǎ': 'a3', 'à': 'a4', 'ē': 'e1', 'é': 'e2', 'ě': 'e3', 'è': 'e4',
@@ -54,12 +58,20 @@ function sylOf(py) {
   return { s, t: t ?? (s ? 5 : null) };
 }
 
+/** Chuẩn hoá pinyin người học gõ trước khi tách:
+ *  - NFKC: chữ toàn độ của bộ gõ TQ ("ｎｉ３　ｈａｏ３") → chữ thường, khoảng trắng ý tự → khoảng trắng;
+ *  - bàn phím Việt: dấu trăng (ă ĕ ĭ ŏ ŭ) và dấu hỏi (ả ẻ ỉ ỏ ủ) hay được gõ thay dấu thanh 3 (ǎ ě ǐ ǒ ǔ);
+ *  - u: → ü (v). */
+const VI_TONE3 = { 'ă': 'ǎ', 'ĕ': 'ě', 'ĭ': 'ǐ', 'ŏ': 'ǒ', 'ŭ': 'ǔ', 'ả': 'ǎ', 'ẻ': 'ě', 'ỉ': 'ǐ', 'ỏ': 'ǒ', 'ủ': 'ǔ' };
+const normPinyinInput = (input) => input.normalize('NFKC').toLowerCase().normalize('NFC')
+  .replace(/[ăĕĭŏŭảẻỉỏủ]/g, (c) => VI_TONE3[c]).replace(/u:/g, 'v');
+
 /** Tách pinyin người học gõ (liền hoặc cách, có dấu / số / không dấu) thành âm tiết.
  *  hint: tập âm tiết của câu mẫu — gõ liền bị nhập nhằng (kàna = kàn·a hay kà·na; fāngàn = fāng·àn hay fān·gàn)
  *  thì ưu tiên cách tách khớp câu mẫu. Chỉ đổi cách tách chữ người học đã gõ, không biến câu sai thành đúng. */
 function parseUserPinyin(input, syl, hint) {
   const out = [];
-  const chunks = input.normalize('NFC').toLowerCase().replace(/u:/g, 'v').split(/[^a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüńňǹḿ1-5]+/);
+  const chunks = normPinyinInput(input).split(/[^a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüńňǹḿ1-5]+/);
   for (const chunk of chunks) {
     if (!chunk) continue;
     let base = '';
@@ -82,7 +94,8 @@ function parseUserPinyin(input, syl, hint) {
     for (let i = 0; i < n; i++) {
       if (!best[i]) continue;
       for (let L = 1; L <= 6 && i + L <= n; L++) {
-        if (!syl.has(base.slice(i, i + L))) continue;
+        // lue / nue: bàn phím không có ü → người học gõ thế cho lüe / nüe (略, 虐); không có trong bảng âm tiết chuẩn
+        if (!syl.has(base.slice(i, i + L)) && !/^[ln]ue$/.test(base.slice(i, i + L))) continue;
         const c = best[i].c + cost(i, i + L);
         if (!best[i + L] || best[i + L].c > c) best[i + L] = { c, spans: [...best[i].spans, [i, i + L]] };
       }
@@ -105,9 +118,12 @@ const sylHint = (exp) => new Set(exp.flatMap((e) => [e.s, e.s.replace(/^([nl])v/
 function toneAccepted(e, ut) {
   if (ut == null) return !S().strictTone || e.t === 5;
   if (e.t === 5) return true;
-  const alt = e.ch === '一' ? [1, 2, 4] : e.ch === '不' ? [2, 4] : [e.t];
+  const alt = e.ch === '一' ? [1, 2, 4] : e.ch === '不' ? [2, 4] : e.sandhi3 ? [3, 2] : [e.t];
   return alt.includes(ut);
 }
+/** Chữ ở vị trí i có bị biến điệu thanh 3 không: thanh 3 và chữ ngay sau (không có dấu câu xen giữa) cũng thanh 3
+ *  → nghe là thanh 2 (你好 ní hǎo, 可以 kéyǐ). Người học nghe chép gõ thanh 2 là đúng với cái họ nghe. */
+const sandhi3At = (sent, i) => sylOf(sent.py[i] || '').t === 3 && isHan([...sent.hz][i + 1] || '') && sylOf(sent.py[i + 1] || '').t === 3;
 /** 儿 er hoá (pinyin "r"): âm cuộn lưỡi rất nhẹ — gõ thiếu cũng không tính sai. */
 const isErhua = (e) => e.s === 'r';
 
@@ -128,6 +144,8 @@ function lcsPairs(a, b, eq) {
 }
 
 const isHan = (c) => /[\u4e00-\u9fff]/.test(c);
+/** Tên cấp. HSK 7 / 8 / 9: đề cương gộp một khối, EzChinese chia theo độ khó từ (xem ghi chú ở trang cấp). */
+const lvName = (l) => `HSK ${l}`;
 
 /** Chấm một câu. Trả về {marks: ['ok'|'tone'|'miss'|'punct' cho từng ký tự], score, correct}. */
 async function grade(sent, answer, mode) {
@@ -135,7 +153,7 @@ async function grade(sent, answer, mode) {
   const idx = chars.map((c, i) => (isHan(c) ? i : -1)).filter((i) => i >= 0);
   const marks = chars.map((c) => (isHan(c) ? 'miss' : 'punct'));
   if (mode === 'pinyin') {
-    const exp = idx.map((i) => ({ ...sylOf(sent.py[i]), ch: chars[i] }));
+    const exp = idx.map((i) => ({ ...sylOf(sent.py[i]), ch: chars[i], sandhi3: sandhi3At(sent, i) }));
     const user = parseUserPinyin(answer, await syllables(), sylHint(exp));
     const pairs = lcsPairs(exp, user, (e, u) => sameSyl(e.s, u.s));
     for (const [ei, ui] of pairs) marks[idx[ei]] = toneAccepted(exp[ei], user[ui].t) ? 'ok' : 'tone';
@@ -148,14 +166,19 @@ async function grade(sent, answer, mode) {
   }
   const exp = idx.map((i) => chars[i]);
   const user = [...answer].filter(isHan);
-  const pairs = lcsPairs(exp, user, (a, b) => a === b);
+  const T2S = await t2s();
+  // nhận chữ phồn thể (bộ gõ Đài Loan / HK: 這個 cho 这个) và 他/她/它 (nghe như nhau) — báo lại chữ đúng trong g.alt
+  const eq = (a, b) => a === b || (T2S[b] || '').includes(a) || (SAME_SOUND[a] && SAME_SOUND[a] === SAME_SOUND[b]);
+  const pairs = lcsPairs(exp, user, eq);
   for (const [ei] of pairs) marks[idx[ei]] = 'ok';
+  const alt = pairs.filter(([ei, ui]) => exp[ei] !== user[ui])
+    .map(([ei, ui]) => ({ want: exp[ei], got: user[ui], kind: SAME_SOUND[exp[ei]] && SAME_SOUND[user[ui]] ? 'sound' : 'trad' }));
   // 儿 cuộn lưỡi (pinyin "r"): gõ thiếu hay gõ thêm (玩儿) đều không tính lỗi
   idx.forEach((i) => { if (chars[i] === '儿' && sylOf(sent.py[i] || '').s === 'r') marks[i] = 'ok'; });
   const used = new Set(pairs.map(([, ui]) => ui));
   const extras = onlyExtra(user.filter((c, k) => !used.has(k) && c !== '儿'), exp.length - pairs.length);
   const ok = marks.filter((m) => m === 'ok').length;
-  return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras };
+  return { marks, score: ok / idx.length, correct: ok === idx.length && !extras.length, extra: extras.length, extras, alt };
 }
 
 // ---------------------------------------------------------------- âm thanh
@@ -349,7 +372,7 @@ async function home() {
       <div class="levels">${idx.levels.map((l) => {
         const all = [...l.grammar, ...l.topic];
         const done = all.filter((x) => store.progress[`hsk${l.level}/${x.id}`]).length;   // không đếm phản xạ tốc độ / bài đã gỡ
-        return card(`#/hsk${l.level}`, '', `HSK ${l.level}`, `${l.grammar.length} bài ngữ pháp · ${l.topic.length} chủ đề · ${l.count} câu`, done, all.length);
+        return card(`#/hsk${l.level}`, '', lvName(l.level), `${l.grammar.length} bài ngữ pháp · ${l.topic.length} chủ đề · ${l.count} câu`, done, all.length);
       }).join('')}</div>
       ${tracks.length ? `<h2 class="section">Luyện theo tình huống</h2>
       <div class="levels tracks">${tracks.map((t) => card(`#/${t.id}`, 'track-card', `${icon(t.id === 'biz' ? 'biz' : 'talk')} ${esc(t.title)}`,
@@ -490,7 +513,7 @@ function todayCard(t) {
   const n = [...t.sent.hz].filter(isHan).length;
   return `<a class="today${done ? ' done' : ''}" href="#/s/${encodeURIComponent(t.sent.id)}?today=1">
       <span class="t-seal" aria-hidden="true">${done ? '对' : '句'}</span>
-      <span class="t-body"><span class="t-label">Câu hôm nay · HSK ${t.level}${done ? ' · đã làm' : ''}</span>
+      <span class="t-body"><span class="t-label">Câu hôm nay · ${lvName(t.level)}${done ? ' · đã làm' : ''}</span>
         <span class="t-vi">${esc(t.sent.vi)}</span>
         <span class="t-hint">Nghe và gõ lại câu tiếng Trung · ${n} chữ</span></span>
       <span class="c-go" aria-hidden="true">→</span></a>`;
@@ -603,7 +626,7 @@ function homeContinue(idx) {
   } else { n = all[0]; label = 'Mới bắt đầu? Học bài đầu tiên'; }
   if (!n) return '';
   return `<a class="continue" href="#/${n.key}">
-      <span class="c-label">${label} · HSK ${n.lv}</span>
+      <span class="c-label">${label} · ${lvName(n.lv)}</span>
       <span class="c-main">${n.point ? `<span class="pt">${esc(n.point)}</span> ` : ''}${esc(n.title)}</span>
       <span class="c-go" aria-hidden="true">→</span></a>`;
 }
@@ -671,14 +694,15 @@ async function levelPage(level, tab) {
       <span class="c-go" aria-hidden="true">→</span></a>`;
   };
   const speed = `<div class="card speed-card">
-      <b>Phản xạ tốc độ · HSK ${level}</b>
+      <b>Phản xạ tốc độ · ${lvName(level)}</b>
       <span class="lead" style="margin:0">10 câu, ngắn → dài, tốc độ đọc tăng dần, có đồng hồ đếm ngược. Hết giờ sẽ tự chấm.</span>
       <div><a class="btn primary" href="#/hsk${level}/speed" style="display:inline-block;text-decoration:none">Bắt đầu</a></div>
       ${store.progress[`hsk${level}/speed`] ? `<span class="lead" style="margin:0">Kỷ lục: ${Math.round(store.progress[`hsk${level}/speed`].best * 100)}%</span>` : ''}
     </div>`;
   view.innerHTML = `
     <div class="practice-head"><a class="back" href="#/">← Các cấp</a></div>
-    <h1>HSK ${level}</h1>
+    <h1>${lvName(level)}</h1>
+    ${level >= 7 ? `<p class="lead lv-note">Đề cương HSK 3.0 gộp 7–9 thành một khối. EzChinese chia theo độ khó của từ: HSK 7 dễ nhất, HSK 9 khó nhất.</p>` : ''}
     <div class="tabs" role="tablist">${tabs.map(([k, n]) =>
       `<button class="tab" role="tab" aria-selected="${k === tab}" data-tab="${k}">${n}</button>`).join('')}</div>
     ${tab === 'speed' ? speed : cont(lv[tab]) + list(lv[tab])}`;
@@ -705,7 +729,7 @@ async function startSpeed(level) {
     const a = Math.floor(pool.length * k / 10), b = Math.max(a + 1, Math.floor(pool.length * (k + 1) / 10));
     items.push(pool[a + Math.floor(Math.random() * (b - a))]);
   }
-  session = { kind: 'speed', key: `hsk${level}/speed`, src, title: `Phản xạ tốc độ · HSK ${level}`, level, items,
+  session = { kind: 'speed', key: `hsk${level}/speed`, src, title: `Phản xạ tốc độ · ${lvName(level)}`, level, items,
               i: 0, results: [], retried: new Set(), mode: S().mode, back: `#/hsk${level}?tab=speed`, streak: 0, bestStreak: 0 };
   renderItem();
 }
@@ -927,7 +951,7 @@ async function checkWords(sent, answer, mode) {
     const user = parseUserPinyin(answer, await syllables(), sylHint(all));
     for (let i = 0; i < words.length; i++) {
       for (const k of words[i].idx) {
-        const e = { ...sylOf(sent.py[k]), ch: chars[k] };
+        const e = { ...sylOf(sent.py[k]), ch: chars[k], sandhi3: sandhi3At(sent, k) };
         while (user[pos]?.s === 'r' && !isErhua(e)) pos++;        // "r" cuộn lưỡi gõ thêm (wanr): bỏ qua
         const u = user[pos];
         if (isErhua(e) && (!u || !sameSyl(e.s, u.s))) continue;   // 儿 gõ thiếu: bỏ qua
@@ -1512,6 +1536,7 @@ async function check(skipped = false) {
     ${(() => { const used = (ss.glossary || []).filter((x) => sent.w.includes(x.hanzi));
       return used.length ? `<div class="terms-used">${used.map((x) => `<span class="term"><b>${esc(x.hanzi)}</b> ${esc(x.pinyin.replace(/ /g, ''))} · ${esc(x.meaning_vi)}</span>`).join('')}</div>` : ''; })()}
     ${answer ? `<div class="yours">Bạn gõ: <b>${esc(answer)}</b>${g.extra > 0 ? ` · thừa ${g.extra} ${ss.mode === 'pinyin' ? 'âm tiết' : 'chữ'}` : ''}</div>` : ''}
+    ${altNote(g.alt)}
     ${!g.correct && answer ? `<div class="legend"><span><i style="background:var(--green-soft)"></i>đúng</span>${ss.mode === 'pinyin' ? '<span><i style="background:var(--amber-soft)"></i>sai thanh</span>' : ''}<span><i style="background:var(--red-soft)"></i>sai / thiếu</span></div>` : ''}
     ${ss.kind === 'speed' ? `<div class="yours">Chuỗi đúng: <b>${ss.streak}</b></div>` : ''}
   </div>`;
@@ -1537,6 +1562,15 @@ async function check(skipped = false) {
     sfx('bad');
     replayAnim($('#input-area'), 'shake');
   }
+}
+
+/** Chữ được chấp nhận nhưng khác đáp án: nhắc chữ chuẩn (他 → 她 đọc giống nhau; 這 là phồn thể của 这). */
+function altNote(alt) {
+  if (!alt || !alt.length) return '';
+  const seen = new Set(), items = alt.filter((a) => !seen.has(a.want + a.got) && seen.add(a.want + a.got));
+  return `<div class="yours alt-note">${items.map((a) => a.kind === 'sound'
+    ? `Bạn gõ <b>${esc(a.got)}</b>, câu này dùng <b>${esc(a.want)}</b> — đọc giống nhau (tā) nên vẫn tính đúng.`
+    : `<b>${esc(a.got)}</b> là chữ phồn thể của <b>${esc(a.want)}</b> — vẫn tính đúng; bài dùng chữ giản thể.`).join('<br>')}</div>`;
 }
 
 /** Âm Hán Việt của chữ thứ i (nếu dữ liệu có) — đặt dưới chữ Hán; tắt được trong Cài đặt. */
@@ -1616,7 +1650,7 @@ async function finish() {
         <a class="btn" href="${ss.back}" style="text-decoration:none">Về danh sách</a>
       </div>
     </div>
-    <div id="affiliate"></div>`;
+    <div id="support"></div>`;
   stagger('h1, .card, .wrong-list > div');
   countUp($('#stat-score'), Math.round(score * 100), '%');
   const h1 = view.querySelector('h1');   // bàn phím / trình đọc màn hình: bắt đầu từ kết quả
@@ -1624,7 +1658,7 @@ async function finish() {
   const bn = $('#btn-backup-nudge');
   if (bn) bn.onclick = () => { location.hash = '#/backup'; };
   sfx('finish');   // xong bài là đáng mừng, dù tỉ lệ đúng lần đầu thế nào
-  renderAffiliate($('#affiliate'));
+  renderSupport($('#support'));
 }
 
 /** Nhắc sao lưu: đã học ≥ 3 bài và 7 ngày chưa sao lưu (bộ nhớ trình duyệt trong app có thể bị xoá). */
@@ -1663,23 +1697,62 @@ function activeOffers(urls) {
     .filter((x) => x.url && (!x.start || now >= day(x.start, '00:00:00')) && (!x.end || now <= day(x.end, '23:59:59')));
 }
 
-async function renderAffiliate(el) {
-  let cfg;
-  try { cfg = await getJSON('data/affiliate.json'); } catch { return; }
-  if (!cfg || !el) return;
+/** Khối "Ủng hộ EzChinese" cuối màn kết quả — một lá thư trên giấy kẻ dòng, ba cách ủng hộ cùng một nhịp:
+ *  1. Theo dõi fanpage (miễn phí, nhiều người làm nhất → đứng đầu)  2. Mua qua link Shopee (tiếp thị liên kết, có công bố)
+ *  3. Mời cà phê: QR thu nhỏ, chạm để mở rộng TẠI CHỖ (quét từ máy khác); trên điện thoại dùng nút sao chép số tài khoản. */
+async function renderSupport(el) {
+  if (!el) return;
+  let cfg = {};
+  try { cfg = await getJSON('data/affiliate.json'); } catch { /* không có link tiếp thị */ }
+  if (!siteMeta?.donate) await loadSiteBg();   // site.json chưa tải xong lúc vào bài
   const items = cfg.enabled ? cfg.items || [] : [];
   const offers = cfg.offers?.enabled ? activeOffers(cfg.offers.url) : [];
-  if (!items.length && !offers.length) return;
   const offer = offers[Math.floor(Math.random() * offers.length)];
-  const o = cfg.offers || {};
-  el.innerHTML = `<div class="affiliate">
-    <h2 class="sub">${esc(items.length ? cfg.title || 'Dụng cụ học gợi ý' : o.title || 'Ủng hộ EzChinese')}</h2>
-    ${items.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="sponsored noopener">
-      <span><b>${esc(x.name)}</b><br><span class="note">${esc(x.note || '')}</span></span><span aria-hidden="true">›</span></a>`).join('')}
-    ${offer ? `<a class="offer" href="${esc(offer.url)}" target="_blank" rel="sponsored noopener">
-      <span><b>${esc(o.button || 'Xem ưu đãi Shopee hôm nay')}</b><br><span class="note">${esc(o.text || 'Mua sắm qua link này là cách ủng hộ EzChinese mà bạn không mất thêm đồng nào.')}</span></span><span aria-hidden="true">›</span></a>` : ''}
-    <div class="disclosure">${esc(o.disclosure || cfg.disclosure || 'Đây là link tiếp thị liên kết: nếu bạn mua qua link, EzChinese nhận một khoản hoa hồng nhỏ, bạn không mất thêm chi phí.')}</div>
-  </div>`;
+  const o = cfg.offers || {}, d = siteMeta?.donate?.enabled ? siteMeta.donate : null, fb = siteMeta?.facebook;
+  if (!items.length && !offer && !d && !fb) return;
+  const acct = d ? String(d.account).replace(/\s/g, '') : '';
+  const ICON_BAG = '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>';
+  const row = (cls, icon, title, note, cta, extra = '') => `<li class="sl-row ${cls}">
+      <span class="sl-icon">${icon}</span>
+      <span class="sl-text"><b>${title}</b><span class="note">${note}</span>${extra}</span>
+      ${cta}</li>`;
+  el.innerHTML = `<section class="support" aria-labelledby="support-title">
+    <h2 class="sub" id="support-title">Ủng hộ EzChinese</h2>
+    <p class="support-lead">EzChinese miễn phí, không quảng cáo, không bắt đăng ký. Thấy có ích thì giúp mình duy trì nhé:</p>
+    <ul class="support-list">
+      ${fb ? row('fb', ICON_FB_BADGE, 'Theo dõi fanpage EzChinese', 'Mỗi ngày một câu tiếng Trung ngay trên bảng tin — cách ủng hộ không tốn đồng nào.',
+        `<a class="sl-cta" href="${esc(fb)}" target="_blank" rel="noopener">Theo dõi</a>`) : ''}
+      ${offer ? row('shop', ICON_BAG, 'Mua sắm qua link Shopee', esc(o.text || 'Giá vẫn vậy, bạn không mất thêm đồng nào.'),
+        `<a class="sl-cta" href="${esc(offer.url)}" target="_blank" rel="sponsored noopener">Xem ưu đãi</a>`,
+        `<span class="disclosure">${esc(o.disclosure || cfg.disclosure || 'Link tiếp thị liên kết: nếu bạn mua qua link, EzChinese nhận một khoản hoa hồng nhỏ.')}</span>`) : ''}
+      ${d ? `<li class="sl-row coffee">
+        <button type="button" class="sl-icon qr-thumb" id="qr-toggle" aria-expanded="false" aria-controls="qr-big" title="Phóng to mã QR">
+          <img src="${esc(d.qr_thumb || 'brand/donate-qr-thumb.png')}" alt="" width="56" height="56"></button>
+        <span class="sl-text"><b>${esc(d.title || 'Mời mình một tách cà phê')}</b>
+          <span class="note acct">${esc(d.bank)} · <b>${esc(acct.replace(/(\d{4})(?=\d)/g, '$1 '))}</b> · ${esc(d.name)}</span></span>
+        <button type="button" class="sl-cta ghost" id="btn-copy-acct">Sao chép STK</button>
+        <div class="qr-big" id="qr-big" hidden>
+          <img src="${esc(d.qr)}" alt="Mã VietQR chuyển khoản ${esc(d.bank)} – ${esc(d.name)}" width="240" height="388" loading="lazy">
+          <p>${esc(d.text || 'Quét bằng app ngân hàng.')} Đang xem trên điện thoại? Bấm <b>Sao chép STK</b> rồi dán vào app ngân hàng,
+            hoặc <a href="${esc(d.qr)}" download="EzChinese-moi-ca-phe.png">lưu ảnh QR</a> để quét từ thư viện ảnh.</p>
+        </div>
+      </li>` : ''}
+    </ul>
+    ${items.length ? `<div class="support-items"><h3>${esc(cfg.title || 'Dụng cụ học gợi ý')}</h3>${items.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="sponsored noopener">
+      <span><b>${esc(x.name)}</b><br><span class="note">${esc(x.note || '')}</span></span><span aria-hidden="true">›</span></a>`).join('')}</div>` : ''}
+  </section>`;
+  const cp = $('#btn-copy-acct');
+  if (cp) cp.onclick = async () => {
+    try { await navigator.clipboard.writeText(acct); cp.textContent = 'Đã chép ✓'; cp.classList.add('done'); }
+    catch { cp.textContent = acct; }   // trình duyệt chặn sao chép: hiện số để tự chép
+  };
+  const qt = $('#qr-toggle');
+  if (qt) qt.onclick = () => {
+    const open = qt.getAttribute('aria-expanded') !== 'true';
+    qt.setAttribute('aria-expanded', open);
+    $('#qr-big').hidden = !open;
+    if (open) replayAnim($('#qr-big'), 'pop');
+  };
 }
 
 // ---------------------------------------------------------------- video nền YouTube (mờ, nằm sau nội dung)
@@ -1948,7 +2021,16 @@ async function route() {
 }
 window.addEventListener('hashchange', route);
 updateDue();
-loadSiteBg().then(applyBg);
+loadSiteBg().then(() => { applyBg(); renderFoot(); });
 syncBgButton();
-$('#foot').innerHTML = '<a href="#/backup">Sao lưu &amp; khôi phục tiến độ</a> · EzChinese · Câu do AI soạn theo đề cương HSK 3.0 (2025) và được máy kiểm tra từ vựng theo cấp. Câu giao tiếp lấy từ <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (CC BY 2.0 FR). Âm thanh tổng hợp.';
+const ICON_FB_BADGE = '<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1877f2"/><path d="M13.3 20v-6h2l.3-2.4h-2.3v-1.5c0-.7.2-1.2 1.2-1.2h1.3V6.8c-.2 0-1-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v1.7H8.9V14h2v6h2.4z" fill="#fff"/></svg>';
+const ICON_FB = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5H16.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg>';
+/** Chân trang: sao lưu + Facebook (link trong data/site.json). Ghi nguồn Tatoeba nằm ở trang mảng giao tiếp (t.credit). */
+function renderFoot() {
+  const fb = siteMeta?.facebook, nav = $('#nav-fb');
+  if (nav && fb) { nav.href = fb; nav.hidden = false; }   // nút Fanpage trên thanh trên cùng (mọi trang)
+  $('#foot').innerHTML = '<a href="#/backup">Sao lưu &amp; khôi phục tiến độ</a>'
+    + (fb ? ` · <a class="fb-link" href="${esc(fb)}" target="_blank" rel="noopener">${ICON_FB} Facebook EzChinese</a>` : '');
+}
+renderFoot();
 route();

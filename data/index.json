@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07 01:33",
+ "generated_at": "2026-10-09 15:10",
  "levels": [
   {
    "level": 1,
@@ -7,9 +7,9 @@
     {
      "id": "g-G1-04",
      "type": "grammar",
-     "level": 1,
      "title": "Động từ năng nguyện",
      "subtitle": "会、能",
+     "level": 1,
      "group": "Động từ",
      "point": "会、能",
      "count": 12
@@ -17,9 +17,9 @@
     {
      "id": "g-G1-05",
      "type": "grammar",
-     "level": 1,
      "title": "Động từ năng nguyện",
      "subtitle": "想、要",
+     "level": 1,
      "group": "Động từ",
      "point": "想、要",
      "count": 12
@@ -27,9 +27,9 @@
     {
      "id": "g-G1-06",
      "type": "grammar",
-     "level": 1,
      "title": "Động từ năng nguyện",
      "subtitle": "可以",
+     "level": 1,
      "group": "Động từ",
      "point": "可以",
      "count": 12
@@ -37,9 +37,9 @@
     {
      "id": "g-G1-07",
      "type": "grammar",
-     "level": 1,
      "title": "Từ ly hợp",
      "subtitle": "看病、睡觉、说话、上课、下课、上班、下班、生病",
+     "level": 1,
      "group": "Động từ",
      "point": "看病、睡觉、说话、上课、下课、上班、下班、生病",
      "count": 12
@@ -47,9 +47,9 @@
     {
      "id": "g-G1-15",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ mức độ",
      "subtitle": "非常、很、太、真、有（一）点儿",
+     "level": 1,
      "group": "Phó từ",
      "point": "非常、很、太、真、有（一）点儿",
      "count": 12
@@ -57,9 +57,9 @@
     {
      "id": "g-G1-16",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ phạm vi",
      "subtitle": "都1",
+     "level": 1,
      "group": "Phó từ",
      "point": "都",
      "count": 12
@@ -67,9 +67,9 @@
     {
      "id": "g-G1-17",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ thời gian",
      "subtitle": "在、正在",
+     "level": 1,
      "group": "Phó từ",
      "point": "在、正在",
      "count": 12
@@ -77,9 +77,9 @@
     {
      "id": "g-G1-18",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ tần suất",
      "subtitle": "再1",
+     "level": 1,
      "group": "Phó từ",
      "point": "再",
      "count": 12
@@ -87,9 +87,9 @@
     {
      "id": "g-G1-19",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ liên kết",
      "subtitle": "还1、也",
+     "level": 1,
      "group": "Phó từ",
      "point": "还、也",
      "count": 12
@@ -97,9 +97,9 @@
     {
      "id": "g-G1-20",
      "type": "grammar",
-     "level": 1,
      "title": "Phó từ phủ định",
      "subtitle": "不、没（有）、不要",
+     "level": 1,
      "group": "Phó từ",
      "point": "不、没（有）、不要",
      "count": 12
@@ -107,9 +107,9 @@
     {
      "id": "g-G1-21",
      "type": "grammar",
-     "level": 1,
      "title": "Dẫn ra thời gian, nơi chốn",
      "subtitle": "在",
+     "level": 1,
      "group": "Giới từ",
      "point": "在",
      "count": 12
@@ -117,9 +117,9 @@
     {
      "id": "g-G1-22",
      "type": "grammar",
-     "level": 1,
      "title": "Dẫn ra đối tượng",
      "subtitle": "和1、对",
+     "level": 1,
      "group": "Giới từ",
      "point": "和、对",
      "count": 12
@@ -127,9 +127,9 @@
     {
      "id": "g-G1-23",
      "type": "grammar",
-     "level": 1,
      "title": "Nối từ hoặc cụm từ",
      "subtitle": "和2",
+     "level": 1,
      "group": "Liên từ",
      "point": "和",
      "count": 12
@@ -137,9 +137,9 @@
     {
      "id": "g-G1-24",
      "type": "grammar",
-     "level": 1,
      "title": "Trợ từ kết cấu",
      "subtitle": "的1",
+     "level": 1,
      "group": "Trợ từ",
      "point": "的",
      "count": 12
@@ -147,9 +147,9 @@
     {
      "id": "g-G1-25",
      "type": "grammar",
-     "level": 1,
      "title": "Trợ từ động thái",
      "subtitle": "了1",
+     "level": 1,
      "group": "Trợ từ",
      "point": "了",
      "count": 12
@@ -157,9 +157,9 @@
     {
      "id": "g-G1-26",
      "type": "grammar",
-     "level": 1,
      "title": "Trợ từ ngữ khí",
      "subtitle": "吧1、了2 、吗、呢1、呢2、呢3",
+     "level": 1,
      "group": "Trợ từ",
      "point": "吧、了 、吗、呢、呢、呢",
      "count": 12
@@ -167,9 +167,9 @@
     {
      "id": "g-G1-42",
      "type": "grammar",
-     "level": 1,
      "title": "Bổ ngữ số lượng",
      "subtitle": "动词+动量补语",
+     "level": 1,
      "group": "Bổ ngữ",
      "point": "动词+动量补语",
      "count": 12
@@ -177,9 +177,9 @@
     {
      "id": "g-G1-43",
      "type": "grammar",
-     "level": 1,
      "title": "Câu đơn",
      "subtitle": "主谓句1：动词谓语句",
+     "level": 1,
      "group": "Kiểu câu",
      "point": "主谓句：动词谓语句",
      "count": 12
@@ -187,9 +187,9 @@
     {
      "id": "g-G1-44",
      "type": "grammar",
-     "level": 1,
      "title": "Câu đơn",
      "subtitle": "主谓句2：形容词谓语句",
+     "level": 1,
      "group": "Kiểu câu",
      "point": "主谓句：形容词谓语句",
      "count": 12
@@ -197,9 +197,9 @@
     {
      "id": "g-G1-45",
      "type": "grammar",
-     "level": 1,
      "title": "Câu đơn",
      "subtitle": "主谓句3：名词谓语句",
+     "level": 1,
      "group": "Kiểu câu",
      "point": "主谓句：名词谓语句",
      "count": 12
@@ -207,9 +207,9 @@
     {
      "id": "g-G1-46",
      "type": "grammar",
-     "level": 1,
      "title": "Câu đơn",
      "subtitle": "非主谓句",
+     "level": 1,
      "group": "Kiểu câu",
      "point": "非主谓句",
      "count": 12
@@ -217,9 +217,9 @@
     {
      "id": "g-G1-47",
      "type": "grammar",
-     "level": 1,
      "title": "Câu trần thuật",
      "subtitle": "",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "",
      "count": 12
@@ -227,9 +227,9 @@
     {
      "id": "g-G1-48",
      "type": "grammar",
-     "level": 1,
      "title": "Câu nghi vấn",
      "subtitle": "（1）是非问句",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "（1）是非问句",
      "count": 12
@@ -237,9 +237,9 @@
     {
      "id": "g-G1-49",
      "type": "grammar",
-     "level": 1,
      "title": "Câu nghi vấn",
      "subtitle": "（2）特指问句",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "（2）特指问句",
      "count": 12
@@ -247,9 +247,9 @@
     {
      "id": "g-G1-50",
      "type": "grammar",
-     "level": 1,
      "title": "Câu nghi vấn",
      "subtitle": "（3）正反问句",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "（3）正反问句",
      "count": 12
@@ -257,9 +257,9 @@
     {
      "id": "g-G1-51",
      "type": "grammar",
-     "level": 1,
      "title": "Câu cầu khiến",
      "subtitle": "",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "",
      "count": 11
@@ -267,9 +267,9 @@
     {
      "id": "g-G1-52",
      "type": "grammar",
-     "level": 1,
      "title": "Câu cảm thán",
      "subtitle": "",
+     "level": 1,
      "group": "Loại câu theo mục đích nói",
      "point": "",
      "count": 12
@@ -277,9 +277,9 @@
     {
      "id": "g-G1-53",
      "type": "grammar",
-     "level": 1,
      "title": "Câu chữ 是",
      "subtitle": "表示等同或类属",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "表示等同或类属",
      "count": 12
@@ -287,9 +287,9 @@
     {
      "id": "g-G1-54",
      "type": "grammar",
-     "level": 1,
      "title": "Câu chữ 有",
      "subtitle": "表示领有",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "表示领有",
      "count": 11
@@ -297,9 +297,9 @@
     {
      "id": "g-G1-55",
      "type": "grammar",
-     "level": 1,
      "title": "Câu tồn hiện",
      "subtitle": "（1）所处+是+名词",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）所处+是+名词",
      "count": 12
@@ -307,9 +307,9 @@
     {
      "id": "g-G1-56",
      "type": "grammar",
-     "level": 1,
      "title": "Câu tồn hiện",
      "subtitle": "（2）处所+有+数量短语+名词",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）处所+有+数量短语+名词",
      "count": 12
@@ -317,9 +317,9 @@
     {
      "id": "g-G1-57",
      "type": "grammar",
-     "level": 1,
      "title": "Câu liên động",
      "subtitle": "（1）前后动作先后发生，后一动作是前一动作的目的",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）前后动作先后发生，后一动作是前一动作的目的",
      "count": 12
@@ -327,9 +327,9 @@
     {
      "id": "g-G1-58",
      "type": "grammar",
-     "level": 1,
      "title": "Câu liên động",
      "subtitle": "（2）前一动作是后一动作的方式",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）前一动作是后一动作的方式",
      "count": 12
@@ -337,9 +337,9 @@
     {
      "id": "g-G1-59",
      "type": "grammar",
-     "level": 1,
      "title": "Câu hai tân ngữ",
      "subtitle": "主语+动词+宾语1+宾语2",
+     "level": 1,
      "group": "Kiểu câu đặc biệt",
      "point": "主语+动词+宾语+宾语",
      "count": 12
@@ -347,9 +347,9 @@
     {
      "id": "g-G1-60",
      "type": "grammar",
-     "level": 1,
      "title": "Câu phức không dùng từ nối",
      "subtitle": "",
+     "level": 1,
      "group": "Câu phức",
      "point": "",
      "count": 12
@@ -357,9 +357,9 @@
     {
      "id": "g-G1-61",
      "type": "grammar",
-     "level": 1,
      "title": "Câu phức đẳng lập",
      "subtitle": "……，也……",
+     "level": 1,
      "group": "Câu phức",
      "point": "……，也……",
      "count": 12
@@ -367,9 +367,9 @@
     {
      "id": "g-G1-62",
      "type": "grammar",
-     "level": 1,
      "title": "Câu phức đẳng lập",
      "subtitle": "……，还……",
+     "level": 1,
      "group": "Câu phức",
      "point": "……，还……",
      "count": 12
@@ -377,9 +377,9 @@
     {
      "id": "g-G1-63",
      "type": "grammar",
-     "level": 1,
      "title": "Thể hoàn thành",
      "subtitle": "用动态助词“了1”表示",
+     "level": 1,
      "group": "Thể của động tác",
      "point": "用动态助词“了”表示",
      "count": 12
@@ -387,9 +387,9 @@
     {
      "id": "g-G1-64",
      "type": "grammar",
-     "level": 1,
      "title": "Thể biến đổi",
      "subtitle": "用动态助词“了2”表示",
+     "level": 1,
      "group": "Thể của động tác",
      "point": "用动态助词“了”表示",
      "count": 12
@@ -397,9 +397,9 @@
     {
      "id": "g-G1-65",
      "type": "grammar",
-     "level": 1,
      "title": "Thể tiếp diễn",
      "subtitle": "（1）……在/正在+动词",
+     "level": 1,
      "group": "Thể của động tác",
      "point": "（1）……在/正在+动词",
      "count": 12
@@ -407,9 +407,9 @@
     {
      "id": "g-G1-66",
      "type": "grammar",
-     "level": 1,
      "title": "Thể tiếp diễn",
      "subtitle": "（2）……在/正在+动词……+呢",
+     "level": 1,
      "group": "Thể của động tác",
      "point": "（2）……在/正在+动词……+呢",
      "count": 11
@@ -417,9 +417,9 @@
     {
      "id": "g-G1-67",
      "type": "grammar",
-     "level": 1,
      "title": "Thể tiếp diễn",
      "subtitle": "（3）……呢",
+     "level": 1,
      "group": "Thể của động tác",
      "point": "（3）……呢",
      "count": 12
@@ -427,9 +427,9 @@
     {
      "id": "g-G1-68",
      "type": "grammar",
-     "level": 1,
      "title": "Cách nói số",
      "subtitle": "钱数表示法",
+     "level": 1,
      "group": "Cách nói số",
      "point": "钱数表示法",
      "count": 12
@@ -437,9 +437,9 @@
     {
      "id": "g-G1-69",
      "type": "grammar",
-     "level": 1,
      "title": "Cách nói số",
      "subtitle": "序数表达法1：第+数词",
+     "level": 1,
      "group": "Cách nói số",
      "point": "序数表达法：第+数词",
      "count": 12
@@ -447,9 +447,9 @@
     {
      "id": "g-G1-70",
      "type": "grammar",
-     "level": 1,
      "title": "Cách nói thời gian",
      "subtitle": "（1）年、月、日、星期表示法",
+     "level": 1,
      "group": "Cách nói thời gian",
      "point": "（1）年、月、日、星期表示法",
      "count": 12
@@ -457,9 +457,9 @@
     {
      "id": "g-G1-71",
      "type": "grammar",
-     "level": 1,
      "title": "Cách nói thời gian",
      "subtitle": "（2）钟点表示法",
+     "level": 1,
      "group": "Cách nói thời gian",
      "point": "（2）钟点表示法",
      "count": 12
@@ -469,97 +469,97 @@
     {
      "id": "t-family",
      "type": "topic",
-     "level": 1,
      "title": "Gia đình",
      "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-food",
      "type": "topic",
-     "level": 1,
      "title": "Ăn uống",
      "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-health",
      "type": "topic",
-     "level": 1,
      "title": "Sức khoẻ",
      "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-hobby",
      "type": "topic",
-     "level": 1,
      "title": "Sở thích & giải trí",
      "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-home",
      "type": "topic",
-     "level": 1,
      "title": "Nhà cửa & sinh hoạt",
      "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-school",
      "type": "topic",
-     "level": 1,
      "title": "Trường lớp & học tập",
      "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-shopping",
      "type": "topic",
-     "level": 1,
      "title": "Mua sắm",
      "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-social",
      "type": "topic",
-     "level": 1,
      "title": "Chào hỏi & giao tiếp",
      "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-time",
      "type": "topic",
-     "level": 1,
      "title": "Thời gian & lịch hẹn",
      "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-travel",
      "type": "topic",
-     "level": 1,
      "title": "Đi lại",
      "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-weather",
      "type": "topic",
-     "level": 1,
      "title": "Thời tiết",
      "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 1,
      "count": 12
     },
     {
      "id": "t-work",
      "type": "topic",
-     "level": 1,
      "title": "Công việc",
      "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 1,
      "count": 12
     }
    ],
@@ -571,9 +571,9 @@
     {
      "id": "g-G2-04",
      "type": "grammar",
-     "level": 2,
      "title": "Động từ năng nguyện",
      "subtitle": "可能",
+     "level": 2,
      "group": "Động từ",
      "point": "可能",
      "count": 12
@@ -581,9 +581,9 @@
     {
      "id": "g-G2-05",
      "type": "grammar",
-     "level": 2,
      "title": "Từ ly hợp",
      "subtitle": "帮忙、游泳、跳舞、跑步",
+     "level": 2,
      "group": "Động từ",
      "point": "帮忙、游泳、跳舞、跑步",
      "count": 11
@@ -591,9 +591,9 @@
     {
      "id": "g-G2-14",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ mức độ",
      "subtitle": "多、好、最",
+     "level": 2,
      "group": "Phó từ",
      "point": "多、好、最",
      "count": 12
@@ -601,9 +601,9 @@
     {
      "id": "g-G2-15",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ phạm vi",
      "subtitle": "一起",
+     "level": 2,
      "group": "Phó từ",
      "point": "一起",
      "count": 12
@@ -611,9 +611,9 @@
     {
      "id": "g-G2-16",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ thời gian",
      "subtitle": "还2、已经、有时（候）、快、快要、正",
+     "level": 2,
      "group": "Phó từ",
      "point": "还、已经、有时（候）、快、快要、正",
      "count": 12
@@ -621,9 +621,9 @@
     {
      "id": "g-G2-17",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ tần suất",
      "subtitle": "常、经常",
+     "level": 2,
      "group": "Phó từ",
      "point": "常、经常",
      "count": 12
@@ -631,9 +631,9 @@
     {
      "id": "g-G2-18",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ phủ định",
      "subtitle": "别",
+     "level": 2,
      "group": "Phó từ",
      "point": "别",
      "count": 12
@@ -641,9 +641,9 @@
     {
      "id": "g-G2-19",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ liên kết",
      "subtitle": "再2、就1",
+     "level": 2,
      "group": "Phó từ",
      "point": "再、就",
      "count": 12
@@ -651,19 +651,19 @@
     {
      "id": "g-G2-20",
      "type": "grammar",
-     "level": 2,
      "title": "Phó từ ngữ khí",
      "subtitle": "都2、就2、还是1",
+     "level": 2,
      "group": "Phó từ",
      "point": "都、就、还是",
-     "count": 11
+     "count": 12
     },
     {
      "id": "g-G2-21",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra thời gian, nơi chốn",
      "subtitle": "从1",
+     "level": 2,
      "group": "Giới từ",
      "point": "从",
      "count": 12
@@ -671,9 +671,9 @@
     {
      "id": "g-G2-22",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra phương hướng, lộ trình",
      "subtitle": "往",
+     "level": 2,
      "group": "Giới từ",
      "point": "往",
      "count": 12
@@ -681,9 +681,9 @@
     {
      "id": "g-G2-23",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra phương hướng, lộ trình",
      "subtitle": "从2",
+     "level": 2,
      "group": "Giới từ",
      "point": "从",
      "count": 12
@@ -691,9 +691,9 @@
     {
      "id": "g-G2-24",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra đối tượng",
      "subtitle": "给",
+     "level": 2,
      "group": "Giới từ",
      "point": "给",
      "count": 11
@@ -701,9 +701,9 @@
     {
      "id": "g-G2-25",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra đối tượng",
      "subtitle": "比",
+     "level": 2,
      "group": "Giới từ",
      "point": "比",
      "count": 12
@@ -711,9 +711,9 @@
     {
      "id": "g-G2-26",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra đối tượng",
      "subtitle": "跟1",
+     "level": 2,
      "group": "Giới từ",
      "point": "跟",
      "count": 12
@@ -721,9 +721,9 @@
     {
      "id": "g-G2-27",
      "type": "grammar",
-     "level": 2,
      "title": "Dẫn ra nguyên nhân",
      "subtitle": "因为1",
+     "level": 2,
      "group": "Giới từ",
      "point": "因为",
      "count": 12
@@ -731,9 +731,9 @@
     {
      "id": "g-G2-28",
      "type": "grammar",
-     "level": 2,
      "title": "Nối từ hoặc cụm từ",
      "subtitle": "跟2",
+     "level": 2,
      "group": "Liên từ",
      "point": "跟",
      "count": 12
@@ -741,9 +741,9 @@
     {
      "id": "g-G2-29",
      "type": "grammar",
-     "level": 2,
      "title": "Nối phân câu hoặc câu",
      "subtitle": "但、但是、那、虽然、还是2、因为2、所以",
+     "level": 2,
      "group": "Liên từ",
      "point": "但、但是、那、虽然、还是、因为、所以",
      "count": 12
@@ -751,9 +751,9 @@
     {
      "id": "g-G2-30",
      "type": "grammar",
-     "level": 2,
      "title": "Trợ từ kết cấu",
      "subtitle": "得、地",
+     "level": 2,
      "group": "Trợ từ",
      "point": "得、地",
      "count": 12
@@ -761,9 +761,9 @@
     {
      "id": "g-G2-31",
      "type": "grammar",
-     "level": 2,
      "title": "Trợ từ động thái",
      "subtitle": "过",
+     "level": 2,
      "group": "Trợ từ",
      "point": "过",
      "count": 12
@@ -771,9 +771,9 @@
     {
      "id": "g-G2-32",
      "type": "grammar",
-     "level": 2,
      "title": "Trợ từ động thái",
      "subtitle": "着",
+     "level": 2,
      "group": "Trợ từ",
      "point": "着",
      "count": 12
@@ -781,9 +781,9 @@
     {
      "id": "g-G2-33",
      "type": "grammar",
-     "level": 2,
      "title": "Trợ từ ngữ khí",
      "subtitle": "呢4、吧2、的2、啊1",
+     "level": 2,
      "group": "Trợ từ",
      "point": "呢、吧、的、啊",
      "count": 12
@@ -791,9 +791,9 @@
     {
      "id": "g-G2-48",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ kết quả",
      "subtitle": "动词+错/懂/好/会/完",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "动词+错/懂/好/会/完",
      "count": 12
@@ -801,9 +801,9 @@
     {
      "id": "g-G2-49",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "简单趋向补语的趋向意义用法：（1）动词+来/去",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "简单趋向补语的趋向意义用法：（1）动词+来/去",
      "count": 12
@@ -811,9 +811,9 @@
     {
      "id": "g-G2-50",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "（2）动词+上/下/进/出/过/回",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "（2）动词+上/下/进/出/过/回",
      "count": 12
@@ -821,9 +821,9 @@
     {
      "id": "g-G2-51",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "复合趋向补语的趋向意义用法：动词+出来/出去/过来/过去/回来/回去/进来/进去/起来/上来/上去/下来/下去",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "复合趋向补语的趋向意义用法：动词+出来/出去/过来/过去/回来/回去/进来/进去/起来/上来/上去/下来/下去",
      "count": 12
@@ -831,9 +831,9 @@
     {
      "id": "g-G2-52",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ trạng thái",
      "subtitle": "动词+得+形容词性短语",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "动词+得+形容词性短语",
      "count": 12
@@ -841,9 +841,9 @@
     {
      "id": "g-G2-53",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ số lượng",
      "subtitle": "（1）表示动作持续的时间",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "（1）表示动作持续的时间",
      "count": 12
@@ -851,9 +851,9 @@
     {
      "id": "g-G2-54",
      "type": "grammar",
-     "level": 2,
      "title": "Bổ ngữ số lượng",
      "subtitle": "（2）形容词+数量补语",
+     "level": 2,
      "group": "Bổ ngữ",
      "point": "（2）形容词+数量补语",
      "count": 12
@@ -861,9 +861,9 @@
     {
      "id": "g-G2-55",
      "type": "grammar",
-     "level": 2,
      "title": "Câu đơn",
      "subtitle": "主谓句4：主谓谓语句",
+     "level": 2,
      "group": "Kiểu câu",
      "point": "主谓句：主谓谓语句",
      "count": 12
@@ -871,9 +871,9 @@
     {
      "id": "g-G2-56",
      "type": "grammar",
-     "level": 2,
      "title": "Câu nghi vấn",
      "subtitle": "用“还是”连接的选择问句",
+     "level": 2,
      "group": "Loại câu theo mục đích nói",
      "point": "用“还是”连接的选择问句",
      "count": 12
@@ -881,9 +881,9 @@
     {
      "id": "g-G2-57",
      "type": "grammar",
-     "level": 2,
      "title": "Câu cầu khiến",
      "subtitle": "用“别”的祈使句",
+     "level": 2,
      "group": "Loại câu theo mục đích nói",
      "point": "用“别”的祈使句",
      "count": 12
@@ -891,9 +891,9 @@
     {
      "id": "g-G2-58",
      "type": "grammar",
-     "level": 2,
      "title": "Câu chữ 是",
      "subtitle": "表示说明或特征",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "表示说明或特征",
      "count": 12
@@ -901,9 +901,9 @@
     {
      "id": "g-G2-59",
      "type": "grammar",
-     "level": 2,
      "title": "Câu chữ 有",
      "subtitle": "表示达到",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "表示达到",
      "count": 12
@@ -911,9 +911,9 @@
     {
      "id": "g-G2-60",
      "type": "grammar",
-     "level": 2,
      "title": "Câu tồn hiện",
      "subtitle": "处所+动词+着(+数量短语)+名词",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "处所+动词+着(+数量短语)+名词",
      "count": 12
@@ -921,9 +921,9 @@
     {
      "id": "g-G2-61",
      "type": "grammar",
-     "level": 2,
      "title": "Câu so sánh",
      "subtitle": "（1）A比B+形容词",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）A比B+形容词",
      "count": 12
@@ -931,9 +931,9 @@
     {
      "id": "g-G2-62",
      "type": "grammar",
-     "level": 2,
      "title": "Câu so sánh",
      "subtitle": "（2）A比B+形容词+数量补语/程度补语",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）A比B+形容词+数量补语/程度补语",
      "count": 12
@@ -941,9 +941,9 @@
     {
      "id": "g-G2-63",
      "type": "grammar",
-     "level": 2,
      "title": "Câu so sánh",
      "subtitle": "（3）A有/没有B（+这么/那么）+形容词",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "（3）A有/没有B（+这么/那么）+形容词",
      "count": 12
@@ -951,9 +951,9 @@
     {
      "id": "g-G2-64",
      "type": "grammar",
-     "level": 2,
      "title": "Câu so sánh",
      "subtitle": "（4）A比B+动词+得+形容词/A+动词+得+比+B+形容词",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "（4）A比B+动词+得+形容词/A+动词+得+比+B+形容词",
      "count": 12
@@ -961,9 +961,9 @@
     {
      "id": "g-G2-65",
      "type": "grammar",
-     "level": 2,
      "title": "Câu “是……的”",
      "subtitle": "强调时间、地点、方式、动作者",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "强调时间、地点、方式、动作者",
      "count": 12
@@ -971,9 +971,9 @@
     {
      "id": "g-G2-66",
      "type": "grammar",
-     "level": 2,
      "title": "Câu kiêm ngữ",
      "subtitle": "表使令：主语+请/叫/让……+宾语1+动词+宾语2",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "表使令：主语+请/叫/让……+宾语+动词+宾语",
      "count": 12
@@ -981,9 +981,9 @@
     {
      "id": "g-G2-67",
      "type": "grammar",
-     "level": 2,
      "title": "Câu hai tân ngữ",
      "subtitle": "主语+动词+给+宾语1+宾语2",
+     "level": 2,
      "group": "Kiểu câu đặc biệt",
      "point": "主语+动词+给+宾语+宾语",
      "count": 12
@@ -991,9 +991,9 @@
     {
      "id": "g-G2-68",
      "type": "grammar",
-     "level": 2,
      "title": "Câu phức lựa chọn",
      "subtitle": "（是）……，还是……",
+     "level": 2,
      "group": "Câu phức",
      "point": "（是）……，还是……",
      "count": 12
@@ -1001,19 +1001,19 @@
     {
      "id": "g-G2-69",
      "type": "grammar",
-     "level": 2,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "虽然……，但是……",
+     "level": 2,
      "group": "Câu phức",
      "point": "虽然……，但是……",
-     "count": 10
+     "count": 12
     },
     {
      "id": "g-G2-70",
      "type": "grammar",
-     "level": 2,
      "title": "Câu phức nhân quả",
      "subtitle": "因为……，所以……",
+     "level": 2,
      "group": "Câu phức",
      "point": "因为……，所以……",
      "count": 12
@@ -1021,9 +1021,9 @@
     {
      "id": "g-G2-71",
      "type": "grammar",
-     "level": 2,
      "title": "Câu phức rút gọn",
      "subtitle": "一……就……",
+     "level": 2,
      "group": "Câu phức",
      "point": "一……就……",
      "count": 12
@@ -1031,9 +1031,9 @@
     {
      "id": "g-G2-72",
      "type": "grammar",
-     "level": 2,
      "title": "Thể duy trì",
      "subtitle": "动词+着：（1）表示状态的持续",
+     "level": 2,
      "group": "Thể của động tác",
      "point": "动词+着：（1）表示状态的持续",
      "count": 10
@@ -1041,9 +1041,9 @@
     {
      "id": "g-G2-73",
      "type": "grammar",
-     "level": 2,
      "title": "Thể duy trì",
      "subtitle": "（2）表示动作的持续",
+     "level": 2,
      "group": "Thể của động tác",
      "point": "（2）表示动作的持续",
      "count": 12
@@ -1051,9 +1051,9 @@
     {
      "id": "g-G2-74",
      "type": "grammar",
-     "level": 2,
      "title": "Thể trải qua",
      "subtitle": "用动态助词“过”表示",
+     "level": 2,
      "group": "Thể của động tác",
      "point": "用动态助词“过”表示",
      "count": 12
@@ -1061,9 +1061,9 @@
     {
      "id": "g-G2-75",
      "type": "grammar",
-     "level": 2,
      "title": "Cách nói số",
      "subtitle": "序数表示法2：数词+量词",
+     "level": 2,
      "group": "Cách nói số",
      "point": "序数表示法：数词+量词",
      "count": 12
@@ -1071,9 +1071,9 @@
     {
      "id": "g-G2-76",
      "type": "grammar",
-     "level": 2,
      "title": "Cách nói số",
      "subtitle": "概数表达法1：（1）用“几”表示概数",
+     "level": 2,
      "group": "Cách nói số",
      "point": "概数表达法：（1）用“几”表示概数",
      "count": 12
@@ -1081,9 +1081,9 @@
     {
      "id": "g-G2-77",
      "type": "grammar",
-     "level": 2,
      "title": "Cách nói số",
      "subtitle": "（2）数词+多+量词",
+     "level": 2,
      "group": "Cách nói số",
      "point": "（2）数词+多+量词",
      "count": 12
@@ -1091,9 +1091,9 @@
     {
      "id": "g-G2-78",
      "type": "grammar",
-     "level": 2,
      "title": "Cách nói số",
      "subtitle": "（3）数词+量词+多",
+     "level": 2,
      "group": "Cách nói số",
      "point": "（3）数词+量词+多",
      "count": 12
@@ -1103,101 +1103,101 @@
     {
      "id": "t-family",
      "type": "topic",
-     "level": 2,
      "title": "Gia đình",
      "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 2,
      "count": 11
     },
     {
      "id": "t-food",
      "type": "topic",
-     "level": 2,
      "title": "Ăn uống",
      "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-health",
      "type": "topic",
-     "level": 2,
      "title": "Sức khoẻ",
      "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-hobby",
      "type": "topic",
-     "level": 2,
      "title": "Sở thích & giải trí",
      "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-home",
      "type": "topic",
-     "level": 2,
      "title": "Nhà cửa & sinh hoạt",
      "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-school",
      "type": "topic",
-     "level": 2,
      "title": "Trường lớp & học tập",
      "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-shopping",
      "type": "topic",
-     "level": 2,
      "title": "Mua sắm",
      "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-social",
      "type": "topic",
-     "level": 2,
      "title": "Chào hỏi & giao tiếp",
      "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-time",
      "type": "topic",
-     "level": 2,
      "title": "Thời gian & lịch hẹn",
      "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-travel",
      "type": "topic",
-     "level": 2,
      "title": "Đi lại",
      "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-weather",
      "type": "topic",
-     "level": 2,
      "title": "Thời tiết",
      "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 2,
      "count": 12
     },
     {
      "id": "t-work",
      "type": "topic",
-     "level": 2,
      "title": "Công việc",
      "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 2,
      "count": 12
     }
    ],
-   "count": 772
+   "count": 775
   },
   {
    "level": 3,
@@ -1205,9 +1205,9 @@
     {
      "id": "g-G3-04",
      "type": "grammar",
-     "level": 3,
      "title": "Động từ năng nguyện",
      "subtitle": "需要、该、应该、愿意、得",
+     "level": 3,
      "group": "Động từ",
      "point": "需要、该、应该、愿意、得",
      "count": 12
@@ -1215,9 +1215,9 @@
     {
      "id": "g-G3-05",
      "type": "grammar",
-     "level": 3,
      "title": "Từ ly hợp",
      "subtitle": "动宾式离合词：放假、见面、结婚、洗澡",
+     "level": 3,
      "group": "Động từ",
      "point": "动宾式离合词：放假、见面、结婚、洗澡",
      "count": 12
@@ -1225,9 +1225,9 @@
     {
      "id": "g-G3-06",
      "type": "grammar",
-     "level": 3,
      "title": "Từ ly hợp",
      "subtitle": "动补式离合词：离开、完成、分开",
+     "level": 3,
      "group": "Động từ",
      "point": "动补式离合词：离开、完成、分开",
      "count": 12
@@ -1235,9 +1235,9 @@
     {
      "id": "g-G3-16",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ mức độ",
      "subtitle": "比较、还3、更、特别、挺、有些、越、极",
+     "level": 3,
      "group": "Phó từ",
      "point": "比较、还、更、特别、挺、有些、越、极",
      "count": 12
@@ -1245,19 +1245,19 @@
     {
      "id": "g-G3-17",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ phạm vi",
      "subtitle": "就3、一块儿、一共、只、到处、只是",
+     "level": 3,
      "group": "Phó từ",
      "point": "就、一块儿、一共、只、到处、只是",
-     "count": 11
+     "count": 12
     },
     {
      "id": "g-G3-18",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ thời gian",
      "subtitle": "才1、马上、先、一会儿、刚、刚刚、一直",
+     "level": 3,
      "group": "Phó từ",
      "point": "才、马上、先、一会儿、刚、刚刚、一直",
      "count": 12
@@ -1265,9 +1265,9 @@
     {
      "id": "g-G3-19",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ tần suất",
      "subtitle": "总、总是、又、常常",
+     "level": 3,
      "group": "Phó từ",
      "point": "总、总是、又、常常",
      "count": 12
@@ -1275,9 +1275,9 @@
     {
      "id": "g-G3-20",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ liên kết",
      "subtitle": "一边",
+     "level": 3,
      "group": "Phó từ",
      "point": "一边",
      "count": 12
@@ -1285,9 +1285,9 @@
     {
      "id": "g-G3-21",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ tình thái",
      "subtitle": "大概、必须、差不多、一定、好像、几乎",
+     "level": 3,
      "group": "Phó từ",
      "point": "大概、必须、差不多、一定、好像、几乎",
      "count": 12
@@ -1295,9 +1295,9 @@
     {
      "id": "g-G3-22",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ ngữ khí",
      "subtitle": "当然、其实、终于、才2、才3、就4",
+     "level": 3,
      "group": "Phó từ",
      "point": "当然、其实、终于、才、才、就",
      "count": 12
@@ -1305,9 +1305,9 @@
     {
      "id": "g-G3-23",
      "type": "grammar",
-     "level": 3,
      "title": "Phó từ phủ định",
      "subtitle": "不必、不用",
+     "level": 3,
      "group": "Phó từ",
      "point": "不必、不用",
      "count": 12
@@ -1315,9 +1315,9 @@
     {
      "id": "g-G3-24",
      "type": "grammar",
-     "level": 3,
      "title": "Dẫn ra đối tượng",
      "subtitle": "为1、向1、关于",
+     "level": 3,
      "group": "Giới từ",
      "point": "为、向、关于",
      "count": 12
@@ -1325,9 +1325,9 @@
     {
      "id": "g-G3-25",
      "type": "grammar",
-     "level": 3,
      "title": "Dẫn ra phương hướng, lộ trình",
      "subtitle": "向2",
+     "level": 3,
      "group": "Giới từ",
      "point": "向",
      "count": 12
@@ -1335,9 +1335,9 @@
     {
      "id": "g-G3-26",
      "type": "grammar",
-     "level": 3,
      "title": "Dẫn ra mục đích, nguyên nhân",
      "subtitle": "为了、为2",
+     "level": 3,
      "group": "Giới từ",
      "point": "为了、为",
      "count": 9
@@ -1345,9 +1345,9 @@
     {
      "id": "g-G3-27",
      "type": "grammar",
-     "level": 3,
      "title": "Dẫn ra chủ thể / đối tượng của hành động",
      "subtitle": "把、被",
+     "level": 3,
      "group": "Giới từ",
      "point": "把、被",
      "count": 12
@@ -1355,9 +1355,9 @@
     {
      "id": "g-G3-28",
      "type": "grammar",
-     "level": 3,
      "title": "Dẫn ra phương tiện, căn cứ",
      "subtitle": "根据",
+     "level": 3,
      "group": "Giới từ",
      "point": "根据",
      "count": 8
@@ -1365,9 +1365,9 @@
     {
      "id": "g-G3-29",
      "type": "grammar",
-     "level": 3,
      "title": "Nối từ hoặc cụm từ",
      "subtitle": "或、或者",
+     "level": 3,
      "group": "Liên từ",
      "point": "或、或者",
      "count": 12
@@ -1375,9 +1375,9 @@
     {
      "id": "g-G3-30",
      "type": "grammar",
-     "level": 3,
      "title": "Nối phân câu hoặc câu",
      "subtitle": "只有、只要、不但、而且、如果、可1、可是、然后",
+     "level": 3,
      "group": "Liên từ",
      "point": "只有、只要、不但、而且、如果、可、可是、然后",
      "count": 12
@@ -1385,9 +1385,9 @@
     {
      "id": "g-G3-31",
      "type": "grammar",
-     "level": 3,
      "title": "Trợ từ khác",
      "subtitle": "的话",
+     "level": 3,
      "group": "Trợ từ",
      "point": "的话",
      "count": 12
@@ -1395,9 +1395,9 @@
     {
      "id": "g-G3-57",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ kết quả",
      "subtitle": "动词+到/住/走/上",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "动词+到/住/走/上",
      "count": 12
@@ -1405,9 +1405,9 @@
     {
      "id": "g-G3-58",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "趋向补语的引申用法：（1）表示结果意义：动词+出/起/下",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "趋向补语的引申用法：（1）表示结果意义：动词+出/起/下",
      "count": 12
@@ -1415,9 +1415,9 @@
     {
      "id": "g-G3-59",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "（2）表示动作行为的开始：动词+上/起来",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "（2）表示动作行为的开始：动词+上/起来",
      "count": 12
@@ -1425,9 +1425,9 @@
     {
      "id": "g-G3-60",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ xu hướng",
      "subtitle": "（3）表示动作行为的持续：动词+下去/下来",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "（3）表示动作行为的持续：动词+下去/下来",
      "count": 12
@@ -1435,9 +1435,9 @@
     {
      "id": "g-G3-61",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ khả năng",
      "subtitle": "动词+得/不+动词/形容词",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "动词+得/不+动词/形容词",
      "count": 12
@@ -1445,9 +1445,9 @@
     {
      "id": "g-G3-62",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ mức độ",
      "subtitle": "（1）形容词+得很",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "（1）形容词+得很",
      "count": 11
@@ -1455,9 +1455,9 @@
     {
      "id": "g-G3-63",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ mức độ",
      "subtitle": "（2）形容词/动词+极了/坏了",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "（2）形容词/动词+极了/坏了",
      "count": 10
@@ -1465,9 +1465,9 @@
     {
      "id": "g-G3-64",
      "type": "grammar",
-     "level": 3,
      "title": "Bổ ngữ số lượng",
      "subtitle": "表示动作结束到某个时间点的间隔时间",
+     "level": 3,
      "group": "Bổ ngữ",
      "point": "表示动作结束到某个时间点的间隔时间",
      "count": 12
@@ -1475,9 +1475,9 @@
     {
      "id": "g-G3-65",
      "type": "grammar",
-     "level": 3,
      "title": "Câu nghi vấn",
      "subtitle": "“怎样+动词”的特指问句",
+     "level": 3,
      "group": "Loại câu theo mục đích nói",
      "point": "“怎样+动词”的特指问句",
      "count": 12
@@ -1485,9 +1485,9 @@
     {
      "id": "g-G3-66",
      "type": "grammar",
-     "level": 3,
      "title": "Câu hỏi tu từ (phản vấn)",
      "subtitle": "用反问句表示强调：不是……吗？",
+     "level": 3,
      "group": "Loại câu theo mục đích nói",
      "point": "用反问句表示强调：不是……吗？",
      "count": 12
@@ -1495,9 +1495,9 @@
     {
      "id": "g-G3-67",
      "type": "grammar",
-     "level": 3,
      "title": "Câu chữ 把",
      "subtitle": "（1）主语+把+宾语+动词+在/到+处所",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）主语+把+宾语+动词+在/到+处所",
      "count": 12
@@ -1505,9 +1505,9 @@
     {
      "id": "g-G3-68",
      "type": "grammar",
-     "level": 3,
      "title": "Câu chữ 把",
      "subtitle": "（2）主语+把+宾语1+动词（+给）+宾语2",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）主语+把+宾语+动词（+给）+宾语",
      "count": 12
@@ -1515,9 +1515,9 @@
     {
      "id": "g-G3-69",
      "type": "grammar",
-     "level": 3,
      "title": "Câu chữ 把",
      "subtitle": "（3）主语+把+宾语+动词+结果补语/趋向补语/状态补语",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（3）主语+把+宾语+动词+结果补语/趋向补语/状态补语",
      "count": 11
@@ -1525,9 +1525,9 @@
     {
      "id": "g-G3-70",
      "type": "grammar",
-     "level": 3,
      "title": "Câu bị động",
      "subtitle": "（1）主语+被+宾语+动词+其他成分",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）主语+被+宾语+动词+其他成分",
      "count": 12
@@ -1535,9 +1535,9 @@
     {
      "id": "g-G3-71",
      "type": "grammar",
-     "level": 3,
      "title": "Câu bị động",
      "subtitle": "（2）主语+被+动词+其他成分",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）主语+被+动词+其他成分",
      "count": 12
@@ -1545,9 +1545,9 @@
     {
      "id": "g-G3-72",
      "type": "grammar",
-     "level": 3,
      "title": "Câu liên động",
      "subtitle": "“着”表示动作的伴随：动词1+着+动词2",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "“着”表示动作的伴随：动词+着+动词",
      "count": 12
@@ -1555,9 +1555,9 @@
     {
      "id": "g-G3-73",
      "type": "grammar",
-     "level": 3,
      "title": "Câu so sánh",
      "subtitle": "（1）A比B+更/还+形容词",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）A比B+更/还+形容词",
      "count": 12
@@ -1565,9 +1565,9 @@
     {
      "id": "g-G3-74",
      "type": "grammar",
-     "level": 3,
      "title": "Câu so sánh",
      "subtitle": "（2）A跟B一样",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）A跟B一样",
      "count": 12
@@ -1575,9 +1575,9 @@
     {
      "id": "g-G3-75",
      "type": "grammar",
-     "level": 3,
      "title": "Câu so sánh",
      "subtitle": "（3）A跟B一样+形容词",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（3）A跟B一样+形容词",
      "count": 12
@@ -1585,9 +1585,9 @@
     {
      "id": "g-G3-76",
      "type": "grammar",
-     "level": 3,
      "title": "Câu so sánh",
      "subtitle": "（4）A不比B+形容词",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（4）A不比B+形容词",
      "count": 12
@@ -1595,9 +1595,9 @@
     {
      "id": "g-G3-77",
      "type": "grammar",
-     "level": 3,
      "title": "Câu so sánh",
      "subtitle": "（5）A比B+多/少/早/晚+动词+数量短语",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（5）A比B+多/少/早/晚+动词+数量短语",
      "count": 12
@@ -1605,9 +1605,9 @@
     {
      "id": "g-G3-78",
      "type": "grammar",
-     "level": 3,
      "title": "Câu tồn hiện",
      "subtitle": "（1）表示出现：处所词+动词+趋向补语/结果补语+动态助词（了）+数量短语+人/物",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）表示出现：处所词+动词+趋向补语/结果补语+动态助词（了）+数量短语+人/物",
      "count": 12
@@ -1615,9 +1615,9 @@
     {
      "id": "g-G3-79",
      "type": "grammar",
-     "level": 3,
      "title": "Câu tồn hiện",
      "subtitle": "（2）表示消失：处所词+动词+结果补语+动态助词（了）+数量短语+人/物",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）表示消失：处所词+动词+结果补语+动态助词（了）+数量短语+人/物",
      "count": 12
@@ -1625,9 +1625,9 @@
     {
      "id": "g-G3-80",
      "type": "grammar",
-     "level": 3,
      "title": "Câu “是……的”",
      "subtitle": "强调说话人的看法或态度",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "强调说话人的看法或态度",
      "count": 12
@@ -1635,9 +1635,9 @@
     {
      "id": "g-G3-81",
      "type": "grammar",
-     "level": 3,
      "title": "Câu lặp động từ",
      "subtitle": "主语+动词+宾语+动词+补语",
+     "level": 3,
      "group": "Kiểu câu đặc biệt",
      "point": "主语+动词+宾语+动词+补语",
      "count": 12
@@ -1645,9 +1645,9 @@
     {
      "id": "g-G3-82",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức nối tiếp",
      "subtitle": "先……，再/然后……",
+     "level": 3,
      "group": "Câu phức",
      "point": "先……，再/然后……",
      "count": 12
@@ -1655,19 +1655,19 @@
     {
      "id": "g-G3-83",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức lựa chọn",
      "subtitle": "或者……，或者……",
+     "level": 3,
      "group": "Câu phức",
      "point": "或者……，或者……",
-     "count": 7
+     "count": 12
     },
     {
      "id": "g-G3-84",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức đẳng lập",
      "subtitle": "一会儿……，一会儿……",
+     "level": 3,
      "group": "Câu phức",
      "point": "一会儿……，一会儿……",
      "count": 7
@@ -1675,9 +1675,9 @@
     {
      "id": "g-G3-85",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức đẳng lập",
      "subtitle": "又……，又……",
+     "level": 3,
      "group": "Câu phức",
      "point": "又……，又……",
      "count": 12
@@ -1685,9 +1685,9 @@
     {
      "id": "g-G3-86",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức đẳng lập",
      "subtitle": "一边……，一边……",
+     "level": 3,
      "group": "Câu phức",
      "point": "一边……，一边……",
      "count": 12
@@ -1695,9 +1695,9 @@
     {
      "id": "g-G3-87",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức tăng tiến",
      "subtitle": "不但……，而且……",
+     "level": 3,
      "group": "Câu phức",
      "point": "不但……，而且……",
      "count": 12
@@ -1705,9 +1705,9 @@
     {
      "id": "g-G3-88",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "虽然……，可是……",
+     "level": 3,
      "group": "Câu phức",
      "point": "虽然……，可是……",
      "count": 8
@@ -1715,9 +1715,9 @@
     {
      "id": "g-G3-89",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức giả thiết",
      "subtitle": "如果……，就……",
+     "level": 3,
      "group": "Câu phức",
      "point": "如果……，就……",
      "count": 12
@@ -1725,9 +1725,9 @@
     {
      "id": "g-G3-90",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức giả thiết",
      "subtitle": "……的话，就……",
+     "level": 3,
      "group": "Câu phức",
      "point": "……的话，就……",
      "count": 12
@@ -1735,9 +1735,9 @@
     {
      "id": "g-G3-91",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức điều kiện",
      "subtitle": "只有……，才……",
+     "level": 3,
      "group": "Câu phức",
      "point": "只有……，才……",
      "count": 12
@@ -1745,9 +1745,9 @@
     {
      "id": "g-G3-92",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức điều kiện",
      "subtitle": "只要……，就……",
+     "level": 3,
      "group": "Câu phức",
      "point": "只要……，就……",
      "count": 12
@@ -1755,9 +1755,9 @@
     {
      "id": "g-G3-93",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức mục đích",
      "subtitle": "为了……，……",
+     "level": 3,
      "group": "Câu phức",
      "point": "为了……，……",
      "count": 12
@@ -1765,9 +1765,9 @@
     {
      "id": "g-G3-94",
      "type": "grammar",
-     "level": 3,
      "title": "Câu phức rút gọn",
      "subtitle": "……了……（就）……",
+     "level": 3,
      "group": "Câu phức",
      "point": "……了……（就）……",
      "count": 12
@@ -1775,9 +1775,9 @@
     {
      "id": "g-G3-95",
      "type": "grammar",
-     "level": 3,
      "title": "Cách nói số",
      "subtitle": "概数表达法2：（1）用“大概”表示概数",
+     "level": 3,
      "group": "Cách nói số",
      "point": "概数表达法：（1）用“大概”表示概数",
      "count": 12
@@ -1785,9 +1785,9 @@
     {
      "id": "g-G3-96",
      "type": "grammar",
-     "level": 3,
      "title": "Cách nói số",
      "subtitle": "（2）相邻数词连用表示概数",
+     "level": 3,
      "group": "Cách nói số",
      "point": "（2）相邻数词连用表示概数",
      "count": 12
@@ -1797,101 +1797,101 @@
     {
      "id": "t-family",
      "type": "topic",
-     "level": 3,
      "title": "Gia đình",
      "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-food",
      "type": "topic",
-     "level": 3,
      "title": "Ăn uống",
      "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-health",
      "type": "topic",
-     "level": 3,
      "title": "Sức khoẻ",
      "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-hobby",
      "type": "topic",
-     "level": 3,
      "title": "Sở thích & giải trí",
      "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-home",
      "type": "topic",
-     "level": 3,
      "title": "Nhà cửa & sinh hoạt",
      "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-school",
      "type": "topic",
-     "level": 3,
      "title": "Trường lớp & học tập",
      "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 3,
      "count": 11
     },
     {
      "id": "t-shopping",
      "type": "topic",
-     "level": 3,
      "title": "Mua sắm",
      "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-social",
      "type": "topic",
-     "level": 3,
      "title": "Chào hỏi & giao tiếp",
      "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-time",
      "type": "topic",
-     "level": 3,
      "title": "Thời gian & lịch hẹn",
      "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-travel",
      "type": "topic",
-     "level": 3,
      "title": "Đi lại",
      "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-weather",
      "type": "topic",
-     "level": 3,
      "title": "Thời tiết",
      "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 3,
      "count": 12
     },
     {
      "id": "t-work",
      "type": "topic",
-     "level": 3,
      "title": "Công việc",
      "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 3,
      "count": 12
     }
    ],
-   "count": 825
+   "count": 831
   },
   {
    "level": 4,
@@ -1899,9 +1899,9 @@
     {
      "id": "g-G4-01",
      "type": "grammar",
-     "level": 4,
      "title": "Động từ năng nguyện",
      "subtitle": "敢",
+     "level": 4,
      "group": "Động từ",
      "point": "敢",
      "count": 12
@@ -1909,9 +1909,9 @@
     {
      "id": "g-G4-06",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ mức độ",
      "subtitle": "十分、更加、稍、稍微、尤其、多么",
+     "level": 4,
      "group": "Phó từ",
      "point": "十分、更加、稍、稍微、尤其、多么",
      "count": 12
@@ -1919,9 +1919,9 @@
     {
      "id": "g-G4-07",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ phạm vi",
      "subtitle": "共、全、光、仅、仅仅、至少",
+     "level": 4,
      "group": "Phó từ",
      "point": "共、全、光、仅、仅仅、至少",
      "count": 12
@@ -1929,9 +1929,9 @@
     {
      "id": "g-G4-08",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ thời gian",
      "subtitle": "按时、从来、赶紧、赶快、已、忽然、将、将要、从、本来",
+     "level": 4,
      "group": "Phó từ",
      "point": "按时、从来、赶紧、赶快、已、忽然、将、将要、从、本来",
      "count": 12
@@ -1939,9 +1939,9 @@
     {
      "id": "g-G4-09",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ tần suất",
      "subtitle": "重新、往往、偶尔、再次、老",
+     "level": 4,
      "group": "Phó từ",
      "point": "重新、往往、偶尔、再次、老",
      "count": 12
@@ -1949,9 +1949,9 @@
     {
      "id": "g-G4-10",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ phương thức",
      "subtitle": "故意、互相、相互",
+     "level": 4,
      "group": "Phó từ",
      "point": "故意、互相、相互",
      "count": 12
@@ -1959,9 +1959,9 @@
     {
      "id": "g-G4-11",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ liên kết",
      "subtitle": "却",
+     "level": 4,
      "group": "Phó từ",
      "point": "却",
      "count": 12
@@ -1969,9 +1969,9 @@
     {
      "id": "g-G4-12",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ tình thái",
      "subtitle": "也许、恐怕",
+     "level": 4,
      "group": "Phó từ",
      "point": "也许、恐怕",
      "count": 12
@@ -1979,9 +1979,9 @@
     {
      "id": "g-G4-13",
      "type": "grammar",
-     "level": 4,
      "title": "Phó từ ngữ khí",
      "subtitle": "才4、就5、并1、还4、竟然、究竟、正好、到底、难道、千万、确实、只好、差（一）点儿",
+     "level": 4,
      "group": "Phó từ",
      "point": "才、就、并、还、竟然、究竟、正好、到底、难道、千万、确实、只好、差（一）点儿",
      "count": 12
@@ -1989,9 +1989,9 @@
     {
      "id": "g-G4-14",
      "type": "grammar",
-     "level": 4,
      "title": "Dẫn ra thời gian, nơi chốn",
      "subtitle": "自、当、由1、随着、等1",
+     "level": 4,
      "group": "Giới từ",
      "point": "自、当、由、随着、等",
      "count": 12
@@ -1999,9 +1999,9 @@
     {
      "id": "g-G4-15",
      "type": "grammar",
-     "level": 4,
      "title": "Dẫn ra chủ thể / đối tượng của hành động",
      "subtitle": "将、由2、叫、让",
+     "level": 4,
      "group": "Giới từ",
      "point": "将、由、叫、让",
      "count": 12
@@ -2009,9 +2009,9 @@
     {
      "id": "g-G4-16",
      "type": "grammar",
-     "level": 4,
      "title": "Dẫn ra nguyên nhân",
      "subtitle": "由于1",
+     "level": 4,
      "group": "Giới từ",
      "point": "由于",
      "count": 12
@@ -2019,9 +2019,9 @@
     {
      "id": "g-G4-17",
      "type": "grammar",
-     "level": 4,
      "title": "Dẫn ra đối tượng",
      "subtitle": "对于、与1",
+     "level": 4,
      "group": "Giới từ",
      "point": "对于、与",
      "count": 12
@@ -2029,9 +2029,9 @@
     {
      "id": "g-G4-18",
      "type": "grammar",
-     "level": 4,
      "title": "Dẫn ra phương tiện, căn cứ",
      "subtitle": "作为、按、按照",
+     "level": 4,
      "group": "Giới từ",
      "point": "作为、按、按照",
      "count": 12
@@ -2039,9 +2039,9 @@
     {
      "id": "g-G4-19",
      "type": "grammar",
-     "level": 4,
      "title": "Nối từ hoặc cụm từ",
      "subtitle": "并2、而1、与2",
+     "level": 4,
      "group": "Liên từ",
      "point": "并、而、与",
      "count": 12
@@ -2049,9 +2049,9 @@
     {
      "id": "g-G4-20",
      "type": "grammar",
-     "level": 4,
      "title": "Nối phân câu hoặc câu",
      "subtitle": "此外、而2、既然、甚至、不过、并且",
+     "level": 4,
      "group": "Liên từ",
      "point": "此外、而、既然、甚至、不过、并且",
      "count": 12
@@ -2059,9 +2059,9 @@
     {
      "id": "g-G4-21",
      "type": "grammar",
-     "level": 4,
      "title": "Nối phân câu hoặc câu",
      "subtitle": "不光、不仅、另外、要是、因此、由于2、加",
+     "level": 4,
      "group": "Liên từ",
      "point": "不光、不仅、另外、要是、因此、由于、加",
      "count": 12
@@ -2069,9 +2069,9 @@
     {
      "id": "g-G4-22",
      "type": "grammar",
-     "level": 4,
      "title": "Trợ từ khác",
      "subtitle": "等2、者、之、就是",
+     "level": 4,
      "group": "Trợ từ",
      "point": "等、者、之、就是",
      "count": 12
@@ -2079,9 +2079,9 @@
     {
      "id": "g-G4-53",
      "type": "grammar",
-     "level": 4,
      "title": "Câu hỏi tu từ (phản vấn)",
      "subtitle": "难道……吗？",
+     "level": 4,
      "group": "Loại câu theo mục đích nói",
      "point": "难道……吗？",
      "count": 12
@@ -2089,9 +2089,9 @@
     {
      "id": "g-G4-54",
      "type": "grammar",
-     "level": 4,
      "title": "Câu hỏi tu từ (phản vấn)",
      "subtitle": "由疑问代词构成的反问句",
+     "level": 4,
      "group": "Loại câu theo mục đích nói",
      "point": "由疑问代词构成的反问句",
      "count": 12
@@ -2099,9 +2099,9 @@
     {
      "id": "g-G4-55",
      "type": "grammar",
-     "level": 4,
      "title": "Câu chữ 把",
      "subtitle": "（1）主语+把+宾语+动词（+一/了）+动词",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）主语+把+宾语+动词（+一/了）+动词",
      "count": 12
@@ -2109,9 +2109,9 @@
     {
      "id": "g-G4-56",
      "type": "grammar",
-     "level": 4,
      "title": "Câu chữ 把",
      "subtitle": "（2）主语+把+宾语+动词+了",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）主语+把+宾语+动词+了",
      "count": 12
@@ -2119,9 +2119,9 @@
     {
      "id": "g-G4-57",
      "type": "grammar",
-     "level": 4,
      "title": "Câu chữ 把",
      "subtitle": "（3）主语+把+宾语+动词+动量补语/时量补语",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（3）主语+把+宾语+动词+动量补语/时量补语",
      "count": 12
@@ -2129,9 +2129,9 @@
     {
      "id": "g-G4-58",
      "type": "grammar",
-     "level": 4,
      "title": "Câu chữ 把",
      "subtitle": "（4）主语+把+宾语+状语+动词",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（4）主语+把+宾语+状语+动词",
      "count": 12
@@ -2139,9 +2139,9 @@
     {
      "id": "g-G4-59",
      "type": "grammar",
-     "level": 4,
      "title": "Câu bị động",
      "subtitle": "主语+叫/让+宾语+动词+其他成分",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "主语+叫/让+宾语+动词+其他成分",
      "count": 12
@@ -2149,9 +2149,9 @@
     {
      "id": "g-G4-60",
      "type": "grammar",
-     "level": 4,
      "title": "Câu kiêm ngữ",
      "subtitle": "（1）表爱憎义：主语+表扬/批评+宾语1+动词+宾语2",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（1）表爱憎义：主语+表扬/批评+宾语+动词+宾语",
      "count": 12
@@ -2159,9 +2159,9 @@
     {
      "id": "g-G4-61",
      "type": "grammar",
-     "level": 4,
      "title": "Câu kiêm ngữ",
      "subtitle": "（2）表称谓或认定义：主语+收/选+宾语1+做/当/为+宾语2",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（2）表称谓或认定义：主语+收/选+宾语+做/当/为+宾语",
      "count": 12
@@ -2169,9 +2169,9 @@
     {
      "id": "g-G4-62",
      "type": "grammar",
-     "level": 4,
      "title": "Câu kiêm ngữ",
      "subtitle": "（3）表致使：主语+使/让+人称代词+动词短语",
+     "level": 4,
      "group": "Kiểu câu đặc biệt",
      "point": "（3）表致使：主语+使/让+人称代词+动词短语",
      "count": 12
@@ -2179,9 +2179,9 @@
     {
      "id": "g-G4-63",
      "type": "grammar",
-     "level": 4,
      "title": "Câu so sánh",
      "subtitle": "（1）A不如B（+形容词）",
+     "level": 4,
      "group": "Loại câu",
      "point": "（1）A不如B（+形容词）",
      "count": 12
@@ -2189,9 +2189,9 @@
     {
      "id": "g-G4-64",
      "type": "grammar",
-     "level": 4,
      "title": "Câu so sánh",
      "subtitle": "（2）跟……相比",
+     "level": 4,
      "group": "Loại câu",
      "point": "（2）跟……相比",
      "count": 12
@@ -2199,9 +2199,9 @@
     {
      "id": "g-G4-65",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phủ định kép",
      "subtitle": "用双重否定表示强调",
+     "level": 4,
      "group": "Loại câu",
      "point": "用双重否定表示强调",
      "count": 12
@@ -2209,9 +2209,9 @@
     {
      "id": "g-G4-66",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức đẳng lập",
      "subtitle": "不是……，而是……",
+     "level": 4,
      "group": "Câu phức",
      "point": "不是……，而是……",
      "count": 12
@@ -2219,9 +2219,9 @@
     {
      "id": "g-G4-67",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức đẳng lập",
      "subtitle": "既……，又/也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "既……，又/也……",
      "count": 12
@@ -2229,19 +2229,19 @@
     {
      "id": "g-G4-68",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức đẳng lập",
      "subtitle": "一方面……，另一方面……",
+     "level": 4,
      "group": "Câu phức",
      "point": "一方面……，另一方面……",
-     "count": 12
+     "count": 11
     },
     {
      "id": "g-G4-69",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nối tiếp",
      "subtitle": "首先……，其次……",
+     "level": 4,
      "group": "Câu phức",
      "point": "首先……，其次……",
      "count": 9
@@ -2249,9 +2249,9 @@
     {
      "id": "g-G4-70",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nối tiếp",
      "subtitle": "首先……，然后……",
+     "level": 4,
      "group": "Câu phức",
      "point": "首先……，然后……",
      "count": 12
@@ -2259,9 +2259,9 @@
     {
      "id": "g-G4-71",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nối tiếp",
      "subtitle": "……，于是……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，于是……",
      "count": 12
@@ -2269,9 +2269,9 @@
     {
      "id": "g-G4-72",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức tăng tiến",
      "subtitle": "……,甚至……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……,甚至……",
      "count": 12
@@ -2279,9 +2279,9 @@
     {
      "id": "g-G4-73",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức tăng tiến",
      "subtitle": "不仅/不光……，还/而且……",
+     "level": 4,
      "group": "Câu phức",
      "point": "不仅/不光……，还/而且……",
      "count": 12
@@ -2289,9 +2289,9 @@
     {
      "id": "g-G4-74",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức tăng tiến",
      "subtitle": "……，并且……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，并且……",
      "count": 12
@@ -2299,19 +2299,19 @@
     {
      "id": "g-G4-75",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức tăng tiến",
      "subtitle": "连……也/都……，……更……",
+     "level": 4,
      "group": "Câu phức",
      "point": "连……也/都……，……更……",
-     "count": 11
+     "count": 12
     },
     {
      "id": "g-G4-76",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức lựa chọn",
      "subtitle": "不是……，就是……",
+     "level": 4,
      "group": "Câu phức",
      "point": "不是……，就是……",
      "count": 12
@@ -2319,9 +2319,9 @@
     {
      "id": "g-G4-77",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "尽管……，但是/可是……",
+     "level": 4,
      "group": "Câu phức",
      "point": "尽管……，但是/可是……",
      "count": 12
@@ -2329,9 +2329,9 @@
     {
      "id": "g-G4-78",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "……，然而……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，然而……",
      "count": 10
@@ -2339,9 +2339,9 @@
     {
      "id": "g-G4-79",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "……，不过……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，不过……",
      "count": 12
@@ -2349,9 +2349,9 @@
     {
      "id": "g-G4-80",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức chuyển ngoặt",
      "subtitle": "……X是X，就是/不过……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……X是X，就是/不过……",
      "count": 12
@@ -2359,9 +2359,9 @@
     {
      "id": "g-G4-81",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức giả thiết",
      "subtitle": "……，否则……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，否则……",
      "count": 12
@@ -2369,9 +2369,9 @@
     {
      "id": "g-G4-82",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức giả thiết",
      "subtitle": "要是……，就……",
+     "level": 4,
      "group": "Câu phức",
      "point": "要是……，就……",
      "count": 12
@@ -2379,9 +2379,9 @@
     {
      "id": "g-G4-83",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức giả thiết",
      "subtitle": "要是……，（就）……，否则……",
+     "level": 4,
      "group": "Câu phức",
      "point": "要是……，（就）……，否则……",
      "count": 5
@@ -2389,9 +2389,9 @@
     {
      "id": "g-G4-84",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức điều kiện",
      "subtitle": "不管……，都/也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "不管……，都/也……",
      "count": 12
@@ -2399,9 +2399,9 @@
     {
      "id": "g-G4-85",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức điều kiện",
      "subtitle": "无论……，都/也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "无论……，都/也……",
      "count": 12
@@ -2409,9 +2409,9 @@
     {
      "id": "g-G4-86",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nhân quả",
      "subtitle": "既然……，就……",
+     "level": 4,
      "group": "Câu phức",
      "point": "既然……，就……",
      "count": 12
@@ -2419,9 +2419,9 @@
     {
      "id": "g-G4-87",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nhân quả",
      "subtitle": "（由于）……，因此……",
+     "level": 4,
      "group": "Câu phức",
      "point": "（由于）……，因此……",
      "count": 12
@@ -2429,9 +2429,9 @@
     {
      "id": "g-G4-88",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức mục đích",
      "subtitle": "……，好……",
+     "level": 4,
      "group": "Câu phức",
      "point": "……，好……",
      "count": 12
@@ -2439,9 +2439,9 @@
     {
      "id": "g-G4-89",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nhượng bộ",
      "subtitle": "即使……，也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "即使……，也……",
      "count": 12
@@ -2449,9 +2449,9 @@
     {
      "id": "g-G4-90",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức nhượng bộ",
      "subtitle": "就是……，也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "就是……，也……",
      "count": 12
@@ -2459,9 +2459,9 @@
     {
      "id": "g-G4-91",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức rút gọn",
      "subtitle": "无标记",
+     "level": 4,
      "group": "Câu phức",
      "point": "无标记",
      "count": 12
@@ -2469,9 +2469,9 @@
     {
      "id": "g-G4-92",
      "type": "grammar",
-     "level": 4,
      "title": "Câu phức rút gọn",
      "subtitle": "不……也……",
+     "level": 4,
      "group": "Câu phức",
      "point": "不……也……",
      "count": 12
@@ -2479,9 +2479,9 @@
     {
      "id": "g-G4-93",
      "type": "grammar",
-     "level": 4,
      "title": "Cách nói số",
      "subtitle": "概数表示法3：数词+来+量词",
+     "level": 4,
      "group": "Cách nói số",
      "point": "概数表示法：数词+来+量词",
      "count": 12
@@ -2489,9 +2489,9 @@
     {
      "id": "g-G4-94",
      "type": "grammar",
-     "level": 4,
      "title": "Cách nói số",
      "subtitle": "用“大约、左右、前后”表示概数",
+     "level": 4,
      "group": "Cách nói số",
      "point": "用“大约、左右、前后”表示概数",
      "count": 12
@@ -2499,9 +2499,9 @@
     {
      "id": "g-G4-95",
      "type": "grammar",
-     "level": 4,
      "title": "Cách nói số",
      "subtitle": "小数、分数、百分数、倍数的表示法",
+     "level": 4,
      "group": "Cách nói số",
      "point": "小数、分数、百分数、倍数的表示法",
      "count": 12
@@ -2511,101 +2511,2299 @@
     {
      "id": "t-family",
      "type": "topic",
-     "level": 4,
      "title": "Gia đình",
      "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-food",
      "type": "topic",
-     "level": 4,
      "title": "Ăn uống",
      "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-health",
      "type": "topic",
-     "level": 4,
      "title": "Sức khoẻ",
      "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-hobby",
      "type": "topic",
-     "level": 4,
      "title": "Sở thích & giải trí",
      "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-home",
      "type": "topic",
-     "level": 4,
      "title": "Nhà cửa & sinh hoạt",
      "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-school",
      "type": "topic",
-     "level": 4,
      "title": "Trường lớp & học tập",
      "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-shopping",
      "type": "topic",
-     "level": 4,
      "title": "Mua sắm",
      "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-social",
      "type": "topic",
-     "level": 4,
      "title": "Chào hỏi & giao tiếp",
      "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-time",
      "type": "topic",
-     "level": 4,
      "title": "Thời gian & lịch hẹn",
      "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-travel",
      "type": "topic",
-     "level": 4,
      "title": "Đi lại",
      "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-weather",
      "type": "topic",
-     "level": 4,
      "title": "Thời tiết",
      "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 4,
      "count": 12
     },
     {
      "id": "t-work",
      "type": "topic",
-     "level": 4,
      "title": "Công việc",
      "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 4,
      "count": 12
     }
    ],
    "count": 863
+  },
+  {
+   "level": 5,
+   "grammar": [
+    {
+     "id": "g-G5-02",
+     "type": "grammar",
+     "title": "Đại từ chỉ thị",
+     "subtitle": "彼此、如此、本",
+     "level": 5,
+     "group": "Đại từ",
+     "point": "彼此、如此、本",
+     "count": 12
+    },
+    {
+     "id": "g-G5-03",
+     "type": "grammar",
+     "title": "Danh lượng từ",
+     "subtitle": "册、朵、届、颗、匹、行、架、群、支、根、批、束、副、集、周",
+     "level": 5,
+     "group": "Lượng từ",
+     "point": "册、朵、届、颗、匹、行、架、群、支、根、批、束、副、集、周",
+     "count": 12
+    },
+    {
+     "id": "g-G5-04",
+     "type": "grammar",
+     "title": "Động lượng từ",
+     "subtitle": "眼",
+     "level": 5,
+     "group": "Lượng từ",
+     "point": "眼",
+     "count": 12
+    },
+    {
+     "id": "g-G5-05",
+     "type": "grammar",
+     "title": "Phó từ mức độ",
+     "subtitle": "过于、相当、较1、可2、格外、极其",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "过于、相当、较、可、格外、极其",
+     "count": 12
+    },
+    {
+     "id": "g-G5-06",
+     "type": "grammar",
+     "title": "Phó từ thời gian",
+     "subtitle": "时刻、曾经、立刻、连忙、始终、早已、即将、急忙、渐渐、尽快、早晚",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "时刻、曾经、立刻、连忙、始终、早已、即将、急忙、渐渐、尽快、早晚",
+     "count": 12
+    },
+    {
+     "id": "g-G5-07",
+     "type": "grammar",
+     "title": "Phó từ tần suất",
+     "subtitle": "老是、通常、时常",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "老是、通常、时常",
+     "count": 12
+    },
+    {
+     "id": "g-G5-08",
+     "type": "grammar",
+     "title": "Phó từ phương thức",
+     "subtitle": "尽量、亲自",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "尽量、亲自",
+     "count": 12
+    },
+    {
+     "id": "g-G5-09",
+     "type": "grammar",
+     "title": "Phó từ liên kết",
+     "subtitle": "便、一旦",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "便、一旦",
+     "count": 12
+    },
+    {
+     "id": "g-G5-10",
+     "type": "grammar",
+     "title": "Phó từ tình thái",
+     "subtitle": "似乎、仿佛",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "似乎、仿佛",
+     "count": 12
+    },
+    {
+     "id": "g-G5-11",
+     "type": "grammar",
+     "title": "Phó từ ngữ khí",
+     "subtitle": "毕竟、居然、反正、根本、果然、简直、绝对、的确、反而、白、刚好、可3",
+     "level": 5,
+     "group": "Phó từ",
+     "point": "毕竟、居然、反正、根本、果然、简直、绝对、的确、反而、白、刚好、可",
+     "count": 12
+    },
+    {
+     "id": "g-G5-12",
+     "type": "grammar",
+     "title": "Dẫn ra thời gian, nơi chốn",
+     "subtitle": "自从",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "自从",
+     "count": 12
+    },
+    {
+     "id": "g-G5-13",
+     "type": "grammar",
+     "title": "Dẫn ra phương hướng, lộ trình",
+     "subtitle": "朝、沿（着）",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "朝、沿（着）",
+     "count": 12
+    },
+    {
+     "id": "g-G5-14",
+     "type": "grammar",
+     "title": "Dẫn ra đối tượng",
+     "subtitle": "替、同1、较2",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "替、同、较",
+     "count": 12
+    },
+    {
+     "id": "g-G5-15",
+     "type": "grammar",
+     "title": "Dẫn ra phương tiện, căn cứ",
+     "subtitle": "凭",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "凭",
+     "count": 12
+    },
+    {
+     "id": "g-G5-16",
+     "type": "grammar",
+     "title": "Dẫn ra phương tiện, căn cứ",
+     "subtitle": "据",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "据",
+     "count": 12
+    },
+    {
+     "id": "g-G5-17",
+     "type": "grammar",
+     "title": "Dẫn ra phương tiện, căn cứ",
+     "subtitle": "依据",
+     "level": 5,
+     "group": "Giới từ",
+     "point": "依据",
+     "count": 12
+    },
+    {
+     "id": "g-G5-18",
+     "type": "grammar",
+     "title": "Nối từ hoặc cụm từ",
+     "subtitle": "以及、同2",
+     "level": 5,
+     "group": "Liên từ",
+     "point": "以及、同",
+     "count": 12
+    },
+    {
+     "id": "g-G5-19",
+     "type": "grammar",
+     "title": "Nối phân câu hoặc câu",
+     "subtitle": "从而、可见、假如、总之",
+     "level": 5,
+     "group": "Liên từ",
+     "point": "从而、可见、假如、总之",
+     "count": 12
+    },
+    {
+     "id": "g-G5-20",
+     "type": "grammar",
+     "title": "Trợ từ khác",
+     "subtitle": "似的",
+     "level": 5,
+     "group": "Trợ từ",
+     "point": "似的",
+     "count": 12
+    },
+    {
+     "id": "g-G5-21",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "A来A去",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "A来A去",
+     "count": 12
+    },
+    {
+     "id": "g-G5-22",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "A着A着",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "A着A着",
+     "count": 12
+    },
+    {
+     "id": "g-G5-23",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "没A没B",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "没A没B",
+     "count": 12
+    },
+    {
+     "id": "g-G5-24",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "说A就A",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "说A就A",
+     "count": 12
+    },
+    {
+     "id": "g-G5-25",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "不得了",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "不得了",
+     "count": 12
+    },
+    {
+     "id": "g-G5-26",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "用不着",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "用不着",
+     "count": 12
+    },
+    {
+     "id": "g-G5-27",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "从……来看",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "从……来看",
+     "count": 12
+    },
+    {
+     "id": "g-G5-28",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "A的A，B的B",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "A的A，B的B",
+     "count": 12
+    },
+    {
+     "id": "g-G5-29",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "（自）……以来",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "（自）……以来",
+     "count": 12
+    },
+    {
+     "id": "g-G5-30",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "由……组成",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "由……组成",
+     "count": 12
+    },
+    {
+     "id": "g-G5-31",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "X也不是，Y也不是",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "X也不是，Y也不是",
+     "count": 12
+    },
+    {
+     "id": "g-G5-32",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "X也X不得，Y也Y不得",
+     "level": 5,
+     "group": "Cụm từ cố định",
+     "point": "X也X不得，Y也Y不得",
+     "count": 12
+    },
+    {
+     "id": "g-G5-43",
+     "type": "grammar",
+     "title": "Bổ ngữ khả năng",
+     "subtitle": "动词+得/不得",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "动词+得/不得",
+     "count": 12
+    },
+    {
+     "id": "g-G5-44",
+     "type": "grammar",
+     "title": "Bổ ngữ mức độ",
+     "subtitle": "形容词/心理动词+得+不得了",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "形容词/心理动词+得+不得了",
+     "count": 12
+    },
+    {
+     "id": "g-G5-45",
+     "type": "grammar",
+     "title": "Bổ ngữ xu hướng",
+     "subtitle": "趋向补语的引申用法：表示状态意义：动词/形容词+下来/下去/起来/过来/过去",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "趋向补语的引申用法：表示状态意义：动词/形容词+下来/下去/起来/过来/过去",
+     "count": 12
+    },
+    {
+     "id": "g-G5-46",
+     "type": "grammar",
+     "title": "Bổ ngữ trạng thái",
+     "subtitle": "（1）动词/形容词+得+动词短语",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "（1）动词/形容词+得+动词短语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-47",
+     "type": "grammar",
+     "title": "Bổ ngữ trạng thái",
+     "subtitle": "（2）动词/形容词+得+主谓短语",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "（2）动词/形容词+得+主谓短语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-48",
+     "type": "grammar",
+     "title": "Bổ ngữ trạng thái",
+     "subtitle": "（3）动词/形容词+得+固定短语",
+     "level": 5,
+     "group": "Bổ ngữ",
+     "point": "（3）动词/形容词+得+固定短语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-49",
+     "type": "grammar",
+     "title": "Câu chữ 有",
+     "subtitle": "（1）表示存在、具有：主语+有+着+宾语",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（1）表示存在、具有：主语+有+着+宾语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-50",
+     "type": "grammar",
+     "title": "Câu chữ 有",
+     "subtitle": "（2）表示附着：主语+动词+有+宾语",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（2）表示附着：主语+动词+有+宾语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-51",
+     "type": "grammar",
+     "title": "Câu chữ 把",
+     "subtitle": "（1）主语+把+宾语+一+动词",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（1）主语+把+宾语+一+动词",
+     "count": 12
+    },
+    {
+     "id": "g-G5-52",
+     "type": "grammar",
+     "title": "Câu chữ 把",
+     "subtitle": "（2）主语+把+宾语1+动词+宾语2",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（2）主语+把+宾语+动词+宾语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-53",
+     "type": "grammar",
+     "title": "Câu liên động",
+     "subtitle": "前后两个动词性词语具有因果、转折、条件关系",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "前后两个动词性词语具有因果、转折、条件关系",
+     "count": 12
+    },
+    {
+     "id": "g-G5-54",
+     "type": "grammar",
+     "title": "Câu so sánh",
+     "subtitle": "A+形容词+B+数量补语",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "A+形容词+B+数量补语",
+     "count": 12
+    },
+    {
+     "id": "g-G5-55",
+     "type": "grammar",
+     "title": "Câu bị động",
+     "subtitle": "主语+被/叫/让+宾语+给+动词+其他成分",
+     "level": 5,
+     "group": "Kiểu câu đặc biệt",
+     "point": "主语+被/叫/让+宾语+给+动词+其他成分",
+     "count": 12
+    },
+    {
+     "id": "g-G5-56",
+     "type": "grammar",
+     "title": "Câu phức nối tiếp",
+     "subtitle": "……，便……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "……，便……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-57",
+     "type": "grammar",
+     "title": "Câu phức lựa chọn",
+     "subtitle": "或是……，或是……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "或是……，或是……",
+     "count": 8
+    },
+    {
+     "id": "g-G5-58",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "一旦……，就……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "一旦……，就……",
+     "count": 9
+    },
+    {
+     "id": "g-G5-59",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "假如……，（就）……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "假如……，（就）……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-60",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "万一……，（就）……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "万一……，（就）……",
+     "count": 8
+    },
+    {
+     "id": "g-G5-61",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "……，要不然/不然……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "……，要不然/不然……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-62",
+     "type": "grammar",
+     "title": "Câu phức nhân quả",
+     "subtitle": "……，因而……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "……，因而……",
+     "count": 5
+    },
+    {
+     "id": "g-G5-63",
+     "type": "grammar",
+     "title": "Câu phức nhân quả",
+     "subtitle": "……，可见……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "……，可见……",
+     "count": 11
+    },
+    {
+     "id": "g-G5-64",
+     "type": "grammar",
+     "title": "Câu phức nhượng bộ",
+     "subtitle": "哪怕……，也……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "哪怕……，也……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-65",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "不但不/不但没有……，反而……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "不但不/不但没有……，反而……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-66",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "不是……，还/还是……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "不是……，还/还是……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-67",
+     "type": "grammar",
+     "title": "Câu phức mục đích",
+     "subtitle": "……，为的是……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "……，为的是……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-68",
+     "type": "grammar",
+     "title": "Câu phức rút gọn",
+     "subtitle": "没有……就没有……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "没有……就没有……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-69",
+     "type": "grammar",
+     "title": "Câu phức rút gọn",
+     "subtitle": "不……不……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "不……不……",
+     "count": 12
+    },
+    {
+     "id": "g-G5-70",
+     "type": "grammar",
+     "title": "Câu phức rút gọn",
+     "subtitle": "再……也……",
+     "level": 5,
+     "group": "Câu phức",
+     "point": "再……也……",
+     "count": 12
+    }
+   ],
+   "topic": [
+    {
+     "id": "t-family",
+     "type": "topic",
+     "title": "Gia đình",
+     "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-food",
+     "type": "topic",
+     "title": "Ăn uống",
+     "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 5,
+     "count": 11
+    },
+    {
+     "id": "t-health",
+     "type": "topic",
+     "title": "Sức khoẻ",
+     "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-hobby",
+     "type": "topic",
+     "title": "Sở thích & giải trí",
+     "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-home",
+     "type": "topic",
+     "title": "Nhà cửa & sinh hoạt",
+     "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-school",
+     "type": "topic",
+     "title": "Trường lớp & học tập",
+     "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-shopping",
+     "type": "topic",
+     "title": "Mua sắm",
+     "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-social",
+     "type": "topic",
+     "title": "Chào hỏi & giao tiếp",
+     "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-time",
+     "type": "topic",
+     "title": "Thời gian & lịch hẹn",
+     "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-travel",
+     "type": "topic",
+     "title": "Đi lại",
+     "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-weather",
+     "type": "topic",
+     "title": "Thời tiết",
+     "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 5,
+     "count": 12
+    },
+    {
+     "id": "t-work",
+     "type": "topic",
+     "title": "Công việc",
+     "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 5,
+     "count": 11
+    }
+   ],
+   "count": 831
+  },
+  {
+   "level": 6,
+   "grammar": [
+    {
+     "id": "g-G6-03",
+     "type": "grammar",
+     "title": "Đại từ nhân xưng",
+     "subtitle": "人家",
+     "level": 6,
+     "group": "Đại từ",
+     "point": "人家",
+     "count": 12
+    },
+    {
+     "id": "g-G6-04",
+     "type": "grammar",
+     "title": "Danh lượng từ",
+     "subtitle": "专用名量词：串、滴、枝、扇、卷1、卷2",
+     "level": 6,
+     "group": "Lượng từ",
+     "point": "专用名量词：串、滴、枝、扇、卷、卷",
+     "count": 9
+    },
+    {
+     "id": "g-G6-05",
+     "type": "grammar",
+     "title": "Động lượng từ",
+     "subtitle": "番",
+     "level": 6,
+     "group": "Lượng từ",
+     "point": "番",
+     "count": 12
+    },
+    {
+     "id": "g-G6-06",
+     "type": "grammar",
+     "title": "Phó từ mức độ",
+     "subtitle": "特、异常、较为",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "特、异常、较为",
+     "count": 12
+    },
+    {
+     "id": "g-G6-07",
+     "type": "grammar",
+     "title": "Phó từ phạm vi",
+     "subtitle": "净、一同、大都",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "净、一同、大都",
+     "count": 12
+    },
+    {
+     "id": "g-G6-08",
+     "type": "grammar",
+     "title": "Phó từ thời gian",
+     "subtitle": "一时、不时、仍旧、依旧、一向",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "一时、不时、仍旧、依旧、一向",
+     "count": 12
+    },
+    {
+     "id": "g-G6-09",
+     "type": "grammar",
+     "title": "Phó từ tần suất",
+     "subtitle": "一再、再三",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "一再、再三",
+     "count": 12
+    },
+    {
+     "id": "g-G6-10",
+     "type": "grammar",
+     "title": "Phó từ phương thức",
+     "subtitle": "不禁、赶忙、特地、特意、偷偷",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "不禁、赶忙、特地、特意、偷偷",
+     "count": 12
+    },
+    {
+     "id": "g-G6-11",
+     "type": "grammar",
+     "title": "Phó từ phủ định",
+     "subtitle": "未必",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "未必",
+     "count": 12
+    },
+    {
+     "id": "g-G6-12",
+     "type": "grammar",
+     "title": "Phó từ ngữ khí",
+     "subtitle": "恰好、倒是、干脆、明明、总算",
+     "level": 6,
+     "group": "Phó từ",
+     "point": "恰好、倒是、干脆、明明、总算",
+     "count": 12
+    },
+    {
+     "id": "g-G6-13",
+     "type": "grammar",
+     "title": "Dẫn ra thời gian, nơi chốn",
+     "subtitle": "于",
+     "level": 6,
+     "group": "Giới từ",
+     "point": "于",
+     "count": 12
+    },
+    {
+     "id": "g-G6-14",
+     "type": "grammar",
+     "title": "Dẫn ra đối tượng",
+     "subtitle": "至于",
+     "level": 6,
+     "group": "Giới từ",
+     "point": "至于",
+     "count": 11
+    },
+    {
+     "id": "g-G6-15",
+     "type": "grammar",
+     "title": "Dẫn ra mục đích, nguyên nhân",
+     "subtitle": "因",
+     "level": 6,
+     "group": "Giới từ",
+     "point": "因",
+     "count": 12
+    },
+    {
+     "id": "g-G6-16",
+     "type": "grammar",
+     "title": "Biểu thị loại trừ",
+     "subtitle": "除",
+     "level": 6,
+     "group": "Giới từ",
+     "point": "除",
+     "count": 12
+    },
+    {
+     "id": "g-G6-17",
+     "type": "grammar",
+     "title": "Nối phân câu hoặc câu",
+     "subtitle": "不料",
+     "level": 6,
+     "group": "Liên từ",
+     "point": "不料",
+     "count": 12
+    },
+    {
+     "id": "g-G6-18",
+     "type": "grammar",
+     "title": "Trợ từ kết cấu",
+     "subtitle": "所",
+     "level": 6,
+     "group": "Trợ từ",
+     "point": "所",
+     "count": 12
+    },
+    {
+     "id": "g-G6-19",
+     "type": "grammar",
+     "title": "Trợ từ ngữ khí",
+     "subtitle": "啦、嘛",
+     "level": 6,
+     "group": "Trợ từ",
+     "point": "啦、嘛",
+     "count": 12
+    },
+    {
+     "id": "g-G6-20",
+     "type": "grammar",
+     "title": "Trợ từ khác",
+     "subtitle": "也好",
+     "level": 6,
+     "group": "Trợ từ",
+     "point": "也好",
+     "count": 11
+    },
+    {
+     "id": "g-G6-21",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "A这A那",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "A这A那",
+     "count": 12
+    },
+    {
+     "id": "g-G6-22",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "左A右B",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "左A右B",
+     "count": 12
+    },
+    {
+     "id": "g-G6-23",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "好（不）容易",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "好（不）容易",
+     "count": 12
+    },
+    {
+     "id": "g-G6-24",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "那倒（也）是",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "那倒（也）是",
+     "count": 11
+    },
+    {
+     "id": "g-G6-25",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "算了",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "算了",
+     "count": 12
+    },
+    {
+     "id": "g-G6-26",
+     "type": "grammar",
+     "title": "Cách nói cố định",
+     "subtitle": "得了",
+     "level": 6,
+     "group": "Cụm từ cố định",
+     "point": "得了",
+     "count": 12
+    },
+    {
+     "id": "g-G6-40",
+     "type": "grammar",
+     "title": "Bổ ngữ mức độ",
+     "subtitle": "动词/形容词+透+了",
+     "level": 6,
+     "group": "Bổ ngữ",
+     "point": "动词/形容词+透+了",
+     "count": 12
+    },
+    {
+     "id": "g-G6-41",
+     "type": "grammar",
+     "title": "Câu chữ 把",
+     "subtitle": "（1）主语（非生物体）+把+宾语+动词+其他成分",
+     "level": 6,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（1）主语（非生物体）+把+宾语+动词+其他成分",
+     "count": 12
+    },
+    {
+     "id": "g-G6-42",
+     "type": "grammar",
+     "title": "Câu chữ 把",
+     "subtitle": "（2）主语+把+宾语（施事）+动词+其他成分",
+     "level": 6,
+     "group": "Kiểu câu đặc biệt",
+     "point": "（2）主语+把+宾语（施事）+动词+其他成分",
+     "count": 12
+    },
+    {
+     "id": "g-G6-43",
+     "type": "grammar",
+     "title": "Câu phức đẳng lập",
+     "subtitle": "一时……一时……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "一时……一时……",
+     "count": 12
+    },
+    {
+     "id": "g-G6-44",
+     "type": "grammar",
+     "title": "Câu phức lựa chọn",
+     "subtitle": "要么……，要么……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "要么……，要么……",
+     "count": 11
+    },
+    {
+     "id": "g-G6-45",
+     "type": "grammar",
+     "title": "Câu phức chuyển ngoặt",
+     "subtitle": "虽……，但/可/却/也……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "虽……，但/可/却/也……",
+     "count": 12
+    },
+    {
+     "id": "g-G6-46",
+     "type": "grammar",
+     "title": "Câu phức điều kiện",
+     "subtitle": "凡是……，都……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "凡是……，都……",
+     "count": 12
+    },
+    {
+     "id": "g-G6-47",
+     "type": "grammar",
+     "title": "Câu phức điều kiện",
+     "subtitle": "除非……，才……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "除非……，才……",
+     "count": 12
+    },
+    {
+     "id": "g-G6-48",
+     "type": "grammar",
+     "title": "Câu phức điều kiện",
+     "subtitle": "除非……，否则/不然……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "除非……，否则/不然……",
+     "count": 11
+    },
+    {
+     "id": "g-G6-49",
+     "type": "grammar",
+     "title": "Câu phức nhượng bộ",
+     "subtitle": "就算……，也……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "就算……，也……",
+     "count": 12
+    },
+    {
+     "id": "g-G6-50",
+     "type": "grammar",
+     "title": "Câu phức mục đích",
+     "subtitle": "……，以便……",
+     "level": 6,
+     "group": "Câu phức",
+     "point": "……，以便……",
+     "count": 12
+    }
+   ],
+   "topic": [
+    {
+     "id": "t-family",
+     "type": "topic",
+     "title": "Gia đình",
+     "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-food",
+     "type": "topic",
+     "title": "Ăn uống",
+     "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-health",
+     "type": "topic",
+     "title": "Sức khoẻ",
+     "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-hobby",
+     "type": "topic",
+     "title": "Sở thích & giải trí",
+     "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-home",
+     "type": "topic",
+     "title": "Nhà cửa & sinh hoạt",
+     "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-school",
+     "type": "topic",
+     "title": "Trường lớp & học tập",
+     "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-shopping",
+     "type": "topic",
+     "title": "Mua sắm",
+     "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-social",
+     "type": "topic",
+     "title": "Chào hỏi & giao tiếp",
+     "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-time",
+     "type": "topic",
+     "title": "Thời gian & lịch hẹn",
+     "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-travel",
+     "type": "topic",
+     "title": "Đi lại",
+     "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-weather",
+     "type": "topic",
+     "title": "Thời tiết",
+     "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 6,
+     "count": 12
+    },
+    {
+     "id": "t-work",
+     "type": "topic",
+     "title": "Công việc",
+     "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 6,
+     "count": 12
+    }
+   ],
+   "count": 556
+  },
+  {
+   "level": 7,
+   "grammar": [
+    {
+     "id": "g-G7-04",
+     "type": "grammar",
+     "title": "Đại từ nhân xưng",
+     "subtitle": "我",
+     "level": 7,
+     "group": "Đại từ",
+     "point": "我",
+     "count": 12
+    },
+    {
+     "id": "g-G7-07",
+     "type": "grammar",
+     "title": "Đại từ số lượng",
+     "subtitle": "若干",
+     "level": 7,
+     "group": "Đại từ",
+     "point": "若干",
+     "count": 8
+    },
+    {
+     "id": "g-G7-09",
+     "type": "grammar",
+     "title": "Động lượng từ",
+     "subtitle": "通",
+     "level": 7,
+     "group": "Lượng từ",
+     "point": "通",
+     "count": 10
+    },
+    {
+     "id": "g-G7-104",
+     "type": "grammar",
+     "title": "Câu phức chuyển ngoặt",
+     "subtitle": "X（倒）是X（了），……",
+     "level": 7,
+     "group": "Câu phức đơn giản",
+     "point": "X（倒）是X（了），……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-118",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "……，更不用说……了",
+     "level": 7,
+     "group": "Câu phức đơn giản",
+     "point": "……，更不用说……了",
+     "count": 12
+    },
+    {
+     "id": "g-G7-119",
+     "type": "grammar",
+     "title": "Câu phức mục đích",
+     "subtitle": "为（了）……起见，……",
+     "level": 7,
+     "group": "Câu phức đơn giản",
+     "point": "为（了）……起见，……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-120",
+     "type": "grammar",
+     "title": "Câu phức mục đích",
+     "subtitle": "……，以……",
+     "level": 7,
+     "group": "Câu phức đơn giản",
+     "point": "……，以……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-127",
+     "type": "grammar",
+     "title": "Câu phức nhiều tầng",
+     "subtitle": "多重递进复句",
+     "level": 7,
+     "group": "Câu phức nhiều tầng",
+     "point": "多重递进复句",
+     "count": 9
+    },
+    {
+     "id": "g-G7-19",
+     "type": "grammar",
+     "title": "Dẫn ra thời gian, nơi chốn",
+     "subtitle": "打",
+     "level": 7,
+     "group": "Giới từ",
+     "point": "打",
+     "count": 12
+    },
+    {
+     "id": "g-G7-20",
+     "type": "grammar",
+     "title": "Dẫn ra đối tượng",
+     "subtitle": "当着、就6",
+     "level": 7,
+     "group": "Giới từ",
+     "point": "当着、就",
+     "count": 12
+    },
+    {
+     "id": "g-G7-21",
+     "type": "grammar",
+     "title": "Dẫn ra phương tiện, căn cứ",
+     "subtitle": "本着、基于、鉴于1、经、依",
+     "level": 7,
+     "group": "Giới từ",
+     "point": "本着、基于、鉴于、经、依",
+     "count": 10
+    },
+    {
+     "id": "g-G7-24",
+     "type": "grammar",
+     "title": "Trợ từ ngữ khí",
+     "subtitle": "罢了、也罢、矣",
+     "level": 7,
+     "group": "Trợ từ",
+     "point": "罢了、也罢、矣",
+     "count": 12
+    },
+    {
+     "id": "g-G7-25",
+     "type": "grammar",
+     "title": "Trợ từ ngữ khí",
+     "subtitle": "爱A不A",
+     "level": 7,
+     "group": "Trợ từ",
+     "point": "爱A不A",
+     "count": 12
+    },
+    {
+     "id": "g-G7-26",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "半A半B",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "半A半B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-33",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "可A可B",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "可A可B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-41",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "不是",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "不是",
+     "count": 12
+    },
+    {
+     "id": "g-G7-43",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "反过来（说）",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "反过来（说）",
+     "count": 9
+    },
+    {
+     "id": "g-G7-44",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "概括来说",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "概括来说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-46",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "话是这么说",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "话是这么说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-48",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "换句话说",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "换句话说",
+     "count": 11
+    },
+    {
+     "id": "g-G7-55",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "说真的",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "说真的",
+     "count": 12
+    },
+    {
+     "id": "g-G7-56",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "退一步说",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "退一步说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-59",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "这不",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "这不",
+     "count": 12
+    },
+    {
+     "id": "g-G7-60",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "这样一来",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "这样一来",
+     "count": 10
+    },
+    {
+     "id": "g-G7-61",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "真是的",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "真是的",
+     "count": 12
+    },
+    {
+     "id": "g-G7-63",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "总的来说",
+     "level": 7,
+     "group": "Cụm từ cố định",
+     "point": "总的来说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-97",
+     "type": "grammar",
+     "title": "Câu so sánh",
+     "subtitle": "A+形容词+于/过+B",
+     "level": 7,
+     "group": "Kiểu câu đặc biệt",
+     "point": "A+形容词+于/过+B",
+     "count": 12
+    }
+   ],
+   "topic": [
+    {
+     "id": "t-food",
+     "type": "topic",
+     "title": "Ăn uống",
+     "subtitle": "món ăn, đồ uống, nhà hàng, gọi món, nấu ăn",
+     "level": 7,
+     "count": 12
+    },
+    {
+     "id": "t-health",
+     "type": "topic",
+     "title": "Sức khoẻ",
+     "subtitle": "ốm, bệnh viện, bác sĩ, ngủ nghỉ, thể thao",
+     "level": 7,
+     "count": 9
+    },
+    {
+     "id": "t-home",
+     "type": "topic",
+     "title": "Nhà cửa & sinh hoạt",
+     "subtitle": "phòng, đồ đạc, việc nhà, buổi sáng, buổi tối",
+     "level": 7,
+     "count": 12
+    },
+    {
+     "id": "t-school",
+     "type": "topic",
+     "title": "Trường lớp & học tập",
+     "subtitle": "lớp học, thầy cô, bạn học, bài tập, học tiếng Trung",
+     "level": 7,
+     "count": 12
+    },
+    {
+     "id": "t-shopping",
+     "type": "topic",
+     "title": "Mua sắm",
+     "subtitle": "mua đồ, giá tiền, cửa hàng, siêu thị",
+     "level": 7,
+     "count": 8
+    },
+    {
+     "id": "t-social",
+     "type": "topic",
+     "title": "Chào hỏi & giao tiếp",
+     "subtitle": "chào hỏi, cảm ơn, xin lỗi, hỏi thăm, làm quen",
+     "level": 7,
+     "count": 12
+    },
+    {
+     "id": "t-travel",
+     "type": "topic",
+     "title": "Đi lại",
+     "subtitle": "phương tiện, đường đi, đi chơi, sân bay, khách sạn",
+     "level": 7,
+     "count": 12
+    },
+    {
+     "id": "t-weather",
+     "type": "topic",
+     "title": "Thời tiết",
+     "subtitle": "nóng lạnh, mưa nắng, mùa",
+     "level": 7,
+     "count": 12
+    }
+   ],
+   "count": 396
+  },
+  {
+   "level": 8,
+   "grammar": [
+    {
+     "id": "g-G7-03",
+     "type": "grammar",
+     "title": "Động từ",
+     "subtitle": "巴不得、并非、除外、犯不着、犯得着、恨不得、可否、可谓、免不了、所谓、有所、予以",
+     "level": 8,
+     "group": "Động từ",
+     "point": "巴不得、并非、除外、犯不着、犯得着、恨不得、可否、可谓、免不了、所谓、有所、予以",
+     "count": 12
+    },
+    {
+     "id": "g-G7-05",
+     "type": "grammar",
+     "title": "Đại từ chỉ thị",
+     "subtitle": "彼、这么着、兹",
+     "level": 8,
+     "group": "Đại từ",
+     "point": "彼、这么着、兹",
+     "count": 12
+    },
+    {
+     "id": "g-G7-08",
+     "type": "grammar",
+     "title": "Danh lượng từ",
+     "subtitle": "重、截、缕、码、枚、摊、丸、则、幢、宗",
+     "level": 8,
+     "group": "Lượng từ",
+     "point": "重、截、缕、码、枚、摊、丸、则、幢、宗",
+     "count": 12
+    },
+    {
+     "id": "g-G7-100",
+     "type": "grammar",
+     "title": "Câu phức giải thích",
+     "subtitle": "所谓……，就是……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "所谓……，就是……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-102",
+     "type": "grammar",
+     "title": "Câu phức lựa chọn",
+     "subtitle": "宁可/宁愿……，也不……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "宁可/宁愿……，也不……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-106",
+     "type": "grammar",
+     "title": "Câu phức chuyển ngoặt",
+     "subtitle": "虽说……，但/可……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "虽说……，但/可……",
+     "count": 10
+    },
+    {
+     "id": "g-G7-108",
+     "type": "grammar",
+     "title": "Câu phức điều kiện",
+     "subtitle": "凡……（者），均（可）……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "凡……（者），均（可）……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-110",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "幸亏/幸好……，不然/否则……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "幸亏/幸好……，不然/否则……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-112",
+     "type": "grammar",
+     "title": "Câu phức nhân quả",
+     "subtitle": "（因）……，故……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "（因）……，故……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-113",
+     "type": "grammar",
+     "title": "Câu phức nhân quả",
+     "subtitle": "……，以至（于）……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "……，以至（于）……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-114",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "别说……，都/也……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "别说……，都/也……",
+     "count": 11
+    },
+    {
+     "id": "g-G7-115",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "……不说，还……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "……不说，还……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-116",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "连……都……，更不用说……了",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "连……都……，更不用说……了",
+     "count": 12
+    },
+    {
+     "id": "g-G7-125",
+     "type": "grammar",
+     "title": "Câu phức nhiều tầng",
+     "subtitle": "多重假设复句",
+     "level": 8,
+     "group": "Câu phức nhiều tầng",
+     "point": "多重假设复句",
+     "count": 12
+    },
+    {
+     "id": "g-G7-13",
+     "type": "grammar",
+     "title": "Phó từ thời gian",
+     "subtitle": "姑且、即、即时、届时、尽早、就此、历来、尚、随即、向来、一经、暂且、早日",
+     "level": 8,
+     "group": "Phó từ",
+     "point": "姑且、即、即时、届时、尽早、就此、历来、尚、随即、向来、一经、暂且、早日",
+     "count": 12
+    },
+    {
+     "id": "g-G7-17",
+     "type": "grammar",
+     "title": "Phó từ ngữ khí",
+     "subtitle": "必定、必将、不妨、不免、反倒、非得、分明、怪不得、果真、好在、何必、竟、愣、莫非、难怪、宁可、宁愿、碰巧、偏偏、恰巧、切、情愿、势必、索性、万万、未免、务必、幸好、幸亏、终究、何不、何尝、何苦",
+     "level": 8,
+     "group": "Phó từ",
+     "point": "必定、必将、不妨、不免、反倒、非得、分明、怪不得、果真、好在、何必、竟、愣、莫非、难怪、宁可、宁愿、碰巧、偏偏、恰巧、切、情愿、势必、索性、万万、未免、务必、幸好、幸亏、终究、何不、何尝、何苦",
+     "count": 12
+    },
+    {
+     "id": "g-G7-18",
+     "type": "grammar",
+     "title": "Phó từ phán đoán",
+     "subtitle": "乃",
+     "level": 8,
+     "group": "Phó từ",
+     "point": "乃",
+     "count": 12
+    },
+    {
+     "id": "g-G7-22",
+     "type": "grammar",
+     "title": "Nối phân câu hoặc câu",
+     "subtitle": "鉴于2、况且、免得、若、倘若、以防",
+     "level": 8,
+     "group": "Liên từ",
+     "point": "鉴于、况且、免得、若、倘若、以防",
+     "count": 12
+    },
+    {
+     "id": "g-G7-27",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "不A不B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "不A不B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-29",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "东A西B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "东A西B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-31",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "忽A忽B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "忽A忽B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-34",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "连A带B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "连A带B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-35",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "七A八B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "七A八B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-38",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "无A可B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "无A可B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-39",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "自A自B",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "自A自B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-49",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "简（而）言之",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "简（而）言之",
+     "count": 12
+    },
+    {
+     "id": "g-G7-50",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "可不（是嘛）",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "可不（是嘛）",
+     "count": 12
+    },
+    {
+     "id": "g-G7-52",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "（你）还别说",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "（你）还别说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-54",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "说到哪儿去了",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "说到哪儿去了",
+     "count": 12
+    },
+    {
+     "id": "g-G7-57",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "无论如何",
+     "level": 8,
+     "group": "Cụm từ cố định",
+     "point": "无论如何",
+     "count": 12
+    },
+    {
+     "id": "g-G7-98",
+     "type": "grammar",
+     "title": "Câu phức đẳng lập",
+     "subtitle": "一来……，二来……，三来……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "一来……，二来……，三来……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-99",
+     "type": "grammar",
+     "title": "Câu phức đẳng lập",
+     "subtitle": "一则……，二则……，三则……",
+     "level": 8,
+     "group": "Câu phức đơn giản",
+     "point": "一则……，二则……，三则……",
+     "count": 12
+    }
+   ],
+   "topic": [
+    {
+     "id": "t-family",
+     "type": "topic",
+     "title": "Gia đình",
+     "subtitle": "người thân, tuổi, nghề nghiệp, nhà mình",
+     "level": 8,
+     "count": 12
+    },
+    {
+     "id": "t-hobby",
+     "type": "topic",
+     "title": "Sở thích & giải trí",
+     "subtitle": "phim, nhạc, đọc sách, chơi, cuối tuần",
+     "level": 8,
+     "count": 12
+    },
+    {
+     "id": "t-time",
+     "type": "topic",
+     "title": "Thời gian & lịch hẹn",
+     "subtitle": "giờ giấc, ngày tháng, thứ, hẹn gặp",
+     "level": 8,
+     "count": 12
+    }
+   ],
+   "count": 417
+  },
+  {
+   "level": 9,
+   "grammar": [
+    {
+     "id": "g-G7-06",
+     "type": "grammar",
+     "title": "Đại từ nghi vấn",
+     "subtitle": "何、怎么着",
+     "level": 9,
+     "group": "Đại từ",
+     "point": "何、怎么着",
+     "count": 12
+    },
+    {
+     "id": "g-G7-10",
+     "type": "grammar",
+     "title": "Lượng từ phức hợp",
+     "subtitle": "人次",
+     "level": 9,
+     "group": "Lượng từ",
+     "point": "人次",
+     "count": 12
+    },
+    {
+     "id": "g-G7-101",
+     "type": "grammar",
+     "title": "Câu phức lựa chọn",
+     "subtitle": "或……，或……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "或……，或……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-103",
+     "type": "grammar",
+     "title": "Câu phức lựa chọn",
+     "subtitle": "与其……，宁愿/宁可……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "与其……，宁愿/宁可……",
+     "count": 11
+    },
+    {
+     "id": "g-G7-105",
+     "type": "grammar",
+     "title": "Câu phức chuyển ngoặt",
+     "subtitle": "别看……，……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "别看……，……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-107",
+     "type": "grammar",
+     "title": "Câu phức điều kiện",
+     "subtitle": "无论……与否，都……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "无论……与否，都……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-109",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "假若/假使……，……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "假若/假使……，……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-11",
+     "type": "grammar",
+     "title": "Phó từ mức độ",
+     "subtitle": "大为、分外、何等、极度、极力、略、略微、颇、稍稍、万分、微、尤为、愈加、越发",
+     "level": 9,
+     "group": "Phó từ",
+     "point": "大为、分外、何等、极度、极力、略、略微、颇、稍稍、万分、微、尤为、愈加、越发",
+     "count": 12
+    },
+    {
+     "id": "g-G7-111",
+     "type": "grammar",
+     "title": "Câu phức giả thiết",
+     "subtitle": "纵然/纵使……，也……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "纵然/纵使……，也……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-117",
+     "type": "grammar",
+     "title": "Câu phức tăng tiến",
+     "subtitle": "……尚且……，（更）何况……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "……尚且……，（更）何况……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-12",
+     "type": "grammar",
+     "title": "Phó từ phạm vi",
+     "subtitle": "大体、概、皆、尽、均、通通、统统、唯、唯独、唯有、无非、一概",
+     "level": 9,
+     "group": "Phó từ",
+     "point": "大体、概、皆、尽、均、通通、统统、唯、唯独、唯有、无非、一概",
+     "count": 12
+    },
+    {
+     "id": "g-G7-121",
+     "type": "grammar",
+     "title": "Câu phức rút gọn",
+     "subtitle": "非得……才……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "非得……才……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-122",
+     "type": "grammar",
+     "title": "Câu phức rút gọn",
+     "subtitle": "任……也……",
+     "level": 9,
+     "group": "Câu phức đơn giản",
+     "point": "任……也……",
+     "count": 12
+    },
+    {
+     "id": "g-G7-123",
+     "type": "grammar",
+     "title": "Câu phức nhiều tầng",
+     "subtitle": "多重并列复句",
+     "level": 9,
+     "group": "Câu phức nhiều tầng",
+     "point": "多重并列复句",
+     "count": 8
+    },
+    {
+     "id": "g-G7-124",
+     "type": "grammar",
+     "title": "Câu phức nhiều tầng",
+     "subtitle": "多重转折复句",
+     "level": 9,
+     "group": "Câu phức nhiều tầng",
+     "point": "多重转折复句",
+     "count": 12
+    },
+    {
+     "id": "g-G7-126",
+     "type": "grammar",
+     "title": "Câu phức nhiều tầng",
+     "subtitle": "多重因果复句",
+     "level": 9,
+     "group": "Câu phức nhiều tầng",
+     "point": "多重因果复句",
+     "count": 11
+    },
+    {
+     "id": "g-G7-14",
+     "type": "grammar",
+     "title": "Phó từ tần suất",
+     "subtitle": "连连、屡次、屡屡、频、时而、时时、相继、一个劲（儿）、一连、再度",
+     "level": 9,
+     "group": "Phó từ",
+     "point": "连连、屡次、屡屡、频、时而、时时、相继、一个劲（儿）、一连、再度",
+     "count": 12
+    },
+    {
+     "id": "g-G7-15",
+     "type": "grammar",
+     "title": "Phó từ phương thức",
+     "subtitle": "按理、按说、百般、不由得、趁机、趁早、大肆、断然、公然、火速、截然、竭力、尽情、就近、刻意、拼命、强行、任意、日趋、如期、擅自、私自、特此、瞎、一并、一举、一手、毅然、有意、照常、照例、照样、执意、骤然、逐一、专程",
+     "level": 9,
+     "group": "Phó từ",
+     "point": "按理、按说、百般、不由得、趁机、趁早、大肆、断然、公然、火速、截然、竭力、尽情、就近、刻意、拼命、强行、任意、日趋、如期、擅自、私自、特此、瞎、一并、一举、一手、毅然、有意、照常、照例、照样、执意、骤然、逐一、专程",
+     "count": 12
+    },
+    {
+     "id": "g-G7-16",
+     "type": "grammar",
+     "title": "Phó từ phủ định",
+     "subtitle": "不见得、绝不、无从、无须、无可、勿",
+     "level": 9,
+     "group": "Phó từ",
+     "point": "不见得、绝不、无从、无须、无可、勿",
+     "count": 12
+    },
+    {
+     "id": "g-G7-23",
+     "type": "grammar",
+     "title": "Nối từ, cụm từ, phân câu hoặc câu",
+     "subtitle": "加之、乃至、且",
+     "level": 9,
+     "group": "Liên từ",
+     "point": "加之、乃至、且",
+     "count": 12
+    },
+    {
+     "id": "g-G7-28",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "不A而B",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "不A而B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-30",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "非A非B",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "非A非B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-32",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "或A或B",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "或A或B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-36",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "时A时B",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "时A时B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-37",
+     "type": "grammar",
+     "title": "Cụm bốn chữ",
+     "subtitle": "无A不B",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "无A不B",
+     "count": 12
+    },
+    {
+     "id": "g-G7-40",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "不瞒你说",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "不瞒你说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-42",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "不是我说你",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "不是我说你",
+     "count": 12
+    },
+    {
+     "id": "g-G7-45",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "归根到底",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "归根到底",
+     "count": 12
+    },
+    {
+     "id": "g-G7-47",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "话（又）说回来",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "话（又）说回来",
+     "count": 12
+    },
+    {
+     "id": "g-G7-51",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "老实说",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "老实说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-53",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "你看你",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "你看你",
+     "count": 12
+    },
+    {
+     "id": "g-G7-58",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "要（让）我说",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "要（让）我说",
+     "count": 12
+    },
+    {
+     "id": "g-G7-62",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "综上所述",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "综上所述",
+     "count": 12
+    },
+    {
+     "id": "g-G7-64",
+     "type": "grammar",
+     "title": "Dấu hiệu diễn ngôn",
+     "subtitle": "总而言之",
+     "level": 9,
+     "group": "Cụm từ cố định",
+     "point": "总而言之",
+     "count": 12
+    }
+   ],
+   "topic": [
+    {
+     "id": "t-work",
+     "type": "topic",
+     "title": "Công việc",
+     "subtitle": "công ty, đồng nghiệp, đi làm, bận rộn",
+     "level": 9,
+     "count": 12
+    }
+   ],
+   "count": 414
   }
  ]
 }

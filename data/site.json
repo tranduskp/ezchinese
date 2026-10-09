@@ -1,5 +1,15 @@
 {
-  "_help": "bg_video: link YouTube làm video nền mặc định (mờ, tắt tiếng) cho mọi người; \"\" = không có. bg_presets: video gợi ý hiện thành nút bấm một chạm ở thẻ \"Học cùng video nền\" trang chủ, dạng [{\"title\": \"Nhạc lofi\", \"url\": \"https://youtu.be/...\"}]. Người học vẫn đổi / tắt được trong Cài đặt.",
+  "_help": "bg_video: link YouTube làm video nền mặc định (mờ, tắt tiếng) cho mọi người; \"\" = không có. bg_presets: video gợi ý hiện thành nút bấm một chạm ở khung Video nền, dạng [{\"title\": \"Nhạc lofi\", \"url\": \"https://youtu.be/...\"}]. facebook: trang Facebook (chân trang + cuối khối Ủng hộ). donate: thẻ \"mời cà phê\" ở màn kết quả (QR chuyển khoản + số tài khoản để sao chép); enabled: false để ẩn.",
   "bg_video": "",
-  "bg_presets": []
+  "bg_presets": [],
+  "facebook": "https://www.facebook.com/profile.php?id=61595171548203",
+  "donate": {
+    "enabled": true,
+    "title": "Mời bạn dev thất nghiệp một tách cà phê",
+    "text": "Quét mã bằng app ngân hàng, bao nhiêu cũng quý.",
+    "bank": "ABBank",
+    "account": "0441000072301",
+    "name": "TRAN DUC PHUONG",
+    "qr": "brand/donate-qr.png"
+  }
 }

@@ -38,6 +38,12 @@ python ez.py web deploy "ghi chú"       # commit + push → Cloudflare Pages t�
 python ez.py web deploy --export        # export lại dữ liệu rồi mới đẩy
 ```
 
+## Thêm cấp HSK mới
+Cấp đang sinh dở nằm ở `data/webbank/hsk<N>/` nhưng KHÔNG lên web. Xong một cấp:
+1. thêm số cấp vào `WEB_LEVELS` trong `src/ezchinese/config.py` (7 = khối chung HSK 7–9, hiện là "HSK 7–9");
+2. `python ez.py web export`, chạy `scripts/dev/web_smoke.py` + `scripts/dev/grade_sweep.py`;
+3. `python ez.py web deploy "Thêm HSK N"`.
+
 ## Deploy
 
 Thư mục `website/` là một repo git riêng: github.com/tranduskp/ezchinese (private), nối với Cloudflare Pages

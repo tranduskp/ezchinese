@@ -638,3 +638,57 @@ main h1:focus { outline: none; }
 .tr-feedback .hz, .result .hz { font-family: var(--zh); font-weight: 500; }
 .ex-switch button:disabled { opacity: .45; cursor: not-allowed; }
 @media (max-width: 560px) { .read-sent .ch .h { font-size: 28px; } .mic .ic { width: 28px; height: 28px; } }
+/* ---------- Ủng hộ EzChinese (cuối màn kết quả): lá thư trên giấy kẻ dòng — fanpage · Shopee · cà phê */
+.support { margin-top: 30px; padding: 26px 26px 12px; border-radius: 18px; background: var(--card);
+  border: 1.5px solid var(--line-strong); box-shadow: 0 3px 0 var(--line-strong); }
+.support h2.sub { margin: 0 0 4px; font-family: var(--hand); font-weight: 400; font-size: 32px; color: var(--ink); }
+.support-lead { margin: 0 0 10px; color: var(--muted); font-size: 15px; max-width: 60ch; }
+.support-list { list-style: none; margin: 0; padding: 0; }
+.sl-row { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; column-gap: 16px; padding: 16px 0;
+  border-top: 1.5px dashed var(--line-strong); }
+.sl-icon { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; }
+.fb .sl-icon { background: #e7f0fe; color: #1877f2; }
+.shop .sl-icon { background: #fdebe5; color: #e2492a; }
+.sl-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.sl-text > b { font-size: 17px; line-height: 1.3; }
+.sl-text .note { color: var(--muted); font-size: 14px; line-height: 1.45; }
+.sl-text .disclosure { color: var(--muted); font-size: 12px; line-height: 1.4; opacity: .9; }
+.acct b { color: var(--ink); letter-spacing: .4px; }
+.sl-cta { justify-self: end; white-space: nowrap; text-decoration: none; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 999px;
+  border: 1.5px solid transparent; cursor: pointer; transition: background .15s, transform .1s; }
+.sl-cta:active { transform: scale(.97); }
+.fb .sl-cta { background: #1877f2; color: #fff; }
+.fb .sl-cta:hover { background: #0f62d0; }
+.shop .sl-cta { background: #ee4d2d; color: #fff; }
+.shop .sl-cta:hover { background: #d73211; }
+.sl-cta.ghost { background: var(--card); color: var(--ink); border-color: var(--line-strong); font: inherit; font-weight: 700; font-size: 15px; }
+.sl-cta.ghost:hover { border-color: var(--ink); }
+.sl-cta.ghost.done { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+.sl-cta:focus-visible, .qr-thumb:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.qr-thumb { padding: 4px; background: #fff; border: 1.5px solid var(--line-strong); cursor: zoom-in; }
+.qr-thumb img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.qr-thumb[aria-expanded="true"] { cursor: zoom-out; border-color: var(--ink); }
+.qr-big { grid-column: 1 / -1; display: flex; gap: 20px; align-items: center; margin-top: 14px; padding: 16px; border-radius: 14px; background: var(--paper); }
+.qr-big img { width: 200px; height: auto; flex: none; border-radius: 10px; border: 1.5px solid var(--line); }
+.qr-big p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.support-items { margin: 4px 0 12px; }
+.support-items h3 { font-size: 15px; margin: 12px 0 6px; }
+.support-items a { display: flex; justify-content: space-between; gap: 10px; text-decoration: none; padding: 10px 0; border-top: 1px dashed var(--line); }
+/* điện thoại: nút xuống dưới phần chữ, thẳng hàng với chữ */
+@media (max-width: 560px) {
+  .support { padding: 22px 16px 8px; }
+  .sl-row { grid-template-columns: 48px 1fr; row-gap: 10px; column-gap: 14px; }
+  .sl-icon { width: 48px; height: 48px; }
+  .sl-cta { grid-column: 2; justify-self: start; }
+  .qr-big { flex-direction: column; text-align: center; }
+  .qr-big img { width: 220px; }
+}
+/* Facebook: thanh trên cùng + chân trang */
+.fb-btn { text-decoration: none; color: inherit; }
+.fb-btn[hidden] { display: none; }
+.fb-link { display: inline-flex; align-items: center; gap: 5px; vertical-align: middle; }
+.fb-link svg { color: #1877f2; }
+.nav-review { white-space: nowrap; }
+/* điện thoại hẹp: thanh trên có Ôn câu sai + Fanpage + Video nền + Cài đặt → giữ con dấu 每天一句 làm logo, ẩn chữ EzChinese */
+@media (max-width: 420px) { .brand b { display: none; } .topbar nav { gap: 2px; } }
+@media (max-width: 340px) { .icon-btn { min-width: 38px; padding: 4px; } .nav-review { padding: 6px 4px; } }
