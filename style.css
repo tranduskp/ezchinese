@@ -694,3 +694,96 @@ main h1:focus { outline: none; }
 /* điện thoại hẹp: thanh trên có Ôn câu sai + Fanpage + Video nền + Cài đặt → giữ con dấu 每天一句 làm logo, ẩn chữ EzChinese */
 @media (max-width: 420px) { .brand b { display: none; } .topbar nav { gap: 2px; } }
 @media (max-width: 340px) { .icon-btn { min-width: 38px; padding: 4px; } .nav-review { padding: 6px 4px; } }
+
+/* ---------- vòng 6: điện thoại ---------- */
+/* tai thỏ / thanh home (viewport-fit=cover): nội dung không lọt vào vùng khuyết */
+.topbar { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+main { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+.foot { padding-bottom: max(40px, calc(env(safe-area-inset-bottom) + 24px)); }
+/* đang làm bài trên màn hẹp, hoặc điện thoại xoay ngang: thanh trên cuộn đi theo trang, nhường chỗ cho câu + bàn phím */
+@media (max-width: 640px) { body:has(.practice-head .count) .topbar { position: relative; } }
+@media (max-height: 500px) { .topbar { position: relative; } }
+/* đã chấm: lời dặn cách gõ hết tác dụng */
+#input-area.done .answer-hint { display: none; }
+/* iOS phóng to trang khi chạm vào ô chữ dưới 16px */
+@media (pointer: coarse) {
+  .text-input, .row select, .bk-code, #backup-code { font-size: 16px; }
+}
+/* tab cấp HSK: nhãn ngắn, ba tab chia đều một hàng */
+.tab .l-short { display: none; }
+@media (max-width: 640px) {
+  .tabs { flex-wrap: nowrap; }
+  .tabs .tab { flex: 1 1 0; min-width: 0; padding-inline: 8px; white-space: nowrap; }
+  .tab .l-long { display: none; }
+  .tab .l-short { display: inline; }
+}
+/* thư viện HSK: ba cột gọn trên điện thoại (9 cấp = 3 hàng thay vì 5) */
+@media (max-width: 640px) {
+  .levels:not(.tracks) { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .levels:not(.tracks) .level-card { padding: 12px 12px 14px; }
+  .levels:not(.tracks) .level-card .lv { font-size: 26px; }
+  .levels:not(.tracks) .level-card .meta-short { font-size: 13px; margin-top: 2px; }
+  .levels:not(.tracks) .level-card .bar { margin-top: 10px; height: 5px; }
+}
+/* hộp thoại thành tấm trượt lên từ đáy: gần ngón cái, rộng hết màn */
+@media (max-width: 560px) {
+  dialog { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 18px 18px 0 0; max-height: 90vh; max-height: 90svh; }
+  dialog[open] { animation: sheet-in .32s cubic-bezier(.25, 1, .5, 1) both; }
+  .settings { padding: 18px 18px max(18px, env(safe-area-inset-bottom)); }
+  .settings-head { position: relative; padding-top: 6px; }
+  .settings-head::before { content: ''; position: absolute; top: -8px; left: 50%; width: 36px; height: 4px; margin-left: -18px;
+    border-radius: 99px; background: var(--line-strong); }
+  /* ô chọn: nhãn ở trên, ô chọn rộng hết hàng (không bóp nhãn thành 4 dòng) */
+  .row:has(> select) { flex-direction: column; align-items: stretch; gap: 6px; }
+  .row > select { width: 100%; }
+}
+@keyframes sheet-in { from { transform: translateY(40px); opacity: 0; } }
+/* bong bóng video nền trên điện thoại: thẻ ở đáy màn hình, không che lối vào bài */
+@media (max-width: 560px) {
+  .coach { position: fixed; top: auto; right: 12px; left: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: auto;
+    box-shadow: 0 4px 0 var(--line-strong), 0 12px 30px rgba(40, 30, 10, .18); animation-name: sheet-in; }
+  .coach::before { display: none; }
+  .coach-actions .btn { flex: 1; }
+  /* backdrop-filter làm thanh trên thành khung chứa của phần tử fixed → bỏ để bong bóng bám theo màn hình */
+  .topbar { backdrop-filter: none; background: color-mix(in srgb, var(--paper) 97%, transparent); }
+}
+/* màn kết quả: nhãn trạng thái không gãy dòng; hàng nút xếp dọc, nút chính trên cùng, rộng hết thẻ */
+.wrong-list .tag { white-space: nowrap; }
+@media (max-width: 560px) {
+  .finish-card .actions { flex-direction: column; align-items: stretch; }
+  .finish-card .actions .btn { width: 100%; }
+}
+
+/* ---------- bảng chọn dạng bài + cách nhập: tấm trượt lên từ đáy (màn hẹp) ---------- */
+.opts-label, .opts-scrim { display: none; }
+@media (max-width: 640px) {
+  .opts-scrim:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 30; background: rgba(43, 42, 40, .4);
+    animation: scrim-in .2s ease-out both; }
+  .practice-opts.open { position: fixed; left: 0; right: 0; bottom: 0; z-index: 31; display: grid; gap: 0; padding: 22px 16px max(18px, env(safe-area-inset-bottom));
+    background: var(--card); border-radius: 18px 18px 0 0; box-shadow: 0 -10px 40px rgba(40, 30, 10, .18);
+    animation: sheet-in .32s cubic-bezier(.25, 1, .5, 1) both; }
+  .practice-opts.open::before { content: ''; position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px;
+    border-radius: 99px; background: var(--line-strong); }
+  .practice-opts.open .opts-label { display: block; margin: 6px 2px 8px; font-size: 13px; font-weight: 700; color: var(--muted); }
+  .practice-opts.open .opts-label ~ .opts-label { margin-top: 18px; }
+  .practice-opts.open .modes { display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 14px; }
+  .practice-opts.open .modes button { min-height: 52px; font-size: 15px; padding-inline: 6px; }
+  .practice-opts.open .modes button + button { border-left: 1px solid var(--line); }
+  .practice-opts.open .modes button[aria-pressed="true"] { border-left-color: var(--ink); }
+  .practice-opts.open .modes button[aria-pressed="true"] + button { border-left-color: var(--ink); }
+  /* nền video: backdrop-filter của cột nội dung sẽ giữ tấm chọn trong cột → bỏ ở màn hẹp */
+  body.has-bg main { backdrop-filter: none; }
+}
+@keyframes scrim-in { from { opacity: 0; } }
+/* main là một lớp xếp chồng (z-index: 1) → khi mở bảng chọn, nâng cả cột lên trên thanh trên để nền mờ phủ kín */
+@media (max-width: 640px) { body:has(#practice-opts.open) main { z-index: 40; } }
+@media (max-width: 640px) {
+  .practice-opts.open .ex-switch button { flex-direction: column; gap: 4px; min-height: 64px; white-space: nowrap; }
+  .practice-opts.open .ex-switch .ic { width: 20px; height: 20px; }
+}
+
+/* ---------- hộp thoại: đầu hộp (tiêu đề + nút ✕) dính trên cùng khi cuộn ---------- */
+.settings-head { position: sticky; top: 0; z-index: 2; background: var(--card); margin: -20px -20px 0; padding: 16px 20px 10px;
+  border-bottom: 1px solid transparent; transition: border-color .15s, box-shadow .15s; }
+dialog.scrolled .settings-head { border-bottom-color: var(--line); box-shadow: 0 1px 0 var(--line-strong); }
+@media (max-width: 560px) { .settings-head { margin: -18px -18px 0; padding: 18px 18px 10px; } .settings-head::before { top: 6px; } }

@@ -610,6 +610,8 @@ let coachTimer = null;
 function maybeShowBgCoach() {
   clearTimeout(coachTimer);
   if (store.bgCoachOff || bgOn()) return;
+  // điện thoại, lần đầu vào: không che "Câu hôm nay" — chỉ gợi ý khi đã học ít nhất một bài
+  if (matchMedia('(max-width: 720px)').matches && !Object.keys(store.progress).length) return;
   coachTimer = setTimeout(() => { if (!location.hash.replace(/^#\/?/, '') && !dlg.open && !dlgBg.open) $('#bg-coach').hidden = false; }, 1200);
 }
 function hideBgCoach() { clearTimeout(coachTimer); $('#bg-coach').hidden = true; }
@@ -676,7 +678,8 @@ async function levelPage(level, tab) {
   const lv = idx.levels.find((l) => l.level === level);
   if (!lv) { view.innerHTML = '<p class="empty">Chưa có dữ liệu cấp này.</p>'; return; }
   tab = tab || 'grammar';
-  const tabs = [['grammar', 'Theo ngữ pháp'], ['topic', 'Theo chủ đề'], ['speed', 'Phản xạ tốc độ']];
+  // điện thoại: nhãn ngắn để ba tab nằm trên một hàng
+  const tabs = [['grammar', 'Theo ngữ pháp', 'Ngữ pháp'], ['topic', 'Theo chủ đề', 'Chủ đề'], ['speed', 'Phản xạ tốc độ', 'Tốc độ']];
   const row = (x, i = 0) => {
     const pat = isPattern(x.point);   // công thức dài: tên tiếng Việt lên trước, công thức chữ Hán làm dòng phụ
     return lessonRow(`#/hsk${level}/${x.id}`, i,
@@ -707,8 +710,8 @@ async function levelPage(level, tab) {
     <div class="practice-head"><a class="back" href="#/">← Các cấp</a></div>
     <h1>${lvName(level)}</h1>
     ${level >= 7 ? `<p class="lead lv-note">Đề cương HSK 3.0 gộp 7–9 thành một khối. EzChinese chia theo độ khó của từ: HSK 7 dễ nhất, HSK 9 khó nhất.</p>` : ''}
-    <div class="tabs" role="tablist">${tabs.map(([k, n]) =>
-      `<button class="tab" role="tab" aria-selected="${k === tab}" data-tab="${k}">${n}</button>`).join('')}</div>
+    <div class="tabs" role="tablist">${tabs.map(([k, n, short]) =>
+      `<button class="tab" role="tab" aria-selected="${k === tab}" data-tab="${k}" aria-label="${n}"><span class="l-long">${n}</span><span class="l-short" aria-hidden="true">${short}</span></button>`).join('')}</div>
     ${tab === 'speed' ? speed : cont(lv[tab]) + list(lv[tab])}`;
   stagger('.continue, .lesson-block, .speed-card');
   view.querySelectorAll('[data-tab]').forEach((b) => b.onclick = () => { history.replaceState(null, '', `#/hsk${level}?tab=${b.dataset.tab}`); levelPage(level, b.dataset.tab); });
@@ -899,14 +902,28 @@ const chipText = (ss) => (ss.kind === 'speed' ? MODE_NAME[ss.mode]
 function syncChip(ss) {
   const tg = $('.opts-toggle');
   if (tg) tg.textContent = chipText(ss);
+  setOptsOpen(false);   // đã chọn xong: đóng bảng chọn
+}
+
+/** Bảng chọn dạng bài / cách nhập (màn hẹp): tấm trượt lên từ đáy màn hình, trong tầm ngón cái. */
+function setOptsOpen(open) {
+  const tg = $('.opts-toggle'), box = $('#practice-opts'), scrim = $('#opts-scrim');
+  if (!tg || !box) return;
+  const was = tg.getAttribute('aria-expanded') === 'true';
+  tg.setAttribute('aria-expanded', open);
+  box.classList.toggle('open', open);
+  if (scrim) scrim.hidden = !open;
+  if (open) box.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
+  else if (was && box.contains(document.activeElement)) tg.focus({ preventScroll: true });
 }
 
 /** Dạng bài + cách nhập. Màn hẹp: gộp thành một chip, bấm mới mở bảng chọn; màn rộng: hiện thẳng. */
 function practiceOptions(ss, modeBtn) {
   return `<button type="button" class="opts-toggle" aria-expanded="false" aria-controls="practice-opts">${chipText(ss)}</button>
+      <div class="opts-scrim" id="opts-scrim" hidden></div>
       <div class="practice-opts" id="practice-opts">
-        ${exerciseSwitch(ss)}
-        ${modeBtn ? `<span class="modes" role="group" aria-label="Cách nhập">${modeBtn('pinyin', 'Pinyin')}${modeBtn('hanzi', 'Chữ Hán')}${modeBtn('tiles', 'Ghép từ')}</span>` : ''}
+        ${ss.kind === 'speed' ? '' : '<p class="opts-label" aria-hidden="true">Dạng bài</p>'}${exerciseSwitch(ss)}
+        ${modeBtn ? `<p class="opts-label" aria-hidden="true">Cách nhập</p><span class="modes" role="group" aria-label="Cách nhập">${modeBtn('pinyin', 'Pinyin')}${modeBtn('hanzi', 'Chữ Hán')}${modeBtn('tiles', 'Ghép từ')}</span>` : ''}
       </div>`;
 }
 
@@ -918,11 +935,9 @@ function exerciseSwitch(ss) {
 }
 function bindExerciseSwitch(ss) {
   const tg = $('.opts-toggle');
-  if (tg) tg.onclick = () => {
-    const open = tg.getAttribute('aria-expanded') !== 'true';
-    tg.setAttribute('aria-expanded', open);
-    $('#practice-opts').classList.toggle('open', open);
-  };
+  if (tg) tg.onclick = () => setOptsOpen(tg.getAttribute('aria-expanded') !== 'true');
+  const scrim = $('#opts-scrim');
+  if (scrim) scrim.onclick = () => setOptsOpen(false);
   view.querySelectorAll('[data-ex]').forEach((b) => b.onclick = () => {
     if (ss.exercise === b.dataset.ex) return;
     ss.exercise = b.dataset.ex;   // chỉ áp dụng cho bài này; mặc định đặt trong Cài đặt
@@ -1598,9 +1613,23 @@ function altNote(alt) {
 /** Âm Hán Việt của chữ thứ i (nếu dữ liệu có) — đặt dưới chữ Hán; tắt được trong Cài đặt. */
 const hvOf = (sent, i) => (S().hanViet && sent.hv && sent.hv[i] ? `<span class="hv">${esc(sent.hv[i])}</span>` : '');
 
+/** Màn cảm ứng: bàn phím bật lên che nửa dưới → cuộn để câu cần làm (ô chữ / câu tiếng Việt) lên sát đầu,
+ *  ô nhập và nút Kiểm tra nằm ngay dưới, không bị bàn phím che. */
+document.addEventListener('focusin', (e) => {
+  if (!coarse() || !e.target.matches?.('#answer')) return;
+  setTimeout(() => {
+    if (document.activeElement !== e.target) return;
+    const a = view.querySelector('.vi-prompt, .hint-line');
+    if (!a) return;
+    const top = a.getBoundingClientRect().top + scrollY - 8;
+    if (Math.abs(top - scrollY) > 24) window.scrollTo({ top, behavior: calm() ? 'auto' : 'smooth' });
+  }, 320);
+});
+
 /** Câu đã chấm xong: dòng phím tắt nói đúng việc của Enter, bỏ nhắc "Chạm để nghe". */
 function afterCheck() {
   const res = $('.result');
+  $('#input-area')?.classList.add('done');   // đã chấm: ẩn lời dặn cách gõ → thẻ kết quả gần nút Tiếp hơn
   if (res) res.scrollIntoView({ block: 'nearest', behavior: calm() ? 'auto' : 'smooth' });
   const k = $('.keys'), h = $('#tap-hint');
   if (k) k.innerHTML = 'Phím tắt: <kbd>Enter</kbd> câu tiếp · <kbd>Esc</kbd> nghe lại';
@@ -1971,6 +2000,7 @@ document.addEventListener('compositionend', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (!session || dlg.open) return;
+  if (e.key === 'Escape' && $('#practice-opts.open')) { e.preventDefault(); setOptsOpen(false); return; }   // Esc đóng bảng chọn, không nghe lại
   if (e.isComposing) {                                       // đang soạn chữ: để bộ gõ xử lý
     if (e.key === 'Enter' && pinyinBox(e.target)) checkAfterIme = true;
     return;
@@ -2056,3 +2086,9 @@ function renderFoot() {
 }
 renderFoot();
 route();
+
+// hộp thoại cuộn dài: hiện vạch dưới đầu hộp (tiêu đề + ✕ dính trên cùng) khi đã cuộn
+document.querySelectorAll('dialog').forEach((d) => {
+  d.addEventListener('scroll', () => d.classList.toggle('scrolled', d.scrollTop > 4), { passive: true });
+  d.addEventListener('close', () => { d.scrollTop = 0; d.classList.remove('scrolled'); });
+});
